@@ -16,7 +16,7 @@ type Chapters map[int]Chapter
 
 type Chapter struct {
 	Description string
-	Action      Action
+	Actions     []Action
 	Options     []Option
 }
 

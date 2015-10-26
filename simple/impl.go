@@ -2,8 +2,10 @@ package main
 
 import "math/rand"
 
-func (r *RandomAction) DoAction(gm GM, stats *Stats) {
-	gm.Narrate(r.Description)
+func (r RandomAction) DoAction(gm GM, stats *Stats) {
+	if len(r.Description) > 0 {
+		gm.Narrate(r.Description)
+	}
 	results := r.Randomizer.Random()
 	matchingIndex := -1
 	for index, result := range r.Results {
@@ -16,7 +18,9 @@ func (r *RandomAction) DoAction(gm GM, stats *Stats) {
 	}
 	if matchingIndex > -1 {
 		result := r.Results[matchingIndex]
-		gm.Narrate(result.Description)
+		if len(result.Description) > 0 {
+			gm.Narrate(result.Description)
+		}
 		for _, action := range result.Actions {
 			action.DoAction(gm, stats)
 		}
@@ -49,8 +53,10 @@ func (r Results) Match(results Results) bool {
 	return true
 }
 
-func (c *Change) DoAction(gm GM, stats *Stats) {
-	gm.Narrate(c.Description)
+func (c Change) DoAction(gm GM, stats *Stats) {
+	if len(c.Description) > 0 {
+		gm.Narrate(c.Description)
+	}
 	prev := (*stats)[c.Stat]
 	operation := operations[c.Operator]
 	newValue := operation(prev, c.Value)
