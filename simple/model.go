@@ -35,6 +35,50 @@ type RandomAction struct {
 	Results     []RandomActionResult
 }
 
+type TestAction struct {
+	When      []Test
+	Otherwise []Action
+}
+
+type Test struct {
+	Test    TestCondition
+	Actions []Action
+}
+
+type TestCondition interface {
+	test(stats *Stats) bool
+}
+
+type SimpleTestCondition struct {
+	Stat       string
+	Value      int
+	Comparator Comparator
+}
+
+type Comparator int
+
+const (
+	GreaterThan Comparator = iota
+	EqualTo
+	LessThan
+)
+
+type InvertedTestCondition struct {
+	TestCondition TestCondition
+}
+
+type AggregatedTestCondition struct {
+	Conjunction Conjunction
+	Conditions  []TestCondition
+}
+
+type Conjunction bool
+
+const (
+	And Conjunction = true
+	Or  Conjunction = false
+)
+
 type RandomActionResult struct {
 	Description string
 	Results     []Results

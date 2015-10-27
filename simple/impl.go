@@ -1,6 +1,16 @@
 package main
 
-import "math/rand"
+import (
+	"fmt"
+	"math/rand"
+)
+
+func (s *Stats) Update(gm GM) {
+	for _, stat := range []string{"STRENGTH", "WEALTH", "MONSTER TALLY"} {
+		gm.Narrate(fmt.Sprintf("%v: \t%v", stat, (*s)[stat]))
+	}
+	gm.Narrate("")
+}
 
 func (r RandomAction) DoAction(gm GM, stats *Stats) {
 	if len(r.Description) > 0 {
@@ -61,6 +71,50 @@ func (c Change) DoAction(gm GM, stats *Stats) {
 	operation := operations[c.Operator]
 	newValue := operation(prev, c.Value)
 	(*stats)[c.Stat] = newValue
+	stats.Update(gm)
+}
+
+func (t TestAction) DoAction(gm GM, stats *Stats) {
+	actions := t.Otherwise
+	for _, when := range t.When {
+		if when.Test.test(stats) {
+			actions = when.Actions
+		}
+	}
+	for _, action := range actions {
+		action.DoAction(gm, stats)
+	}
+}
+
+func (s SimpleTestCondition) test(stats *Stats) bool {
+	current := (*stats)[s.Stat]
+	comparison := comparisons[s.Comparator]
+	return comparison(current, s.Value)
+}
+
+var comparisons = map[Comparator]func(a, b int) bool{
+	GreaterThan: func(a, b int) bool {
+		return a > b
+	},
+	EqualTo: func(a, b int) bool {
+		return a == b
+	},
+	LessThan: func(a, b int) bool {
+		return a < b
+	},
+}
+
+func (i InvertedTestCondition) test(stats *Stats) bool {
+	return !i.test(stats)
+}
+
+func (a AggregatedTestCondition) test(stats *Stats) bool {
+	for _, condition := range a.Conditions {
+		if condition.test(stats) != bool(a.Conjunction) {
+			return !bool(a.Conjunction)
+		}
+	}
+	return bool(a.Conjunction)
 }
 
 var operations = map[Operator]func(a, b int) int{

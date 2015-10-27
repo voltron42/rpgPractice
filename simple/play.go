@@ -1,12 +1,16 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
+	"strings"
 )
 
 func main() {
 	gm := MyGM{}
+	myGame.Stats.Update(gm)
 	for (*myGame.Stats)["STRENGTH"] > 0 && (*myGame.Stats)["LOCATION"] != 27 {
 		chapterIndex := (*myGame.Stats)["LOCATION"]
 		chapter := myGame.Chapters[chapterIndex]
@@ -17,8 +21,11 @@ func main() {
 			action.DoAction(gm, myGame.Stats)
 		}
 		strength := (*myGame.Stats)["STRENGTH"]
+		if strength <= 0 {
+			(*myGame.Stats)["LOCATION"] = 37
+		}
 		location := (*myGame.Stats)["LOCATION"]
-		if strength > 0 && chapterIndex == location {
+		if chapterIndex == location {
 			optionIndex := -1
 			count := len(chapter.Options)
 			if count > 1 {
@@ -28,7 +35,11 @@ func main() {
 						gm.Narrate(fmt.Sprintf("%v. %v", index, option.Description))
 					}
 					response := gm.Query()
+					response = strings.TrimSpace(response)
 					selectedIndex, err := strconv.Atoi(response)
+					if err != nil {
+						fmt.Print(err.Error())
+					}
 					if err == nil && selectedIndex < count && selectedIndex >= 0 {
 						optionIndex = selectedIndex
 					}
@@ -39,6 +50,7 @@ func main() {
 			option := chapter.Options[optionIndex]
 			if len(option.Description) > 0 {
 				gm.Narrate(option.Description)
+				gm.Narrate("")
 			}
 			(*myGame.Stats)["LOCATION"] = option.Route
 		}
@@ -56,7 +68,7 @@ func (gm MyGM) Narrate(narrative string) {
 }
 
 func (gm MyGM) Query() string {
-	response := ""
-	fmt.Scanln(response)
-	return response
+	reader := bufio.NewReader(os.Stdin)
+	text, _ := reader.ReadString('\n')
+	return text
 }
