@@ -498,6 +498,106 @@ var myGame = Game{
 				},
 			},
 		},
+        21: Chapter{
+            Description: "You are in the inner hallway, which contains a door to the north one to the west, and a circular stairwell. The room is small and unfriendly.",
+            Actions: []Action{},
+            Options: []Option{
+                Option{
+                    Description: "Look down the stairwell",
+                    Route: 3,
+                },
+                Option{
+                    Description: "Look up the stairs",
+                    Route: 10,
+                },
+                Option{
+                    Description: "Leave by the North door",
+                    Route: 17,
+                },
+                Option{
+                    Description: "Leave by the West door",
+                    Route: 6,
+                },
+                Option{
+                    Description: "Go up the stairs",
+                    Route: 2,
+                },
+                Option{
+                    Description: "Go down the stairs",
+                    Route: 25,
+                },
+            },
+        },
+        22: Chapter{
+            Description: "Looking out the window you see, below you, the secret herb garden. Looking hard to the left, you recognize the land you crossed to get to the castle entrance.",
+            Options: []Option{
+                Option{
+                    Route: 18,
+                },
+            },
+        },
+        23: Chapter{
+            Description: "You are in the room which was used as the castle treasury years ago. A spider scampers down the wall. There are no windows, just exits to the north and to the east.",
+            Options: []Option{
+                Option{
+                    Description: "Listen at the north door",
+                    Route: 19,
+                },
+                Option{
+                    Description: "Leave by the north door",
+                    Route: 32,
+                },
+                Option{
+                    Description: "Leave by the East door",
+                    Route: 36,
+                },
+            },
+        },
+        24: Chapter{
+            Description: "You feel exhilarated, as a positive spell is triggered by your swift downward flight.",
+            Actions: []Action{
+                Change{
+                    Description: "Your strength is doubled.",
+                    Stat:        "STRENGTH",
+                    Value:       2,
+                    Operator:    Mult,
+                },
+            },
+            Options: []Option{
+                Option{
+                    Route: 42,
+                },
+            },
+        },
+        25: Chapter{
+            Description: "You are in the prison guardroom, in the basement of the castle. The stairwell ends in this room. There is one other exit, a small hole in the east wall. The air is damp and unpleasant . . . a chill wind rushes into the room from gaps in the stone at the top of the walls.",
+            Options: []Option{
+                Option{
+                    Description: "Go East",
+                    Route: 1,
+                },
+                Option{
+                    Description: "Go up the stairs",
+                    Route: 21,
+                },
+            },
+        },
+        26: Chapter{
+            Description: "Looking out the south window you see the ornamental lake. There is a view across open fields through the east window. You look longingly at the outdoors.",
+            Options: []Option{
+                Option{
+                    Route: 42,
+                },
+            },
+        },
+        28: Chapter{
+            Description: "By straining your eyes through the mist which has swirled up while you've been exploring, you can see below you, looking southwards, an ornamental lake. By craning your neck round to the right through the west window you can just see the entrance door to the castle.",
+            Options: []Option{
+                Option{
+                    Route: 6,
+                },
+            },
+        },
 		29: Chapter{
 			Description: "You are in the castle's Audience Chamber. The faded tapestries on the wall only hint at the splendor which this room once had. There is a window to the west. By craning your neck through it to the right you can see the castle entrance.",
 			Actions: []Action{
@@ -577,6 +677,93 @@ var myGame = Game{
 				},
 			},
 		},
+        30: Chapter{
+            Description: "You find yourself in the master bedroom on the upper level of the castle. Looking down from the window to the west you can see the entrance to the castle, while the secret herb garden is visible below the north window. There are doors to the east and to the south.",
+            Actions: []Action{
+                RandomAction{
+                    Randomizer:  Coins(2),
+                    Results: []RandomActionResult{
+                        RandomActionResult{
+                            Results: []Results{
+                                Results{"heads", "heads"},
+                            },
+                            Actions: []Action{
+                                Change{
+                                    Stat:     "LOCATION",
+                                    Value:    20,
+                                    Operator: Set,
+                                },
+                            },
+                        },
+                        RandomActionResult{
+                            Results: []Results{
+                                Results{"tails", "tails"},
+                            },
+                            Actions: []Action{
+                                Change{
+                                    Stat:     "LOCATION",
+                                    Value:    16,
+                                    Operator: Set,
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            Options: []Option{
+                Option{
+                    Description: "Leave by the south door",
+                    Route: 2,
+                },
+                Option{
+                    Description: "Leave by the east door",
+                    Route: 28,
+                },
+            },
+        },
+        31: Chapter{
+            Description: "A ferocious werewolf leaps at you, his eyes glinting violently.",
+            Actions: []Action{
+                RandomAction{
+                    Randomizer:  Coins(2),
+                    Results: []RandomActionResult{
+                        RandomActionResult{
+                            Description: "You defeat the werewolf.",
+                            Results: []Results{
+                                Results{"heads", "heads"},
+                                Results{"tails", "tails"},
+                            },
+                            Actions: []Action{
+                                Change{
+                                    Stat:     "STRENGTH",
+                                    Value:    10,
+                                    Operator: Sub,
+                                },
+                            },
+                        },
+                        RandomActionResult{
+                            Description: "The werewolf starts tearing you apart, cutting your strength to half of what it was before. You drag yourself away.",
+                            Results: []Results{
+                                Results{"heads", "tails"},
+                                Results{"tails", "heads"},
+                            },
+                            Actions: []Action{
+                                Change{
+                                    Stat:     "STRENGTH",
+                                    Value:    2,
+                                    Operator: Div,
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            Options: []Option{
+                Option{
+                    Route: 9,
+                },
+            },
+        },
 		37: Chapter{
 			Options: []Option{
 				Option{
