@@ -1,8 +1,8 @@
-6
-THE ENVIRONMENT UNFOLDS
+6 THE ENVIRONMENT UNFOLDS
+=====
 The Initializing Subroutine
 As you saw at the end of the last chapter, line 20 sends action to the initializing subroutine which begins at line 2600. Here it is:
-
+```
 2590 REM ***********
 2600 REM INITIALISE
 
@@ -14,12 +14,13 @@ As you saw at the end of the last chapter, line 20 sends action to the initializ
 2720 READ A(B,C)
 2730 NEXT C
 2740 NEXT B
+```
 These are the lines which fill the array with the numbers which represent the directions the player can move from various rooms.
 
 The seventh element for each room is used to hold either treasure or terror, as will be explained in the next chapter.
 
 In this game, there are six possible directions, the four compass points as well as up and down. The castle has three levels, and you are able to move from one to the next via a circular stairwell, and "an ancient hydraulic lift." The numbers which follow the DATA statements (lines 3310 to 3490) represent, for each room: north, south, east, west, up and down. Here they are:
-
+```
 3300 ******************
 3310 DATA 0,2,0,0,0,0,0:REM ROOM 1
 3320 DATA 1,3,3,0,0,0,0:REM ROOM 2
@@ -40,6 +41,7 @@ In this game, there are six possible directions, the four compass points as well
 3470 DATA 18,16,0,14,0,0,0:REM ROOM 17
 3480 DATA 0,17,0,0,0,0,0:REM ROOM 18
 3490 DATA 9,0,16,0,0,0,0:REM ROOM 19
+```
 The Maps
 We must see now how they relate to the floor plan of the castle. Of course, when you give this game to somebody to play you do not provide them with a map. Part of the pleasure of playing Adventure is constructing a map of the environment which will give you control of it. "Walking through" an environment when you have mapped it, to check your cartographic work, is also part of the fun. The map is only given here so you can see how the program relates to it.
 

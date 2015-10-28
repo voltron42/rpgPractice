@@ -1,10 +1,14 @@
-5
-CREATING THE STRUCTURE
+5 CREATING THE STRUCTURE
+=======
+
 We'll move now from considering the simple, five-room environment, to the much more complex (19 rooms in all) castle environment you will inhabit when taking the part of the Wanderer in WEREWOLVES AND WANDERER. Let's begin with an explanation of how such a complicated program is designed.
 
 The Master Loop
+-------
+
 This Adventure program is structured according to a well-defined outline, which was drawn up long before the castle floor plan was created, or any of the incidents which would occur during the playing of the game were considered. Working to an outline like this, in which the actions the program must take are determined before any attention is given to the actual form or coding of the program, is often called "structured programming." This is discussed in some detail in Chapter 23, but it is appropriate to introduce it briefly at this point. The original WEREWOLVES AND WANDERER outline looked like this, before any program was actually written:
 
+```
 MAIN HANDLING ROUTINE
    INFORM PLAYER OF ROOM CONTENTS AND OWN
      STATUS
@@ -63,6 +67,8 @@ INVENTORY/PROVISIONS SUBROUTINE (3010-3290)
 DATA STATEMENTS FOR FLOOR PLAN (3310-3490)
 
 DELAY LOOP (3520-3530)
+```
+
 Now that you've seen the overall structure, you should be able to appreciate that writing at least an initial outline helps give form to a program which could otherwise easily get out of control.
 
 The program sits within a "master loop" which calls all the needed subroutines, then checks to see if the game is over (because the player has reached the exit, or is dead). If this check is negative (that is, the player is not dead, and the final exit has not been found), the program loops back to go through it all again. This cycle continues until one of the "end condition" tests proves positive.
@@ -72,8 +78,11 @@ The program was written in a series of discrete modules, a process I strongly su
 
 The program begins, then, with these four lines:
 
+```
 10 REM WEREWOLVES AND WANDERER
 20 GOSUB 2600:REM INITIALISE
 30 GOSUB 160
 40 IF RO <> 11 THEN 30
+```
+
 If RO equals 11, the game is over, as room eleven is the final exit from the castle. As you can see, line 20 calls the subroutine which starts at line 2600, the initialization subroutine. Line 30 calls the Major Handling Routine, and if the check in line 40 proves negative, goes back to 30 to call this routine again.

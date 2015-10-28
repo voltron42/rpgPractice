@@ -1,5 +1,5 @@
-1
-GIVE ME MY BOW
+1 GIVE ME MY BOW
+=======
 Let's face it. Life can be pretty tame, sometimes. There don't seem to be many dragons waiting to be slain in my city, and chests heaped high with abandoned gold are in scarce supply. I can't remember the last time I met an Evil Magician down at the local supermarket, and it's been ages since I discussed battle tactics with sentient androids at the local tavern.
 
 The hunger for excitement lies in all of us. The desire to take on the personalities of other, more vibrant, people-even for just an hour or so-is a common one. Although you can't conjure up devils and werebears, envoke the power of a Shield of Protection, or employ trolls to carry sacks of emeralds from the ruins of an abandoned castle, role-playing games allow you to do just that.
@@ -15,6 +15,7 @@ That's where the computer comes into its own.
 Although computer Adventure games lack a little of the spontaneity of games played with live company, they can be remarkably unpredictable and exciting to play. The fact that the Hydra of 10 Heads you've just slain exists only within your computer's RAM seems in no way to diminish the relief you feel when it dies. The gems you find lying all over the place are no less "real" than those discovered in live-action Adventures.
 
 How to Read This Book
+-----
 I've written this book to show you just how easy it is to create computer Adventure games of your own. However, there is one problem, and I hope you'll be willing to work with me to solve this problem. It is pretty difficult to know where to begin explaining how a computer Adventure is structured. Many times I've discovered that understanding one particular programming concept depends on your already understanding a second, separate concept. I've done all I can to make sure that the introduction of these concepts follows a more or less logical order and that all new concepts are carefully explained. Unfortunately, because of the complexity of most Adventure game programs, from time to time this has been impossible. All I can do is ask you to proceed on trust. Explanations which are not blindingly clear the first time you read them should swiftly fall into place as you continue working through the book.
 
 I have written this work with the ancient Chinese maxim-A PROGRAM IS WORTH A THOUSAND WORDS-always in mind. You can learn far more by entering a program, or program fragment, and then running it, than you can from chapter after chapter of explanation. Therefore, this book is program-oriented. It contains four major programs (plus variations), and the instruction part of the book is based on these programs. In fact, if you just want some Adventure programs to run, you can just enter and run the programs as they are, ignoring the lucid explanations which surround them.
@@ -34,6 +35,7 @@ Next we will turn our original WEREWOLVES AND WANDERER program into a totally di
 Finally, we'll present two completely different Adventure programs: THE CITADEL OF PERSHU and CHATEAU GAILLARD. These programs introduce more sophisticated Adventure programming techniques.
 
 Adapting the Programs for Your Computer
+---------
 I wrote the programs in this book on an IBM PC, but since many of you own or use different kinds of microcomputers, I've deliberately used only those parts of BASIC that will run on most microcomputers without changes. (The listings in this book are also fully compatible with Microsoft BASIC and MSX BASIC.)
 
 You'll find no PEEKs and POKEs, no use of graphic character sets, and no use of such commands as SOUND or PLAY. I've assumed you have access to READ and DATA, and that your screen is around 40 characters wide (and you'll find, if you have a computer like the VIC-80 with a screen which is not that wide, it is fairly easy to adapt the program output to fit, as much of it consists of PRINT statements which can be abbreviated to comply with your computer's needs).
