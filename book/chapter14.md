@@ -1,6 +1,7 @@
-14
-DRESSING IT UP
+14 DRESSING IT UP
+====
 Elaborations
+----
 Once you have a program up and running properly, behaving in accordance with an external map, the job is not yet done. You can stop for a while with the program you have, and it should be a source of a great deal of enjoyment. However, an urge to elaborate the original program is likely to arise after a while.
 
 You now have a reasonable version of WEREWOLVES AND WANDERER up and running on your system. You know the basics of creating Adventure games, and are probably well on the way to completing your first major epic.
@@ -13,18 +14,20 @@ You can easily modify your original listing by changing some lines, and adding o
 
 It is best to compare your listing with the next one, line by line (especially in the room descriptions) to make sure you have entered all the modifications. To simplify this, here are the major changes I have made:
 
-The torch can be knocked out of your hand during a fight-905.
-Your weapons can also be knocked out of your hands during a fight-906, 907.
-More monsters have been added-415, 416, and 2920
-Jewels and the like can be found, rather than just unidentified "treasure"-355, 357.
-Note that not all doors are now described explicitly, leaving more to the player's skill in determining where the exits are. As well as this, the rooms are described in much greater detail, and some factors are added which only appear from time to time. You should check all the room descriptions.
-You can call for a tally at any time during the course of a game, by entering "T" when asked for a command-706.
-There is a pretty effect (which you're sure to be able to elaborate still further) when the amulet is triggered-625.
-The Inventory routine now includes feedback on the objects you have bought-delete 3120 and 3130 and add 3131, 3133, 3134, and 3135. Other lines will have to be renumbered as 3136 and 3137.
-Your starting wealth and strength are now determined ran domly at the start of each game-2620, 2630.
-Sample Run
-Here's a sample run of the elaborated version:
+* The torch can be knocked out of your hand during a fight-905.
+* Your weapons can also be knocked out of your hands during a fight-906, 907.
+* More monsters have been added-415, 416, and 2920
+* Jewels and the like can be found, rather than just unidentified "treasure"-355, 357.
+* Note that not all doors are now described explicitly, leaving more to the player's skill in determining where the exits are. As well as this, the rooms are described in much greater detail, and some factors are added which only appear from time to time. You should check all the room descriptions.
+* You can call for a tally at any time during the course of a game, by entering "T" when asked for a command-706.
+* There is a pretty effect (which you're sure to be able to elaborate still further) when the amulet is triggered-625.
+* The Inventory routine now includes feedback on the objects you have bought-delete 3120 and 3130 and add 3131, 3133, 3134, and 3135. Other lines will have to be renumbered as 3136 and 3137.
+* Your starting wealth and strength are now determined ran domly at the start of each game-2620, 2630.
 
+Sample Run
+-----
+Here's a sample run of the elaborated version:
+```
 YOU CAN BUY 1 - FIAMING TORCH ($15)
             2 - AXE ($10)
             3 - SWORD ($20)
@@ -130,4 +133,5 @@ YOU ARE CARRYING THE MAGIC AMULET
 YOV ARE IN THE REAR VESTIBULE
 THERE ARE WINDOWS TO THE SOUTH FROM WHICH YOU
 YOU CAN SEE THE ORNAMENTAL LAKE
+```
 From these "snapshots" you have probably gained a taste of how the original program has been greatly elaborated. I've tried to ensure-and this may be worth keeping in mind when you're working on your own programs-that any elaboration is not added purely for its own sake. Instead, you should decide whether or not to add further "frills" to a program purely in terms of whether or not they add to the player's experience of reality, excitement, and involvement when playing the game.

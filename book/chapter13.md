@@ -1,9 +1,9 @@
-13
-WEREWOLVES AND WANDERER
+13 WEREWOLVES AND WANDERER
+======
 I hope you've been entering the program section by section as you've come to it. This is the best way to learn the things I've included in the Adventure, and to determine for yourself how you can apply these ideas to your own Adventure programs.
 
 Here now, is the complete listing of the program, in one run, so you can check the program you have entered section by section into your computer.
-
+```
 10 REM WEREWOLVES AND WANDERER
 20 GOSUB 2600:REM INITIALISE
 30 GOSUB 160
@@ -437,3 +437,4 @@ MONEY":GOSUB 3520:RETURN
 3510 REM ADJUST LOOP BELOW TO YOUR SYSTEM
 3520 FOR T=1 TO 900:NEXT T
 3530 RETURN
+```

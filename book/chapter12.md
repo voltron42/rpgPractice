@@ -1,6 +1,7 @@
-12
-PEEKING INTO THE ROOMS
+12 PEEKING INTO THE ROOMS
+=====
 Room Descriptions
+----
 Room descriptions add a third dimension to the raw plans of your Adventure environment. You can add as many details as you like to describing each room or cavern your Adventurer discovers, or you can keep the descriptions short, and leave it up to the player's imagination to fill in the gaps.
 
 I prefer to steer a middle course, adding some description, but not too much, to trigger the player's imagination but not to stifle it.
@@ -8,7 +9,7 @@ I prefer to steer a middle course, adding some description, but not too much, to
 This section of the program is pretty simple to understand. The long ON GOSUB line (1010) sends the computer to the relevant room, printing up a brief description of the room, and pointing out where the windows and doors are.
 
 You should now refer back to the maps of the various floors, and see how they relate to the descriptions given below:
-
+```
 990 REM ROOM DESCRIPTIONS
 1000 PRINT:PRINT
 "******************************":PRINT:PRINT
@@ -147,7 +148,7 @@ WINDOWS"
 2010 RETURN
 2020 REM ****************
 2030 REM ROOM 16
-2040 PRINT "THIS ROOM WAS USED AS THE CA STLE
+2040 PRINT "THIS ROOM WAS USED AS THE CASTLE
 TREASURY IN"
 2050 PRINT "BY-GONE YEARS...."
 2060 PRINT "THERE ARE NO WINDOWS, JUST EXITS
@@ -184,11 +185,13 @@ YOU CAN SEE"
 2270 PRINT "THE LAKE THROUGH THE SOUTHERN
 WINDOWS"
 2280 RETURN
+```
 All these subroutines simply print out a description, then return to line 1020 which returns action to the main program.
 
 Special Handling
+--------
 Two rooms are different. Room 9 is, as you can see from the map, the elevator, and this needs special handling. The delay loop is called twice, and then RO is set to 10 (line 1590), the room you end up in after using the elevator, before the program returns to the main handler.
-
+```
 1530 REM **************
 1540 REM ROOM 9
 1550 PRINT "YOU HAVE ENTERED THE LIFT..."
@@ -197,13 +200,15 @@ Two rooms are different. Room 9 is, as you can see from the map, the elevator, a
 1580 GOSUB 3520
 1590 RO=10
 1600 GOTO 1000
+```
 The other room needing special handling is room 11, the final exit. When the computer comes to the relevant subroutine, it immediately hits a return. It is put here, within the other room subroutines, just to keep the program clear.
-
+```
 1690 REM *****************
 1700 REM ROOM 11
 1710 RETURN
+```
 Once you've made it to room 11, the program stops cycling, and then announces your success:
-
+```
 50 PRINT:PRINT "YOU'VE DONE IT!!":GOSUB
 3520:PRINT "THAT WAS THE EXIT FROM THE CASTLE"
 60 GOSUB 3520
@@ -214,6 +219,7 @@ CASTLE"
 90 GOSUB 3520
 100 PRINT:PRINT "WELL DONE!"
 110 GOSUB 3520
+```
 From here it simply follows on to lines 120 and 130, which we discussed earlier, to print up your score, and end the game.
 
 The examples given in this chapter should help you develop a number of ideas of your own to incorporate into room descriptions and "special events." CHATEAU GAILLARD, the final program in the book, includes some quite difficult "special handling" situations. Although these situations are a little more complex than those outlined in this chapter, they use the ideas we have discussed here. Therefore, it's probably a good idea to review and make sure you understand the material in this chapter before continuing.

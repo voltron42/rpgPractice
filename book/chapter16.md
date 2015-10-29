@@ -1,5 +1,5 @@
-16
-TAKING IT TO THE SPACE LANES
+16 TAKING IT TO THE SPACE LANES
+======
 You now have one or two working Adventure programs. What you also have, although you may not have realized it, is a shell or framework within which you can create your own Adventure.
 
 Rather than having to go to the trouble of starting completely from scratch, you can simply modify the program to create a totally original Adventure program of your own. The DATA statements which define the map, and the PRINT statements which describe the rooms, are the main areas which must be changed.
@@ -7,7 +7,9 @@ Rather than having to go to the trouble of starting completely from scratch, you
 However, as I'm sure you are pleased to learn, the rest of the program, which makes up the mechanism which keeps the Adventure moving, can be left more or less the same.
 
 The New Scenario
+-----
 To demonstrate just how very effective this "creation/modificaton" can be, I decided to take the first (not the elaborated version) WEREWOLVES AND WANDERER, and turn it into an Adventure out in space. The scenario is as follows. The intergalactic liner, The Isaac Asimov, met with an unexplained disaster when on its way, with over 1,000 passengers, to the terraformed planets of the Seuxarian System.
+
 When out on your regular patrol of the space lanes, two centuries later, you come across the drifting hulk of The Isaac Asimov. You decide to explore, to see if you can determine what went wrong. However, no sooner have you entered the hold of the wrecked ship than your own ship, which you left tethered outside, explodes. You must find a Safety-Pod on board the Asimov, or die.
 
 In this Adventure, you explore the wrecked ship, fight off androids and aliens, and face a few other problems which I will explain to you after you've played the game.
@@ -17,8 +19,9 @@ I will not let you see the map at this stage (and I hope you won't peek at it fu
 There are several tricks and traps in this new Adventure, which make it relatively hard to solve, but you are sure to enjoy having a bigger problem to sink your teeth into.
 
 Sample Run
+-----
 Here's part of a sample run of The Aftermath of the Asimovian Disaster:
-
+```
 WHAT IS YOUR NAME, SPACE HERO? ANDREW
 
 CAPTAIN ANDREW, YOUR STRENGTH IS 101
@@ -104,6 +107,7 @@ THE SNIGGERING GREEN ALIEN SERIOUSLY WOUNDS YOU
 THIS IS THE SHIP'S HOSPITAL, WHITE AND STERILE.
 A BUZZING SOUND, AND A STRANGE WARMTH COME FROM
 THE SOUTH, WHILE A CHILL IS FELT TO THE NORTH
+```
 I'm sure you can see quite clearly how this program is related to WEREWOLVES AND WANDERER. However, despite its obvious derivation from the first program, you'll see that it provides a completely different set of challenges to the player, and evokes a whole new area of mental images.
 
 The complete listing of the AFTERMATH OF THE ASIMOVIAN DISASTER is presented in the next chapter.

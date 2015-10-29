@@ -1,9 +1,9 @@
-17
-THE ASIMOVIAN LISTING
+17 THE ASIMOVIAN LISTING
+======
 Remember, this program is based on the first, unelaborated version of WEREWOLVES AND WANDERER. You can simply load up the very first program, and then work through it-section by section-to create the new program.
 
 Note that in all cases FOOD is changed to OXY, AXE becomes ION, SWORD is changed to LASER, and AMULET becomes TRANSPORTER. The command "B" (related to your oxygen use) has been added to your vocabulary.
-
+```
 10 REM AFTERMATH OF THE ASIMOVIAN DISASTER
 20 GOSUB 2600:REM INITIALISE
 30 GOSUB 160
@@ -520,3 +520,4 @@ SOLARIAN CREDITS LEFT":GOSUB 3520:RETURN
 3510 REM ADJUST LOOP BELOW TO YOUR SYSTEM
 3520 FOR T=1 TO 900:NEXT T
 3530 RETURN
+```

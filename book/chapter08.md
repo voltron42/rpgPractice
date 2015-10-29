@@ -46,9 +46,9 @@ When you construct your own programs, you'll discover that within limits-the mor
 The Final Reckoning
 -----
 The final score in WEREWOLVES AND WANDERER is related-as was pointed out earlier-to a number of factors. One of these is TALLY, the time for which you manage to survive. Each time the program traverses the rocky ground of the Major Handling Routine, it runs through line 200, which increments your TALLY by one:
-
-`200 TALLY = TALLY + 1`
------
+```
+200 TALLY = TALLY + 1
+```
 At the very end of the program, whether you've managed to find the exit or not, your score will be added up. Your score is three times your TALLY, plus five times your STRENGTH, plus two times your WEALTH, plus the value of your uneaten FOOD and thirty times the number of monsters you have killed (variable name MK). It is evident that the number of monsters killed has more effect on your final score than just about any other item. Here's the section of code which works out your final score:
 ```
 120 PRINT:PRINT "YOUR SCORE IS";
