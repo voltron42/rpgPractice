@@ -16,24 +16,28 @@ func NewGame(GM gm.GM, Dungeon Dungeon, Player Player) Game {
 
 func (g Game) Play() {
 	location := g.Dungeon.Entrance
-	for g.Player.Health > 0 && location != g.Dungeon.Exit {
+	for g.Player.Lives() && location != g.Dungeon.Exit {
 		room, err := g.Dungeon.GetRoom(location)
 		if err != nil {
 			panic(err)
 		}
 		room.Describe(g.GM)
-		g.Player.Update(g.GM)
-		g.Player.Retrieve(room.Reward, g.GM)
-		g.Player.Fight(room.Resident, g.GM)
-		if g.Player.Health <= 0 {
-			break
+		if room.Resident != nil {
+			g.Player.Update(g.GM)
+			g.Player.Fight(*room.Resident, g.GM)
+			if !g.Player.Lives() {
+				break
+			}
 		}
+		g.Player.Retrieve(room.Reward, g.GM)
 		g.Player.Update(g.GM)
-		g.Player.TakeStock(g.GM)
-		g.Player.Update(g.GM)
-		location = g.Player.Proceed(g.GM)
+		hasUpdated := g.Player.TakeStock(g.GM)
+		if hasUpdated {
+			g.Player.Update(g.GM)
+		}
+		location = g.Player.Proceed(g.GM, room)
 	}
-	if g.Player.Health <= 0 {
+	if !g.Player.Lives() {
 		g.GameOver()
 	} else {
 		g.Congratulate()

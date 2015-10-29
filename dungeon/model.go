@@ -5,14 +5,16 @@ import (
 )
 
 type Player struct {
-	Health int
+	Stats      map[string]int
+	Equiptment []Item
+	Inventory  []Item
 	// todo
 }
 
 type Dungeon struct {
 	Entrance dir.ID
 	Exit     dir.ID
-	Rooms    map[int]Room
+	Rooms    map[dir.ID]Room
 }
 
 type Room struct {
@@ -38,9 +40,8 @@ type Treasure []Item
 type Item struct {
 	Name        string
 	Description string
-	Effect      *Effect
-}
-
-type Effect struct {
+	Stats       map[string]int
+	Usage       string
+	Weight      int
 	// todo
 }
