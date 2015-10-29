@@ -12,9 +12,10 @@ type Player struct {
 }
 
 type Dungeon struct {
-	Entrance dir.ID
-	Exit     dir.ID
-	Rooms    map[dir.ID]Room
+	Entrance      dir.ID
+	Exit          dir.ID
+	Rooms         map[dir.ID]Room
+	Quartermaster []Item
 }
 
 type Room struct {
