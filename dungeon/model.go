@@ -5,44 +5,58 @@ import (
 )
 
 type Player struct {
-	Stats      map[string]int
-	Equiptment []Item
-	Inventory  []Item
-	// todo
+	Stats      map[Stat]int
+	Equiptment []string
+	Inventory  map[string]int
+}
+
+type Stat string
+
+const (
+	ATTACK  Stat = "ATTACK"
+	DEFENSE Stat = "DEFENSE"
+	HEALTH  Stat = "HEALTH"
+	WEALTH  Stat = "WEALTH"
+)
+
+type Game struct {
+	Dungeons []Dungeon
+	Monsters map[string]Monster
+	Items    map[string]Item
 }
 
 type Dungeon struct {
 	Entrance      dir.ID
 	Exit          dir.ID
 	Rooms         map[dir.ID]Room
-	Quartermaster []Item
+	QuarterMaster QuarterMaster
 }
 
 type Room struct {
 	Name        string
 	Description string
 	Exits       map[dir.Direction]dir.ID
-	Resident    *Monster
+	Resident    *string
 	Reward      *Treasure
 }
 
 type Monster struct {
 	Name        string
 	Description string
-	Attacks     []Attack
+	Attack      int
+	Block       int
 }
 
-type Attack struct {
-	// todo
-}
-
-type Treasure []Item
+type Treasure []string
 
 type Item struct {
 	Name        string
 	Description string
-	Stats       map[string]int
+	Stats       map[Stat]int
 	Usage       string
-	Weight      int
+	Cost        int
+	Trade       int
 	// todo
 }
+
+type QuarterMaster []string

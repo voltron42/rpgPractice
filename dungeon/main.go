@@ -6,8 +6,8 @@ import (
 
 func main() {
 	myGM := gm.New()
-	dungeon := myDungeon
+	game := myGame
 	player := Player{}
-	game := NewGame(myGM, dungeon, player)
-	game.Play()
+	campaign := NewCampaign(myGM, game, player)
+	campaign.Play()
 }

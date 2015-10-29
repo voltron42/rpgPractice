@@ -4,38 +4,38 @@ import (
 	"../util/gm"
 )
 
-type Game struct {
-	GM      gm.GM
-	Dungeon Dungeon
-	Player  Player
+type Campaign struct {
+	GM     gm.GM
+	Game   Game
+	Player Player
 }
 
-func NewGame(GM gm.GM, Dungeon Dungeon, Player Player) Game {
-	return Game{GM, Dungeon, Player}
+func NewCampaign(GM gm.GM, Game Game, Player Player) Campaign {
+	return Campaign{GM, Game, Player}
 }
 
-func (g Game) Play() {
-	location := g.Dungeon.Entrance
-	for g.Player.Lives() && location != g.Dungeon.Exit {
-		room, err := g.Dungeon.GetRoom(location)
-		if err != nil {
-			panic(err)
-		}
-		room.Describe(g.GM)
-		if room.Resident != nil {
-			g.Player.Update(g.GM)
-			g.Player.Fight(*room.Resident, g.GM)
-			if !g.Player.Lives() {
-				break
+func (g Campaign) Play() {
+	for _, dungeon := range g.Game.Dungeons {
+		location := dungeon.Entrance
+		for g.Player.Lives() && location != dungeon.Exit {
+			room, err := dungeon.GetRoom(location)
+			if err != nil {
+				panic(err)
 			}
-		}
-		g.Player.Retrieve(room.Reward, g.GM)
-		g.Player.Update(g.GM)
-		hasUpdated := g.Player.TakeStock(g.GM)
-		if hasUpdated {
+			room.Describe(g.GM)
+			if room.Resident != nil {
+				g.Player.Update(g.GM)
+				monster := g.Game.Monsters[*room.Resident]
+				g.Player.Fight(monster, g.GM)
+				if !g.Player.Lives() {
+					break
+				}
+			}
+			g.Player.Retrieve(room.Reward, g.GM)
 			g.Player.Update(g.GM)
+			g.Player.TakeStock(g.GM, dungeon.QuarterMaster)
+			location = g.Player.Proceed(g.GM, room)
 		}
-		location = g.Player.Proceed(g.GM, room)
 	}
 	if !g.Player.Lives() {
 		g.GameOver()

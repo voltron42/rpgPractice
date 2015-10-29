@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func (g Game) GameOver() {
+func (g Campaign) GameOver() {
 	g.GM.Narrate("")
 	g.GM.Narrate("You are dead. Your skeleton has been added to the others that will never escape.")
 	g.GM.Narrate("")
@@ -15,7 +15,7 @@ func (g Game) GameOver() {
 	g.GM.Narrate("\t\t... Poor bastard.")
 }
 
-func (g Game) Congratulate() {
+func (g Campaign) Congratulate() {
 	g.GM.Narrate("")
 	g.GM.Narrate("You've found your way out of the dungeon! Well done.")
 }
@@ -30,16 +30,17 @@ func (d Dungeon) GetRoom(id dir.ID) (Room, error) {
 }
 
 func (r Room) Describe(myGM gm.GM) {
-	myGM.Narrate(fmt.Sprintf("You have entered the %v.", r.Name))
+	myGM.NarrateF("You have entered the %v.", r.Name)
 	if len(r.Description) > 0 {
 		myGM.Narrate(r.Description)
 	}
 }
 
 func (p Player) Update(myGM gm.GM) {
+	// todo -- include Equiptment stats in calculations
 	myGM.Narrate("Your current status:")
 	for stat, value := range p.Stats {
-		myGM.Narrate(fmt.Sprintf("\t%v\t%v", stat, value))
+		myGM.NarrateF("\t%v\t%v", stat, value)
 	}
 	myGM.Narrate("")
 }
@@ -49,32 +50,95 @@ func (p Player) Retrieve(reward *Treasure, myGM gm.GM) {
 		myGM.Narrate("You've found a Treasure!")
 		myGM.Narrate("You open the treasure and see that it contains the following:")
 		for _, item := range *reward {
-			myGM.Narrate(fmt.Sprintf("\t%v", item.Name))
+			myGM.NarrateF("\t%v", item)
+			count, ok := p.Inventory[item]
+			if ok {
+				p.Inventory[item] = count + 1
+			} else {
+				p.Inventory[item] = 1
+			}
 		}
 	}
 	myGM.Narrate("")
 }
 
 func (p Player) Fight(monster Monster, myGM gm.GM) {
-
+	// todo
 }
 
 func (p Player) Lives() bool {
-	return true
+	return p.Stats[HEALTH] > 0
 }
 
-func (p Player) TakeStock(myGM gm.GM) bool {
-	return false
+func (p Player) TakeStock(myGM gm.GM, q QuarterMaster) {
+	selection := -1
+	length := len(takeStockOptions)
+	request := []string{"What would you like to do?"}
+	for index, option := range takeStockOptions {
+		request = append(request, fmt.Sprintf("%v - %v", index, option))
+	}
+	request = append(request, fmt.Sprintf("\t%v - Move on it game", length))
+	message := strings.Join(request, "\n\t")
+	for selection < length && selection >= -1 {
+		response := myGM.QueryInt(message)
+		if response >= length {
+			break
+		}
+		if response >= 0 {
+			action := takeStockFunctions[response]
+			action(p, myGM, q)
+			p.Update(myGM)
+		}
+	}
+}
+
+var takeStockOptions = []string{
+	"Buy From QuarterMaster",
+	"Sell To QuarterMaster",
+	"Use From Inventory",
+	"Store Equiptment",
+}
+
+var takeStockFunctions = []func(p Player, myGM gm.GM, q QuarterMaster){
+	func(p Player, myGM gm.GM, q QuarterMaster) {
+		p.buy(myGM, q)
+	},
+	func(p Player, myGM gm.GM, q QuarterMaster) {
+		p.sell(myGM, q)
+	},
+	func(p Player, myGM gm.GM, q QuarterMaster) {
+		p.use(myGM, q)
+	},
+	func(p Player, myGM gm.GM, q QuarterMaster) {
+		p.unequip(myGM, q)
+	},
+}
+
+func (p Player) buy(myGM gm.GM, q QuarterMaster) {
+	// todo
+}
+
+func (p Player) sell(myGM gm.GM, q QuarterMaster) {
+	// todo
+}
+
+func (p Player) use(myGM gm.GM, q QuarterMaster) {
+	// todo
+}
+
+func (p Player) unequip(myGM gm.GM, q QuarterMaster) {
+	// todo
 }
 
 func (p Player) Proceed(myGM gm.GM, room Room) dir.ID {
 	var destination (*dir.ID)
+	request := []string{"Which way would you like to go?"}
+	for direction, _ := range room.Exits {
+		request = append(request, strings.ToUpper(direction.String()))
+	}
+	message := strings.Join(request, "\n\t")
 	for destination == nil {
-		myGM.Narrate("Which way would you like to go?")
-		for direction, _ := range room.Exits {
-			myGM.Narrate(strings.ToUpper(direction.String()))
-		}
-		destStr := myGM.Query()
+		destStr := myGM.Query(message)
 		direction, err := dir.Parse(destStr)
 		if err == nil {
 			dest, ok := room.Exits[direction]
