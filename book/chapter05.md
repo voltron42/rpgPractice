@@ -22,8 +22,9 @@ HANDLING ROUTINE AGAIN
 CONGRATULATE OR OTHERWISE
 
 END
+```
 The program consisted only of this bare outline at the beginning. Finally, the program ended up as follows. You can see that the bare outline has strongly controlled the final structure of the program:
-
+```
 IDENTIFY (line 10)
 
 GOTO INITIALIZATION ROUTINE (20)
