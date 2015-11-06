@@ -5,12 +5,12 @@ Parlor RPG is an rpg system meant to allow players to use common game pieces to 
 
 ### Character stats: (playing cards)
 
-* Vitality - (hearts)
-* Acumen - (diamonds)
+* Zeal - (hearts)
+* Wit - (diamonds)
 * Brawn - (clubs)
-* Agility - (spades)
+* Grace - (spades)
 
-Character stats are set initially, and increase slowly with one's experience. When the player wishes to perform an action, a test is made against the appropriate stat. 
+Character stats are set initially, and increase slowly with one's experience. When the player wishes to perform an action, a test is made against the appropriate stat.
 
 ### Rechargeables: (Poker chips)
 
