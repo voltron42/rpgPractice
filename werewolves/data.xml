@@ -1,0 +1,190 @@
+<game title="WEREWOLVES &amp; WANDERER">
+  <init first-room="6" last-room="11">
+    <stats strength="100" wealth="75" food="0" tally="0"/>
+    <place-treasure room-count="4" treasure="1d100+10"/>
+  </init>
+  <shop>
+    <item index="1" name="FLAMING TORCH" cost="15" limit="1" effect="LIGHT=true"/>
+    <item index="2" name="AXE" cost="10" limit="1" effect="4/5"/>
+    <item index="3" name="SWORD" cost="20" limit="1" effect="3/4"/>
+    <item index="4" name="FOOD" cost="2" effect="+5"/>
+    <item index="5" name="MAGIC AMULET" cost="30" limit="1" />
+    <item index="6" name="SUIT OF ARMOR" cost="50" limit="1" effect="3/4"/>
+  </shop>
+  <monsters >
+    <monster index="-1" name="FEROCIOUS WEREWOLF" danger-level="5"/>
+    <monster index="-2" name="FANATICAL FLESHGORGER" danger-level="10"/>
+    <monster index="-3" name="MALOVENTY MALDEMER" danger-level="15"/>
+    <monster index="-4" name="DEVASTATING ICE-DRAGON" danger-level="20"/>
+  </monsters>
+  <rooms>
+    <room index="1">
+      <description>
+        <line>YOU ARE IN THE HALLWAY</line>
+        <line>THERE IS A DOOR TO THE SOUTH</line>
+        <line>THROUGH WINDOWS TO THE NORTH YOU CAN SEE A SECRET HERB GARDEN</line>
+      </description>
+    </room>
+    <room index="2">
+      <description>
+        <line>THIS IS THE AUDIENCE CHAMBER</line>
+        <line>THERE IS A WINDOW TO THE WEST. BY LOOKING TO THE RIGHT</line>
+        <line>THROUGH IT YOU CAN SEE THE ENTRANCE TO THE CASTLE.</line>
+        <line>DOORS LEAVE THIS ROOM TO THE NORTH, EAST AND SOUTH</line>
+      </description>
+    </room>
+    <room index="3">
+      <description>
+        <line>YOU ARE IN THE GREAT HALL, AN L-SHAPED ROOM</line>
+        <line>THERE ARE DOORS TO THE EAST AND TO THE NORTH</line>
+        <line>IN THE ALCOVE IS A DOOR TO THE WEST</line>
+      </description>
+    </room>
+    <room index="4" treasure="1d100+100">
+      <description>
+        <line>THIS IS THE MONARCH'S PRIVATE MEETING ROOM</line>
+        <line>THERE IS A SINGLE EXIT TO THE SOUTH</line>
+      </description>
+    </room>
+    <room index="5">
+      <description>
+        <line>THIS INNER HALLWAY CONTAINS A DOOR TO THE NORTH,</line>
+        <line>AND ONE TO THE WEST, AND A CIRCULAR STAIRWELL</line>
+        <line>PASSES THROUGH THE ROOM</line>
+        <line>YOU CAN SEE AN ORNAMENTAL LAKE THROUGH THE</line>
+        <line>WINDOWS TO THE SOUTH</line>
+      </description>
+    </room>
+    <room index="6">
+      <description>
+        <line>YOU ARE AT THE ENTRANCE TO A FORBIDDING-LOOKING</line>
+        <line>STONE CASTLE. YOU ARE FACING EAST</line>
+      </description>
+    </room>
+    <room index="7">
+      <description>
+        <line>THIS IS THE CASTLE'S KITCHEN THROUGH WINDOWS IN</line>
+        <line>THE NORTH WALL YOU CAN SEE A SECRET HERB GARDEN.</line>
+        <line>A DOOR LEAVES THE KITCHEN TO THE SOUTH</line>
+      </description>
+    </room>
+    <room index="8">
+      <description>
+        <line>YOU ARE IN THE STORE ROOM, AMIDST SPICES,</line>
+        <line>VEGETABLES, AND VAST SACKS OF FLOUR AND</line>
+        <line>OTHER PROVISIONS. THERE IS A DOOR TO THE NORTH</line>
+        <line>AND ONE TO THE SOUTH</line>
+      </description>
+    </room>
+    <room index="9">
+      <description>
+        <line>YOU HAVE ENTERED THE LIFT...</line>
+        <line>IT SLOWLY DESCENDS...</line>
+      </description>
+    </room>
+    <room index="10">
+      <description>
+        <line>YOU ARE IN THE REAR VESTIBULE</line>
+        <line>THERE ARE WINDOWS TO THE SOUTH FROM WHICH YOU</line>
+        <line>YOU CAN SEE THE ORNAMENTAL LAKE</line>
+        <line>THERE IS AN EXIT TO THE EAST AND</line>
+        <line>ONE TO THE NORTH</line>
+      </description>
+    </room>
+    <room index="11">
+      <description>
+        <line>YOU'VE DONE IT!!</line>
+        <line>THAT WAS THE EXIT FROM THE CASTLE</line>
+        <line>YOU HAVE SUCCEEDED, ${name}!</line>
+        <line>YOU MANAGED TO GET OUT OF THE CASTLE</line>
+        <line>WELL DONE!</line>
+      </description>
+    </room>
+    <room index="12">
+      <description>
+        <line>YOU ARE IN THE DANK, DARK DUNGEON</line>
+        <line>THERE IS A SINGLE EXIT, A SMALL HOLE IN</line>
+        <line>WALL TOWARDS THE WEST</line>
+      </description>
+    </room>
+    <room index="13">
+      <description>
+        <line>YOU ARE IN THE PRISON GUARDROOM, IN THE</line>
+        <line>BASEMENT OF THE CASTLE. THE STAIRWELL</line>
+        <line>ENDS IN THIS ROOM. THERE IS ONE OTHER</line>
+        <line>EXIT, A SMALL HOLE IN THE EAST WALL</line>
+      </description>
+    </room>
+    <room index="14" has-treasure="true">
+      <description>
+        <line>YOU ARE IN THE MASTER BEDROOM ON THE UPPER</line>
+        <line>LEVEL OF THE CASTLE....</line>
+        <line>LOOKING DOWN FROM THE WINDOW TO THE WEST YOU</line>
+        <line>CAN SEE THE ENTRANCE TO THE CASTLE, WHILE THE</line>
+        <line>SECRET HERB GARDEN IS VISIBLE BELOW THE NORTH</line>
+        <line>WINDOW. THERE ARE DOORS TO THE EAST AND</line>
+        <line>TO THE SOUTH....</line>
+      </description>
+    </room>
+    <room index="15">
+      <description>
+        <line>THIS IS THE L-SHAPPED UPPER HALLWAY.</line>
+        <line>TO THE NORTH IS A DOOR, AND THERE IS A</line>
+        <line>STAIRWELL IN THE HALL AS WELL. YOU CAN SEE</line>
+        <line>THE LAKE THROUGH THE SOUTH WINDOWS</line>
+      </description>
+    </room>
+    <room index="16">
+      <description>
+        <line>THIS ROOM WAS USED AS THE CASTLE TREASURY IN</line>
+        <line>BY-GONE YEARS....</line>
+        <line>THERE ARE NO WINDOWS, JUST EXITS TO THE</line>
+        <line>NORTH AND TO THE EAST</line>
+      </description>
+    </room>
+    <room index="17">
+      <description>
+        <line>OOOOH...YOU ARE IN THE CHAMBERMAIDS' BEDROOM</line>
+        <line>THERE IS AN EXIT TO THE WEST AND A DOOR</line>
+        <line>TO THE SOUTH....</line>
+      </description>
+    </room>
+    <room index="18">
+      <description>
+        <line>THIS TINY ROOM ON THE UPPER LEVEL IS THE</line>
+        <line>DRESSING CHAMBER. THERE IS A WINDOW TO THE</line>
+        <line>NORTH, WITH A VIEW OF THE HERB GARDEN DOWN</line>
+        <line>BELOW. A DOOR LEAVES TO THE SOUTH</line>
+      </description>
+    </room>
+    <room index="19">
+      <description>
+        <line>THIS IS THE SMALL ROOM OUTSIDE THE CASTLE</line>
+        <line>LIFT WHICH CAN BE ENTERED BY A DOOR TO THE NORTH</line>
+        <line>ANOTHER DOOR LEADS TO THE WEST. YOU CAN SEE</line>
+        <line>THE LAKE THROUGH THE SOUTHERN WINDOWS</line>
+      </description>
+    </room>
+  </rooms>
+  <doors>
+    <door index="1" south="2"/>
+    <door index="2" north="1" south="3" east="3"/>
+    <door index="3" north="2" east="5" west="2"/>
+    <door index="4" south="5"/>
+    <door index="5" north="4" west="3" up="15" down="13"/>
+    <door index="6" east="1"/>
+    <door index="7" south="8"/>
+    <door index="8" north="7" south="10"/>
+    <door index="9" south="19" west="8" down="8"/>
+    <door index="10" north="8" east="11"/>
+    <door index="11" east="10"/>
+    <door index="12" west="13"/>
+    <door index="13" east="12" up="5"/>
+    <door index="14" south="15" east="17"/>
+    <door index="15" north="14" down="5"/>
+    <door index="16" north="17" east="19"/>
+    <door index="17" north="18" south="16" west="14"/>
+    <door index="18" south="17"/>
+    <door index="19" north="9" east="16"/>
+  </doors>
+</game>
