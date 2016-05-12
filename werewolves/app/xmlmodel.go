@@ -5,15 +5,15 @@ import (
 	"strings"
 	"strconv"
 	"fmt"
+	"math/rand"
 )
 
 type GameXML struct {
 	Title     string     `xml:"title,attr"`
 	Init      Init       `xml:"init"`
 	ShopItems []ShopItem `xml:"shop>item"`
-	Monsters  []Monster  `xml:"monsters>monster"`
-	Rooms     []Room     `xml:"rooms>room"`
-	Doors     []Door     `xml:"doors>door"`
+	Monsters  []MonsterXML  `xml:"monsters>monster"`
+	Rooms     []RoomXML     `xml:"rooms>room"`
 }
 
 type Init struct {
@@ -43,20 +43,20 @@ type ShopItem struct {
 	Effect string `xml:"effect,attr"`
 }
 
-type Monster struct {
+type MonsterXML struct {
 	Index int `xml:"index,attr"`
 	Name string `xml:"name,attr"`
 	DangerLevel int `xml:"danger-level,attr"`
 }
 
-type Room struct {
+type RoomXML struct {
 	Index int `xml:"index,attr"`
 	Treasure Treasure `xml:"treasure,attr"`
+	Doors Doors `xml:"doors"`
 	Lines []string `xml:"description>line"`
 }
 
-type Door struct {
-	Index int `xml:"index,attr"`
+type Doors struct {
 	North int `xml:"north,attr"`
 	South int `xml:"south,attr"`
 	East int `xml:"east,attr"`
@@ -69,6 +69,14 @@ type Treasure struct {
 	DieCount int
 	SideCount int
 	Adder int
+}
+
+func (t *Treasure) Eval() int {
+	sum := t.Adder
+	for x := 0; x < t.DieCount; x++ {
+		sum += rand.Intn(t.SideCount)
+	}
+	return sum
 }
 
 func (t *Treasure) UnmarshalXMLAttr(attr xml.Attr) error {
