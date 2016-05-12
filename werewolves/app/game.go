@@ -3,6 +3,7 @@ package werewolves
 import (
   "bufio"
   "os"
+  "sort"
 )
 
 func Play(GameXML xml) error {
@@ -68,6 +69,15 @@ func buildGame(xml GameXML, name string) Game {
     item.Effect = shopItemXml.Effect
     game.Shop[shopItemXml.Name] = item
   }
-  rooms := map[int]bool
+  rooms := []int{}
+  for index, room := range game.Maze.Rooms {
+  
+}
+  sort.Ints(rooms)
   return game
+}
+
+func remove(haystack, needle) (int, error) {
+
+return 0, nil
 }
