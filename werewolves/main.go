@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/xml"
-	"fmt"
 	"io/ioutil"
 
 	"./app"
@@ -18,5 +17,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("%v\n", game)
+	werewolves.Play(game)
+	//fmt.Printf("%v\n", game)
 }

@@ -4,12 +4,12 @@
     <place-treasure room-count="4" treasure="1d100+10"/>
   </init>
   <shop>
-    <item index="1" name="FLAMING TORCH" cost="15" limit="1" effect="LIGHT=true"/>
-    <item index="2" name="AXE" cost="10" limit="1" effect="4/5"/>
-    <item index="3" name="SWORD" cost="20" limit="1" effect="3/4"/>
-    <item index="4" name="FOOD" cost="2" effect="+5"/>
-    <item index="5" name="MAGIC AMULET" cost="30" limit="1" />
-    <item index="6" name="SUIT OF ARMOR" cost="50" limit="1" effect="3/4"/>
+    <item index="1" name="FLAMING TORCH" cost="15" limit="1" effect="LIGHT=true" target="self"/>
+    <item index="2" name="AXE" cost="10" limit="1" effect="4/5" must-equip="true" target="monster"/>
+    <item index="3" name="SWORD" cost="20" limit="1" effect="3/4" must-equip="true" target="monster"/>
+    <item index="4" name="FOOD" cost="2" effect="STRENGTH+5" target="self"/>
+    <item index="5" name="MAGIC AMULET" cost="30" limit="1" target="monster"/>
+    <item index="6" name="SUIT OF ARMOR" cost="50" limit="1" effect="3/4" target="monster"/>
   </shop>
   <monsters >
     <monster index="-1" name="FEROCIOUS WEREWOLF" danger-level="5"/>

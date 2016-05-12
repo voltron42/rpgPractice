@@ -4,7 +4,6 @@ import (
 	"encoding/xml"
 	"strings"
 	"strconv"
-	"fmt"
 	"math/rand"
 )
 
@@ -41,6 +40,7 @@ type ShopItem struct {
 	Cost int `xml:"cost,attr"`
 	Limit int `xml:"limit,attr"`
 	Effect string `xml:"effect,attr"`
+	MustEquip bool `xml:"must-equip,attr"`
 }
 
 type MonsterXML struct {
