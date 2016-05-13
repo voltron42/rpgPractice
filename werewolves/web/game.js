@@ -45,18 +45,30 @@ var gamefactory = (function(){
     build:function(out, err) {
       var io = {
         in:function(text) {
-          out.innerHTML += text + "<br/>"
-          var input = prompt(text)
-          out.innerHTML += input + "<br/>"
+          if (Array.isArray(text)) {
+            text = text.join("<br/>")
+          }
+          out.innerHTML += text + "<br/><br/>"
+          var input = prompt(text.split("<br/>").join("\n"))
+          out.innerHTML += input + "<br/><br/>"
+          out.scrollTop = out.scrollHeight
           return input;
         },
         out:function(text) {
-          out.innerHTML += text + "<br/>"
-          alert(text)
+          if (Array.isArray(text)) {
+            text = text.join("<br/>")
+          }
+          out.innerHTML += text + "<br/><br/>"
+          out.scrollTop = out.scrollHeight
+          alert(text.split("<br/>").join("\n"))
         },
         err:function(text) {
-          err.innerHTML += text + "<br/>"
-          alert(text)
+          if (Array.isArray(text)) {
+            text = text.join("<br/>")
+          }
+          err.innerHTML += text + "<br/><br/>"
+          err.scrollTop = err.scrollHeight
+          alert(text.split("<br/>").join("\n"))
         }
       }
       return {
@@ -64,6 +76,23 @@ var gamefactory = (function(){
           console.log(data);
           player.name = io.in("WHAT IS YOUR NAME, EXPLORER?")
           console.log(player);
+          while (player.room != data.init.exit) {
+            window.scrollTo(0,document.body.scrollHeight);
+            io.out(data.rooms[player.room].description)
+            var list = "(" + Object.keys(data.rooms[player.room].doors).join(",").toUpperCase() + ")"
+            var message = "WHERE DO YOU WANT TO GO? " + list
+            console.log(message);
+            while (true) {
+              var direction = io.in(message)
+              direction = direction.toLowerCase()
+              if (direction in data.rooms[player.room].doors) {
+                player.path.push(player.room)
+                player.room = data.rooms[player.room].doors[direction]
+                break
+              }
+            }
+          }
+          io.out(data.rooms[player.room].description)
         }
       }
     }
