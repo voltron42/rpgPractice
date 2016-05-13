@@ -1,3 +1,22 @@
 <html>
-
+  <head>
+    <title>WEREWOLVES &amp; WANDERER</title>
+    <style>
+      div#err {
+        color: darkred;
+      }
+    </style>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript">
+      var launch = function() {
+        gamefactory.build(document.getElementById("out"),document.getElementById("err")).play();
+      }
+    </script>
+  </head>
+  <body onload="launch()">
+    <h1>WEREWOLVES &amp; WANDERER</h1>
+    <div id="out"/>
+    <div id="err"/>
+  </body>
 </html>
