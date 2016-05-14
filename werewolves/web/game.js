@@ -21,6 +21,11 @@ var gamefactory = (function(){
   delete roomset[data.init.enter]
   delete roomset[data.init.exit]
   rooms = Object.keys(roomset)
+  var store = {}
+  data.store.forEach(function(item) {
+    store[item.name] = item
+  })
+  data.store = store
   Object.keys(data.monsters).forEach(function(key){
     rooms;
     var index = Math.floor(Math.random() * rooms.length)
@@ -69,7 +74,7 @@ var gamefactory = (function(){
           readout = readout.concat(text)
           var input = prompt(text.join("\n"))
           readout.push(input)
-          out.innerHTML = readout.join("<br/>")
+          out.innerHTML = readout.join("<br/>").toUpperCase()
           out.scrollTop = out.scrollHeight
           return input;
         },
@@ -78,7 +83,7 @@ var gamefactory = (function(){
             text = [text]
           }
           readout = readout.concat(text,"")
-          out.innerHTML = readout.join("<br/>")
+          out.innerHTML = readout.join("<br/>").toUpperCase()
           out.scrollTop = out.scrollHeight
           alert(text.join("\n"))
         },
@@ -87,10 +92,96 @@ var gamefactory = (function(){
             text = [text]
           }
           errors = errors.concat(text,"")
-          err.innerHTML = errors.join("<br/>")
+          err.innerHTML = errors.join("<br/>").toUpperCase()
           err.scrollTop = err.scrollHeight
           alert(text.join("\n"))
         }
+      }
+      var eat = function(self) {
+        if (player.inventory.FOOD) {
+          if (player.inventory.FOOD.count > 0) {
+            player.inventory.FOOD.count -= 1
+            eval(player.inventory.FOOD.effect)
+          } else {
+            delete player.inventory.FOOD
+            io.out("YOU HAVE NO FOOD TO EAT")
+          }
+        } else {
+          io.out("YOU HAVE NO FOOD TO EAT")
+        }
+      }
+      var travelActions = {
+        "MOVE":function(self) {
+          var direction = inquireOfUser(
+            "WHERE DO YOU WANT TO GO?",
+            data.rooms[player.room].doors
+          )
+          player.path.push(player.room)
+          player.room = data.rooms[player.room].doors[direction]
+        },
+        "BUY":function(self) {
+          if (player.wealth <= 0) {
+            io.out([
+              "YOU DO NOT HAVE ANY GOLD",
+              "YOU CANNOT BUY ANYTHING"
+            ])
+          } else {
+            var itemname = inquireOfUser("WHAT DO YOU WANT TO BUY?", store)
+            var storeitem = store[itemname]
+            var playeritem = player.inventory[itemname]
+            if (playeritem) {
+              if (playeritem.limit && playeritem.count == playeritem.limit) {
+                io.out("YOU CANNOT PURCHASE ANY MORE OF THIS ITEM")
+              } else {
+                player.wealth -= playeritem.cost
+                playeritem.count++
+              }
+            } else {
+              playeritem = {}
+              Object.keys(storeitem).forEach(function(key) {
+                playeritem[key] = storeitem[key]
+              })
+              playeritem.count = 1
+              player.inventory[itemname] = playeritem
+            }
+          }
+        },
+        "EAT":eat,
+        "EQUIP":function(self) {
+          var equiptment = {};
+          Object.keys(player.inventory).filter(function(item) {
+            return player.inventory[item].mustEquip
+          }).forEach(function(item) {
+            equiptment[item] = true;
+          })
+          var item = inquireOfUser("WHAT DO YOU WANT TO EQUIP?", equiptment)
+          Object.keys(equiptment).filter(function(otherItem) {
+            return otherItem != item
+          }).forEach(function(otherItem) {
+            delete player.inventory[otherItem].equip
+          })
+          player.inventory[item].equip = true
+        }
+      }
+      var combatActions = {
+        "FIGHT":function(self,target) {
+          // TODO
+        },
+        "RUN":function(self,target) {
+          // TODO
+        },
+        "EAT":eat
+      }
+      function inquireOfUser(question, options) {
+        var list = "(" + Object.keys(options).join(",").toUpperCase() + ")"
+        message = [question, list];
+        while (true) {
+          var answer = io.in(message)
+          if (answer in options) {
+            break
+          }
+        }
+        return answer
       }
       return {
         play:function() {
@@ -101,22 +192,18 @@ var gamefactory = (function(){
             io.out(data.rooms[player.room].description)
             var contents = data.rooms[player.room].contents
             if (contents > 0) {
-              io.out("You have discovered " + contents + " pieces of gold")
+              io.out("YOU HAVE DISCOVERED " + contents + " PIECES OF GOLD")
               player.wealth += contents
               delete data.rooms[player.room].contents
               io.out(player.readout())
+            } else if (contents < 0) {
+              // TODO
             }
-            var list = "(" + Object.keys(data.rooms[player.room].doors).join(",").toUpperCase() + ")"
-            var message = "WHERE DO YOU WANT TO GO? " + list
-            while (true) {
-              var direction = io.in(message)
-              direction = direction.toLowerCase()
-              if (direction in data.rooms[player.room].doors) {
-                player.path.push(player.room)
-                player.room = data.rooms[player.room].doors[direction]
-                break
-              }
-            }
+            var action = inquireOfUser("WHAT DO YOU WANT TO DO?", travelActions)
+            travelActions[action]()
+          }
+          if (player.strength == 0) {
+            io.out("YOU")
           }
           io.out(data.rooms[player.room].description)
         }
