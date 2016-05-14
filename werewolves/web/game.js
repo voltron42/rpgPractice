@@ -41,47 +41,73 @@ var gamefactory = (function(){
   player.room = data.init.enter;
   player.path = [];
   player.inventory = {}
+  player.readout = function() {
+    var readout = [];
+    Object.keys(data.init.stats).forEach(function(key){
+      readout.push(key + ": " + player[key])
+    })
+    if (Object.keys(player.inventory).length > 0) {
+      readout.push("You Have:")
+      Object.keys(player.inventory).forEach(function(key){
+        var count = (player.inventory[key].count > 1)?count:""
+        var equipt = (player.inventory[key].mustEquip)?((player.inventory[key].equip)?"EQUIPT":"NOT EQUIPT"):""
+        var line = [key,count,equipt]
+        readout.push(line.join("; "))
+      })
+    }
+    return readout;
+  }
   return {
     build:function(out, err) {
+      var readout = []
+      var errors = []
       var io = {
         in:function(text) {
-          if (Array.isArray(text)) {
-            text = text.join("<br/>")
+          if (!Array.isArray(text)) {
+            text = [text]
           }
-          out.innerHTML += text + "<br/><br/>"
-          var input = prompt(text.split("<br/>").join("\n"))
-          out.innerHTML += input + "<br/><br/>"
+          readout = readout.concat(text)
+          var input = prompt(text.join("\n"))
+          readout.push(input)
+          out.innerHTML = readout.join("<br/>")
           out.scrollTop = out.scrollHeight
           return input;
         },
         out:function(text) {
-          if (Array.isArray(text)) {
-            text = text.join("<br/>")
+          if (!Array.isArray(text)) {
+            text = [text]
           }
-          out.innerHTML += text + "<br/><br/>"
+          readout = readout.concat(text,"")
+          out.innerHTML = readout.join("<br/>")
           out.scrollTop = out.scrollHeight
-          alert(text.split("<br/>").join("\n"))
+          alert(text.join("\n"))
         },
         err:function(text) {
-          if (Array.isArray(text)) {
-            text = text.join("<br/>")
+          if (!Array.isArray(text)) {
+            text = [text]
           }
-          err.innerHTML += text + "<br/><br/>"
+          errors = errors.concat(text,"")
+          err.innerHTML = errors.join("<br/>")
           err.scrollTop = err.scrollHeight
-          alert(text.split("<br/>").join("\n"))
+          alert(text.join("\n"))
         }
       }
       return {
         play:function() {
-          console.log(data);
           player.name = io.in("WHAT IS YOUR NAME, EXPLORER?")
-          console.log(player);
+          io.out(player.readout())
           while (player.room != data.init.exit) {
             window.scrollTo(0,document.body.scrollHeight);
             io.out(data.rooms[player.room].description)
+            var contents = data.rooms[player.room].contents
+            if (contents > 0) {
+              io.out("You have discovered " + contents + " pieces of gold")
+              player.wealth += contents
+              delete data.rooms[player.room].contents
+              io.out(player.readout())
+            }
             var list = "(" + Object.keys(data.rooms[player.room].doors).join(",").toUpperCase() + ")"
             var message = "WHERE DO YOU WANT TO GO? " + list
-            console.log(message);
             while (true) {
               var direction = io.in(message)
               direction = direction.toLowerCase()
