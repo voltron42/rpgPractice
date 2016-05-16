@@ -165,6 +165,10 @@ var gamefactory = (function(){
       }
       var combatActions = {
         "FIGHT":function(self,target) {
+var initiative = []
+if (Math.random() > .5) {
+} else {
+}
           /*
 860 REM *************************
 870 REM THE BATTLE
@@ -182,9 +186,6 @@ WOUNDS YOU!":STRENGTH=STRENGTH-5
 MANAGED TO KILL THE ";M$:MK=MK+1:GOTO 970
 960 PRINT:PRINT "THE ";M$;" DEFEATED
 YOU":STRENGTH=INT(STRENGTH/2)
-970 A(RO,7)=0:GOSUB 3410:PRINT:PRINT:GOSUB
-3520:RETURN
-980 REM ******************
           */
           // TODO
         },
@@ -193,6 +194,9 @@ YOU":STRENGTH=INT(STRENGTH/2)
             io.out("NO, YOU MUST STAND AND FIGHT")
           } else {
             // TODO
+            player.room = player.path.pop()
+            io.out("YOU RUN BACK TO THE ROOM YOU WERE IN LAST") io.out(data.rooms[player.room].description)
+            returrn true
           }
         },
         "EAT":eat
