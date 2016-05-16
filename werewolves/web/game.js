@@ -165,29 +165,36 @@ var gamefactory = (function(){
       }
       var combatActions = {
         "FIGHT":function(self,target) {
-var initiative = []
-if (Math.random() > .5) {
-} else {
-}
-          /*
-860 REM *************************
-870 REM THE BATTLE
-880 PRINT:PRINT
-890 IF RND(1)>.5 THEN PRINT M$;" ATTACKS" ELSE
-PRINT "YOU ATTACK"
-900 GOSUB 3520
-910 IF RND(1)>.5 THEN PRINT:PRINT "YOU MANAGE TO
-WOUND IT":FF=INT(5*FF/6)
-920 GOSUB 3520
-930 IF RND(1)>.5 THEN PRINT:PRINT "THE MONSTER
-WOUNDS YOU!":STRENGTH=STRENGTH-5
-940 IF RND(1)>.35 THEN 890
-950 IF RND(1)*16>FF THEN PRINT:PRINT "AND YOU
-MANAGED TO KILL THE ";M$:MK=MK+1:GOTO 970
-960 PRINT:PRINT "THE ";M$;" DEFEATED
-YOU":STRENGTH=INT(STRENGTH/2)
-          */
-          // TODO
+          var turns = {
+            you:function() {
+              /*
+              910 IF RND(1)>.5 THEN PRINT:PRINT "YOU MANAGE TO
+              WOUND IT":FF=INT(5*FF/6)
+              */
+            },
+            him:function() {
+              /*
+              930 IF RND(1)>.5 THEN PRINT:PRINT "THE MONSTER
+              WOUNDS YOU!":STRENGTH=STRENGTH-5
+              */
+            }
+          }
+          var initiative = []
+          if (Math.random() > .5) {
+            initiative.push("him")
+            initiative.push("you")
+          } else {
+            initiative.push("him")
+            initiative.push("you")
+          }
+          for (var x = 0; x < initiative.length; x++) {
+            if (turns[initiative[x]]) {
+              break;
+            }
+          }
+          if (Math.random() <= 0.35) {
+            return true;
+          }
         },
         "RUN":function(self,target) {
           if (Math.random() > .7) {
@@ -246,6 +253,12 @@ YOU":STRENGTH=INT(STRENGTH/2)
                 var combatAction = inquireOfUser("WHAT DO YOU WANT TO DO?", combatActions)
                 concluded = combatActions[combatAction](player, target)
               }
+              /*
+              950 IF RND(1)*16>FF THEN PRINT:PRINT "AND YOU
+              MANAGED TO KILL THE ";M$:MK=MK+1:GOTO 970
+              960 PRINT:PRINT "THE ";M$;" DEFEATED
+              YOU":STRENGTH=INT(STRENGTH/2)
+              */
               if (player.strength == 0) {
                 break;
               }
