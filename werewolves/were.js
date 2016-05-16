@@ -1,4 +1,4 @@
-var data = {
+var were = {
   init:{
     enter:6,
     exit:11,
