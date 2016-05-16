@@ -165,10 +165,35 @@ var gamefactory = (function(){
       }
       var combatActions = {
         "FIGHT":function(self,target) {
+          /*
+860 REM *************************
+870 REM THE BATTLE
+880 PRINT:PRINT
+890 IF RND(1)>.5 THEN PRINT M$;" ATTACKS" ELSE
+PRINT "YOU ATTACK"
+900 GOSUB 3520
+910 IF RND(1)>.5 THEN PRINT:PRINT "YOU MANAGE TO
+WOUND IT":FF=INT(5*FF/6)
+920 GOSUB 3520
+930 IF RND(1)>.5 THEN PRINT:PRINT "THE MONSTER
+WOUNDS YOU!":STRENGTH=STRENGTH-5
+940 IF RND(1)>.35 THEN 890
+950 IF RND(1)*16>FF THEN PRINT:PRINT "AND YOU
+MANAGED TO KILL THE ";M$:MK=MK+1:GOTO 970
+960 PRINT:PRINT "THE ";M$;" DEFEATED
+YOU":STRENGTH=INT(STRENGTH/2)
+970 A(RO,7)=0:GOSUB 3410:PRINT:PRINT:GOSUB
+3520:RETURN
+980 REM ******************
+          */
           // TODO
         },
         "RUN":function(self,target) {
-          // TODO
+          if (Math.random() > .7) {
+            io.out("NO, YOU MUST STAND AND FIGHT")
+          } else {
+            // TODO
+          }
         },
         "EAT":eat
       }
@@ -197,15 +222,38 @@ var gamefactory = (function(){
               delete data.rooms[player.room].contents
               io.out(player.readout())
             } else if (contents < 0) {
-              // TODO
+              var monster = data.monsters[contents]
+              io.out([
+              	 "DANGER...THERE IS A MONSTER HERE",
+              	 "IT IS A " + monster.name,
+              	 "THE DANGER LEVEL IS " + monster.danger + "!!!"
+              ])
+              var concluded = false
+              var target = {danger:monster.danger,name:monster.name}
+              Object.keys(player.inventory).filter(function(itemname) {
+                var item = player.inventory[itemname]
+                return item.combatOnly && (!item.mustEquip || item.equip)
+              }).forEach(function(itemname) {
+                var item = player.inventory[itemname]
+                eval(item.effect)
+                target.danger = Math.floor(target.danger)
+              })
+              while (!concluded) {
+                var combatAction = inquireOfUser("WHAT DO YOU WANT TO DO?", combatActions)
+                concluded = combatActions[combatAction](player, target)
+              }
+              if (player.strength == 0) {
+                break;
+              }
             }
             var action = inquireOfUser("WHAT DO YOU WANT TO DO?", travelActions)
             travelActions[action]()
           }
           if (player.strength == 0) {
-            io.out("YOU")
+            io.out("YOU ARE DEAD.....")
+          } else {
+            io.out(data.rooms[player.room].description)
           }
-          io.out(data.rooms[player.room].description)
         }
       }
     }
