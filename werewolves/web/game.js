@@ -167,16 +167,21 @@ var gamefactory = (function(){
         "FIGHT":function(self,target) {
           var turns = {
             you:function() {
-              /*
-              910 IF RND(1)>.5 THEN PRINT:PRINT "YOU MANAGE TO
-              WOUND IT":FF=INT(5*FF/6)
-              */
+if (Math.random() > .5) {
+io.out("YOU MANAGE TO WOUND IT")
+target.danger = Math.floor(5 * target.danger / 6)
+} else {
+io.out("YOU MISS")
+}
             },
             him:function() {
-              /*
-              930 IF RND(1)>.5 THEN PRINT:PRINT "THE MONSTER
-              WOUNDS YOU!":STRENGTH=STRENGTH-5
-              */
+if (Math.random() > .5) {
+io.out("THR MONSTER WOUNDS YOU")
+player.strength -= 5
+return player.strength <= 0
+} else {
+io.out("HE MISSED")
+}
             }
           }
           var initiative = []
@@ -192,6 +197,9 @@ var gamefactory = (function(){
               break;
             }
           }
+if (player.strength <= 0) {
+return true
+}
           if (Math.random() <= 0.35) {
             return true;
           }
@@ -200,7 +208,6 @@ var gamefactory = (function(){
           if (Math.random() > .7) {
             io.out("NO, YOU MUST STAND AND FIGHT")
           } else {
-            // TODO
             player.room = player.path.pop()
             io.out("YOU RUN BACK TO THE ROOM YOU WERE IN LAST") io.out(data.rooms[player.room].description)
             returrn true
@@ -253,12 +260,16 @@ var gamefactory = (function(){
                 var combatAction = inquireOfUser("WHAT DO YOU WANT TO DO?", combatActions)
                 concluded = combatActions[combatAction](player, target)
               }
-              /*
-              950 IF RND(1)*16>FF THEN PRINT:PRINT "AND YOU
-              MANAGED TO KILL THE ";M$:MK=MK+1:GOTO 970
-              960 PRINT:PRINT "THE ";M$;" DEFEATED
-              YOU":STRENGTH=INT(STRENGTH/2)
-              */
+if (Math.random() × 16 > target.danger) {
+io.out("AND YOU MANAGED TO DEFEAT THE " + target.name)
+player.victories = player.victories || 0
+player.victories++
+delete data.rooms[player.room].contents
+} else {
+io.out("THE " + target.name + " DEFEATED YOU"
+player.strength = Math.floor(player.strength / )
+delete data.rooms[player.room].contents
+}
               if (player.strength == 0) {
                 break;
               }
