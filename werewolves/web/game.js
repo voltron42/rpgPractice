@@ -73,6 +73,9 @@ var gamefactory = (function(){
           }
           readout = readout.concat(text)
           var input = prompt(text.join("\n"))
+          if (input == null) {
+            throw "io escaped"
+          }
           readout.push(input)
           out.innerHTML = readout.join("<br/>").toUpperCase()
           out.scrollTop = out.scrollHeight
@@ -167,21 +170,24 @@ var gamefactory = (function(){
         "FIGHT":function(self,target) {
           var turns = {
             you:function() {
-if (Math.random() > .5) {
-io.out("YOU MANAGE TO WOUND IT")
-target.danger = Math.floor(5 * target.danger / 6)
-} else {
-io.out("YOU MISS")
-}
+              io.out("YOU ATTACK")
+              if (Math.random() > .5) {
+                io.out("YOU MANAGE TO WOUND IT")
+                target.danger = Math.floor(5 * target.danger / 6)
+              } else {
+                io.out("YOU MISS")
+              }
             },
             him:function() {
-if (Math.random() > .5) {
-io.out("THR MONSTER WOUNDS YOU")
-player.strength -= 5
-return player.strength <= 0
-} else {
-io.out("HE MISSED")
-}
+              io.out("THE " + target.name + " ATTACKS")
+              if (Math.random() > .5) {
+                io.out("THR MONSTER WOUNDS YOU")
+                player.strength -= 5
+                io.out(player.readout())
+                return player.strength <= 0
+              } else {
+                io.out("HE MISSED")
+              }
             }
           }
           var initiative = []
@@ -193,13 +199,13 @@ io.out("HE MISSED")
             initiative.push("you")
           }
           for (var x = 0; x < initiative.length; x++) {
-            if (turns[initiative[x]]) {
+            if (turns[initiative[x]]()) {
               break;
             }
           }
-if (player.strength <= 0) {
-return true
-}
+          if (player.strength <= 0) {
+            return true
+          }
           if (Math.random() <= 0.35) {
             return true;
           }
@@ -209,8 +215,9 @@ return true
             io.out("NO, YOU MUST STAND AND FIGHT")
           } else {
             player.room = player.path.pop()
-            io.out("YOU RUN BACK TO THE ROOM YOU WERE IN LAST") io.out(data.rooms[player.room].description)
-            returrn true
+            io.out("YOU RUN BACK TO THE ROOM YOU WERE IN LAST")
+            io.out(data.rooms[player.room].description)
+            return true
           }
         },
         "EAT":eat
@@ -221,17 +228,23 @@ return true
         while (true) {
           var answer = io.in(message)
           if (answer in options) {
-            break
+            return answer
+          }
+          answer = answer.toUpperCase()
+          if (answer in options) {
+            return answer
+          }
+          answer = answer.toLowerCase()
+          if (answer in options) {
+            return answer
           }
         }
-        return answer
       }
       return {
         play:function() {
           player.name = io.in("WHAT IS YOUR NAME, EXPLORER?")
           io.out(player.readout())
           while (player.room != data.init.exit) {
-            window.scrollTo(0,document.body.scrollHeight);
             io.out(data.rooms[player.room].description)
             var contents = data.rooms[player.room].contents
             if (contents > 0) {
@@ -242,9 +255,9 @@ return true
             } else if (contents < 0) {
               var monster = data.monsters[contents]
               io.out([
-              	 "DANGER...THERE IS A MONSTER HERE",
-              	 "IT IS A " + monster.name,
-              	 "THE DANGER LEVEL IS " + monster.danger + "!!!"
+                "DANGER...THERE IS A MONSTER HERE",
+                "IT IS A " + monster.name,
+                "THE DANGER LEVEL IS " + monster.danger + "!!!"
               ])
               var concluded = false
               var target = {danger:monster.danger,name:monster.name}
@@ -260,16 +273,16 @@ return true
                 var combatAction = inquireOfUser("WHAT DO YOU WANT TO DO?", combatActions)
                 concluded = combatActions[combatAction](player, target)
               }
-if (Math.random() × 16 > target.danger) {
-io.out("AND YOU MANAGED TO DEFEAT THE " + target.name)
-player.victories = player.victories || 0
-player.victories++
-delete data.rooms[player.room].contents
-} else {
-io.out("THE " + target.name + " DEFEATED YOU"
-player.strength = Math.floor(player.strength / )
-delete data.rooms[player.room].contents
-}
+              if (Math.random() * 16 > target.danger) {
+                io.out("AND YOU MANAGED TO DEFEAT THE " + target.name)
+                player.victories = player.victories || 0
+                player.victories++
+                delete data.rooms[player.room].contents
+              } else {
+                io.out("THE " + target.name + " DEFEATED YOU")
+                player.strength = Math.floor(player.strength / 2)
+                delete data.rooms[player.room].contents
+              }
               if (player.strength == 0) {
                 break;
               }
