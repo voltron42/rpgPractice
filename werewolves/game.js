@@ -49,7 +49,7 @@ var gamefactory = (function(game){
         },
         "EAT":gameactions.EAT,
         "EQUIP":function(self) {
-          var equiptment = gameactions.LIST_EQUIPTMENT();
+          state.player.equiptment = gameactions.LIST_EQUIPTMENT();
           if (Object.keys(equiptment).length == 0) {
             io.out("YOU HAVE NOTHING TO EQUIP")
           } else {
@@ -105,15 +105,71 @@ var gamefactory = (function(game){
           return selected
         }
       }
-      var events = {
-        INIT:function(opt) {
+      var travelEvents = {
+        "MOVE":function(self) {
+          state.state = "MOVE"
+          populateSelector(
+            menu,
+            optionfactory,
+            "WHERE DO YOU WANT TO GO?",
+            state.game.rooms[state.player.room].doors
+          )
+        },
+        "BUY":function(self) {
 
         },
-        MAIN:function(opt) {},
-        MOVE:function(opt) {},
-        COMBAT:function(opt) {},
-        PURCHASE:function(opt) {},
-        EQUIP:function(opt) {}
+        "EAT":gameactions.EAT,
+        "EQUIP":function(self) {
+
+        },
+        "STATUS":gameactions.STATUS
+      }
+      var events = {
+        INIT:function() {
+          io.out(state.player.readout())
+          events.MAIN()
+        },
+        MAIN:function() {
+          io.out(state.game.rooms[state.player.room].description)
+          if (state.player.strength == 0) {
+            io.out("YOU ARE DEAD.....")
+          } else if (state.player.room != state.game.init.exit) {
+            var contents = state.game.rooms[state.player.room].contents
+            if (contents < 0) {
+              var monster = state.game.monsters[contents]
+              var target = gameactions.INIT_COMBAT(state.player, monster)
+              state.state = "COMBAT"
+              populateSelector(menu, optionfactory, "WHAT DO YOU WANT TO DO?", combatActions)
+            } else {
+              if (contents > 0) {
+                gameactions.ACQUIRE(state.player, contents)
+              }
+              state.state = "TRAVEL"
+              populateSelector(menu, optionfactory, "WHAT DO YOU WANT TO DO?", travelEvents)
+            }
+          }
+        },
+        TRAVEL:function(opt) {
+          travelEvents[opt](state.player)
+        },
+        MOVE:function(opt) {
+          delete state.state
+          gameactions.MOVE(direction)
+          events.MAIN()
+        },
+        COMBAT:function(opt) {
+
+        },
+        PURCHASE:function(opt) {
+          delete state.state
+          gameactions.PURCHASE(opt)
+          events.MAIN()
+        },
+        EQUIP:function(opt) {
+          delete state.state
+          gameactions.EQUIP_SELECTED(state.player.equiptment,item)
+          delete state.player.equiptment
+        }
       };
       return {
         play:function() {
