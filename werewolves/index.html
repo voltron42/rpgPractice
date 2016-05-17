@@ -19,12 +19,13 @@
     <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript">
       var launch = function() {
-        gamefactory.build(document.getElementById("out"),document.getElementById("err")).play();
+        gamefactory.build(document.getElementById("out"),document.getElementById("err"),document.getElementById("menu")).play();
       }
     </script>
   </head>
   <body onload="launch()">
     <h1>WEREWOLVES &amp; WANDERER</h1>
+    <select id="menu"></select>
     <div id="out"></div>
     <div id="err"></div>
   </body>

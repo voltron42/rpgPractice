@@ -1,7 +1,7 @@
 var gamefactory = (function(game){
   var state = util.initgame(game)
   return {
-    build:function(out, err) {
+    build:function(out, err, menu) {
       var logs = {
         readout:[],
         errors:[]
@@ -28,7 +28,7 @@ var gamefactory = (function(game){
         "MOVE":function(self) {
           var direction = inquireOfUser(
             "WHERE DO YOU WANT TO GO?",
-            data.rooms[player.room].doors
+            state.game.rooms[state.player.room].doors
           )
           gameactions.MOVE(direction)
         },
@@ -75,19 +75,18 @@ var gamefactory = (function(game){
       }
       return {
         play:function() {
-          state.player.name = io.in("WHAT IS YOUR NAME, EXPLORER?")
           io.out(state.player.readout())
           while (state.player.room != state.game.init.exit) {
-            io.out(data.rooms[player.room].description)
-            var contents = data.rooms[player.room].contents
+            io.out(state.game.rooms[state.player.room].description)
+            var contents = state.game.rooms[state.player.room].contents
             if (contents > 0) {
               gameactions.ACQUIRE(state.player, contents)
             } else if (contents < 0) {
-              var monster = data.monsters[contents]
+              var monster = state.game.monsters[contents]
               gameactions.INIT_COMBAT(state.player, monster)
               while (!concluded) {
                 var combatAction = inquireOfUser("WHAT DO YOU WANT TO DO?", combatActions)
-                concluded = combatActions[combatAction](player, target)
+                concluded = combatActions[combatAction](state.player, target)
               }
               gameactions.CONCLUDE_COMBAT(state.player, monster)
               if (state.player.strength == 0) {
@@ -98,6 +97,9 @@ var gamefactory = (function(game){
             travelActions[action]()
           }
           gameactions.CONCLUDE_GAME()
+        },
+        resolve:function() {
+          menu.
         }
       }
     }
