@@ -55,7 +55,6 @@ var gamefactory = (function(game){
           } else {
             var item = inquireOfUser("WHAT DO YOU WANT TO EQUIP?", equiptment)
             gameactions.EQUIP_SELECTED(equiptment,item)
-            io.out(self.readout())
           }
         },
         "STATUS":gameactions.STATUS
