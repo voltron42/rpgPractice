@@ -14,7 +14,7 @@ var were = {
     }
   },
   store:[{
-    name:"FLAMING TOUCH",
+    name:"FLAMING TORCH",
     cost:15,
     limit:1,
     effect:"self.hasLight = true"

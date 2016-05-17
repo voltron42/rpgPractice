@@ -8,15 +8,17 @@ var util = (function(){
       return sum
     }
   }
-  function write(text, elem, logname, shouldAlert) {
-    if (!Array.isArray(text)) {
-      text = [text]
-    }
-    logs[logname] = logs[logname].concat(text,"")
-    elem.innerHTML = logs[logname].join("<br/>").toUpperCase()
-    elem.scrollTop = elem.scrollHeight
-    if (shouldAlert) {
-      alert(text.join("\n"))
+  function writer(elem, logobj, logname) {
+    return function(text, shouldAlert) {
+      if (!Array.isArray(text)) {
+        text = [text]
+      }
+      logobj[logname] = logobj[logname].concat(text,"")
+      elem.innerHTML = logobj[logname].join("<br/>").toUpperCase()
+      elem.scrollTop = elem.scrollHeight
+      if (shouldAlert) {
+        alert(text.join("\n"))
+      }
     }
   }
   function initgame(data) {
@@ -38,6 +40,20 @@ var util = (function(){
       store[item.name] = item
     })
     data.store = store
+    data.storelisting = function() {
+      var listing = [];
+      Object.keys(data.store).forEach(function(key) {
+        var item = data.store[key]
+        var listitem = []
+        listitem.push(key)
+        listitem.push("COST: " + item.cost + " GOLD")
+        if (item.limit) {
+          listitem.push("LIMIT: " + item.limit)
+        }
+        listing.push(listitem.join(" - "))
+      })
+      return listing
+    }
     Object.keys(data.monsters).forEach(function(key){
       rooms;
       var index = Math.floor(Math.random() * rooms.length)
@@ -61,26 +77,36 @@ var util = (function(){
     player.readout = function() {
       var readout = [];
       Object.keys(data.init.stats).forEach(function(key){
-        readout.push(key + ": " + player[key])
+        readout.push(key.toUpperCase() + ": " + player[key])
       })
       if (Object.keys(player.inventory).length > 0) {
-        readout.push("You Have:")
+        readout.push("YOU HAVE:")
         Object.keys(player.inventory).forEach(function(key){
-          var count = (player.inventory[key].count > 1)?count:""
-          var equipt = (player.inventory[key].mustEquip)?((player.inventory[key].equip)?"EQUIPT":"NOT EQUIPT"):""
-          var line = [key,count,equipt]
-          readout.push(line.join("; "))
+          var line = [key]
+          var count = player.inventory[key].count
+          if (count > 1) {
+            line.push("COUNT: " + count)
+          }
+          var equip = (player.inventory[key].equip)?"EQUIPT":"NOT EQUIPT"
+          if (player.inventory[key].mustEquip) {
+            line.push(equip)
+          }
+          readout.push(line.join(" - "))
         })
       }
       return readout;
     }
     return {
       game:data,
-      player:player
+      player:player,
+      state:"INIT"
     }
   }
   var gameactionsfactory = function(state, io){
     return {
+      STATUS:function(self) {
+        io.out(self.readout())
+      },
       EAT:function(self) {
         if (self.inventory.FOOD) {
           if (self.inventory.FOOD.count > 0) {
@@ -144,7 +170,7 @@ var util = (function(){
           self.room = self.path.pop()
           io.out("YOU RUN BACK TO THE ROOM YOU WERE IN LAST")
           io.out(state.game.rooms[self.room].description)
-          return true
+          throw "RUN"
         }
       },
       INIT_COMBAT:function(self, target) {
@@ -153,7 +179,6 @@ var util = (function(){
           "IT IS A " + target.name,
           "THE DANGER LEVEL IS " + target.danger + "!!!"
         ])
-        var concluded = false
         var target = {danger:target.danger,name:target.name}
         Object.keys(self.inventory).filter(function(itemname) {
           var item = self.inventory[itemname]
@@ -163,6 +188,7 @@ var util = (function(){
           eval(item.effect)
           target.danger = Math.floor(target.danger)
         })
+        return target
       },
       CONCLUDE_COMBAT:function(self,target) {
         if (Math.random() * 16 > target.danger) {
@@ -178,7 +204,7 @@ var util = (function(){
       },
       ACQUIRE:function(self,target) {
         io.out("YOU HAVE DISCOVERED " + target + " PIECES OF GOLD")
-        self.wealth += contents
+        self.wealth += target
         delete state.game.rooms[self.room].contents
         io.out(self.readout())
       },
@@ -187,23 +213,25 @@ var util = (function(){
         state.player.room = state.game.rooms[state.player.room].doors[direction]
       },
       PURCHASE:function(itemname) {
-        var storeitem = store[itemname]
-        var playeritem = player.inventory[itemname]
+        var storeitem = state.game.store[itemname]
+        var playeritem = state.player.inventory[itemname]
         if (playeritem) {
           if (playeritem.limit && playeritem.count == playeritem.limit) {
             io.out("YOU CANNOT PURCHASE ANY MORE OF THIS ITEM")
           } else {
-            player.wealth -= playeritem.cost
+            state.player.wealth -= playeritem.cost
             playeritem.count++
+            io.out(state.player.readout())
           }
         } else {
           playeritem = {}
           Object.keys(storeitem).forEach(function(key) {
             playeritem[key] = storeitem[key]
           })
+          state.player.wealth -= playeritem.cost
           playeritem.count = 1
-          player.inventory[itemname] = playeritem
-          io.out(player.readout())
+          state.player.inventory[itemname] = playeritem
+          io.out(state.player.readout())
         }
       },
       LIST_EQUIPTMENT:function() {
@@ -215,13 +243,14 @@ var util = (function(){
         })
         return equiptment
       },
-      EQUIP_SELECTED:function(item) {
+      EQUIP_SELECTED:function(equiptment,item) {
         Object.keys(equiptment).filter(function(otherItem) {
           return otherItem != item
         }).forEach(function(otherItem) {
           delete state.player.inventory[otherItem].equip
         })
         state.player.inventory[item].equip = true
+        io.out(state.player.readout())
       },
       CONCLUDE_GAME:function() {
         if (state.player.strength == 0) {
@@ -234,7 +263,7 @@ var util = (function(){
   }
   return {
     initgame:initgame,
-    write:write,
+    writer:writer,
     gameactionsfactory:gameactionsfactory
   }
 })()

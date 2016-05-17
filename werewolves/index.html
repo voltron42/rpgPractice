@@ -2,11 +2,17 @@
   <head>
     <title>WEREWOLVES &amp; WANDERER</title>
     <style>
+      select {
+        font-family: "Lucida Console", Monaco, monospace;
+        padding: 5px;
+        margin: 5px;
+      }
       div {
         font-family: "Lucida Console", Monaco, monospace;
         border: 1px solid black;
-        height: 600px;
+        height: 500px;
         overflow: scroll;
+        padding: 5px;
         margin: 5px;
       }
       div#err {
@@ -18,14 +24,23 @@
     <script type="text/javascript" src="util.js"></script>
     <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript">
+      var domain = {}
       var launch = function() {
-        gamefactory.build(document.getElementById("out"),document.getElementById("err"),document.getElementById("menu")).play();
+        domain.game = gamefactory.build(
+          document.getElementById("out"),
+          document.getElementById("err"),
+          document.getElementById("menu"),
+          function() {
+            return document.createElement("option")
+          }
+        )
+        domain.game.play();
       }
     </script>
   </head>
   <body onload="launch()">
     <h1>WEREWOLVES &amp; WANDERER</h1>
-    <select id="menu"></select>
+    <select id="menu" onchange="domain.game.resolve()"></select>
     <div id="out"></div>
     <div id="err"></div>
   </body>
