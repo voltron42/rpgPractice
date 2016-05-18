@@ -121,11 +121,13 @@ if (self.wealth <= 0) {
               "YOU DO NOT HAVE ANY GOLD",
               "YOU CANNOT BUY ANYTHING"
             ])
+delete state.state
 events.MAIN()
           } else {
             io.out(state.player.readout())
             io.out(state.game.storelisting())
-            var itemname = populateSelector("WHAT DO YOU WANT TO BUY?", state.game.store)
+state.state = "PURCHASE"
+            populateSelector("WHAT DO YOU WANT TO BUY?", state.game.store)
         },
         "EAT":gameactions.EAT,
         "EQUIP":function(self) {
@@ -133,7 +135,7 @@ state.player.equiptment = gameactions.LIST_EQUIPTMENT();
           if (Object.keys(equiptment).length == 0) {
             io.out("YOU HAVE NOTHING TO EQUIP")
           } else {
-            var item = inquireOfUser("WHAT DO YOU WANT TO EQUIP?", equiptment)
+            populateSelector("WHAT DO YOU WANT TO EQUIP?", equiptment)
             state.state = "EQUIP"
           }
         },
