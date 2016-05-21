@@ -116,30 +116,87 @@ var gamefactory = (function(game){
           )
         },
         "BUY":function(self) {
-if (self.wealth <= 0) {
+          if (self.wealth <= 0) {
             io.out([
               "YOU DO NOT HAVE ANY GOLD",
               "YOU CANNOT BUY ANYTHING"
             ])
-delete state.state
-events.MAIN()
+            delete state.state
+            events.MAIN()
           } else {
             io.out(state.player.readout())
             io.out(state.game.storelisting())
-state.state = "PURCHASE"
+            state.state = "PURCHASE"
             populateSelector("WHAT DO YOU WANT TO BUY?", state.game.store)
         },
         "EAT":gameactions.EAT,
         "EQUIP":function(self) {
-state.player.equiptment = gameactions.LIST_EQUIPTMENT();
+          state.player.equiptment = gameactions.LIST_EQUIPTMENT();
           if (Object.keys(equiptment).length == 0) {
             io.out("YOU HAVE NOTHING TO EQUIP")
           } else {
-            populateSelector("WHAT DO YOU WANT TO EQUIP?", equiptment)
             state.state = "EQUIP"
+            populateSelector("WHAT DO YOU WANT TO EQUIP?", equiptment)
           }
         },
         "STATUS":gameactions.STATUS
+      }
+      var combatEvents = {
+        "FIGHT":function(){
+          var turns = {
+            you:function() {
+              io.out("YOU ATTACK")
+              if (Math.random() > .5) {
+                io.out("YOU MANAGE TO WOUND IT")
+                target.danger = Math.floor(5 * target.danger / 6)
+              } else {
+                io.out("YOU MISS")
+              }
+            },
+            him:function() {
+              io.out("THE " + target.name + " ATTACKS")
+              if (Math.random() > .5) {
+                io.out("THR MONSTER WOUNDS YOU")
+                self.strength -= 5
+                io.out(self.readout())
+                return self.strength <= 0
+              } else {
+                io.out("HE MISSED")
+              }
+            }
+          }
+          var initiative = []
+          if (Math.random() > .5) {
+            initiative.push("him")
+            initiative.push("you")
+          } else {
+            initiative.push("him")
+            initiative.push("you")
+          }
+          for (var x = 0; x < initiative.length; x++) {
+            if (turns[initiative[x]]()) {
+              break;
+            }
+          }
+          if (self.strength <= 0) {
+            return true
+          }
+          if (Math.random() <= 0.35) {
+            return true;
+          }
+        },
+        "RUN":function(){
+          if (Math.random() > .7) {
+            io.out("NO, YOU MUST STAND AND FIGHT")
+            // TODO --
+          } else {
+            self.room = self.path.pop()
+            io.out("YOU RUN BACK TO THE ROOM YOU WERE IN LAST")
+            delete state.state
+            events.INIT()
+          }
+        },
+        "EAT":gameactions.EAT
       }
       var events = {
         INIT:function() {
@@ -175,7 +232,12 @@ state.player.equiptment = gameactions.LIST_EQUIPTMENT();
           events.MAIN()
         },
         COMBAT:function(opt) {
-
+          var contents = state.game.rooms[state.player.room].contents
+          if (contents < 0) {
+            var monster = state.game.monsters[contents]
+            combatActions[combatAction](state.player, monster)
+          }
+          // TODO --
         },
         PURCHASE:function(opt) {
           delete state.state
