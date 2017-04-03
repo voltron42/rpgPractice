@@ -5,15 +5,64 @@
     )
   )
 
+(defn decodeExpression [expression]
+  (let
+    [
+     d (fn makeDice [sideCount]
+         (fn rollDice
+           ([] (rollDice 1))
+           ([numberOf] (reduce + 0 (map #(inc (rand-int %)) (repeat numberOf sideCount))))
+           )
+         )
+     d20 (d 20)
+     opmap {
+            '+ +
+            '- -
+            '* *
+            '/ /
+            '> >
+            'd20 d20
+            }
+     resolver
+     (fn resolveExp [vars exp]
+       (let
+         [
+          resolveArg
+          (fn resolveAaarg [arg]
+            (if (seq? arg)
+              #(resolveExp vars arg)
+              (if (symbol? arg)
+                #(vars arg)
+                #(identity arg)
+                )
+              )
+            )
+          func (opmap (first exp))
+          args (map resolveArg (rest exp))
+          ]
+         (apply func (map #(%) args))
+         )
+       )]
+    (fn returnedFunction [varmap]
+      (resolver varmap expression)
+      )
+    )
+  )
+
 (defn printLines [allLines]
   (loop [lines allLines]
     (let [line (first lines)
           remaining (rest lines)
           ]
-      (if (col? line)
+      (if (coll? line)
         (let [
               expression (first line)
+              sublines (rest line)
               ]
+          (when
+            ((decodeExpression expression) {})
+            (printLines sublines)
+            )
           )
         (println line)
         )
