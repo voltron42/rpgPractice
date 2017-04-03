@@ -2,6 +2,17 @@
  :start 1
  :directions #{:NORTH :SOUTH :EAST :WEST :UP :DOWN}
  :rooms {
-         
+         1 {
+            :description [
+                          "YOU ARE IN THE HALLWAY"
+                          [
+                           (> (d20) 8)
+                           "FROM THE DUST ON THE GROUND YOU CAN TELL"
+                           "NO-ONE HAS WALKED HERE FOR A LONG, LONG TIME"
+                           ]
+                          "THERE IS A DOOR TO THE SOUTH"
+                          "THROUGH WINDOWS TO THE NORTH YOU CAN SEE A SECRET HERB GARDEN"
+                          ]
+            }
          }
  }

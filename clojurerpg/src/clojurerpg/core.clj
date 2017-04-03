@@ -7,10 +7,20 @@
 
 (defn printLines [allLines]
   (loop [lines allLines]
-    (println (first lines))
-    (when-not
-      (empty? (rest lines))
-      (recur (rest lines))
+    (let [line (first lines)
+          remaining (rest lines)
+          ]
+      (if (col? line)
+        (let [
+              expression (first line)
+              ]
+          )
+        (println line)
+        )
+      (when-not
+        (empty? remaining)
+        (recur remaining)
+        )
       )
     )
   )
