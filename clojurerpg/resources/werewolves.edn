@@ -1,0 +1,7 @@
+{
+ :start 1
+ :directions #{:NORTH :SOUTH :EAST :WEST :UP :DOWN}
+ :rooms {
+         
+         }
+ }

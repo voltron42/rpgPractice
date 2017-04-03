@@ -1,0 +1,11 @@
+{
+ :start 1
+ :directions #{:NORTH :SOUTH :EAST :WEST}
+ :rooms {
+         1 {:description ["YOU ARE IN ROOM NUMBER 1." "THERE ARE DOORS LEADING TO THE EAST AND TO THE SOUTH."] :doors {:EAST 3 :SOUTH 2}}
+         2 {:description ["YOU ARE IN ROOM NUMBER 2." "THERE ARE DOORS LEADING TO THE EAST AND TO THE NORTH."] :doors {:EAST 5 :NORTH 1}}
+         3 {:description ["YOU ARE IN ROOM NUMBER 3." "THERE ARE DOORS LEADING TO THE WEST AND TO THE SOUTH."] :doors {:WEST 1 :SOUTH 4}}
+         4 {:description ["YOU ARE IN ROOM NUMBER 4." "THERE ARE DOORS LEADING TO THE NORTH AND TO THE SOUTH."] :doors {:NORTH 4 :SOUTH 5}}
+         5 {:description ["YOU ARE IN ROOM NUMBER 5." "THERE ARE DOORS LEADING TO THE WEST AND TO THE NORTH."] :doors {:WEST 2 :NORTH 4}}
+         }
+ }
