@@ -14,14 +14,13 @@
            ([numberOf] (reduce + 0 (map #(inc (rand-int %)) (repeat numberOf sideCount))))
            )
          )
-     d20 (d 20)
      opmap {
             '+ +
             '- -
             '* *
             '/ /
             '> >
-            'd20 d20
+            'd20 (d 20)
             }
      resolver
      (fn resolveExp [vars exp]
