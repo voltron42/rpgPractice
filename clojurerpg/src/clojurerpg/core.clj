@@ -38,7 +38,10 @@
               #(resolveExp vars arg)
               (if (symbol? arg)
                 #(vars arg)
-                #(identity arg)
+                (if (keyword? arg)
+                  #(vars arg)
+                  #(identity arg)
+                  )
                 )
               )
             )
@@ -54,7 +57,7 @@
     )
   )
 
-(defn printLines [allLines]
+(defn printLines [allLines state]
   (loop [lines allLines]
     (let [line (first lines)
           remaining (rest lines)
@@ -65,8 +68,8 @@
               sublines (rest line)
               ]
           (when
-            ((decodeExpression expression) {})
-            (printLines sublines)
+            ((decodeExpression expression) state)
+            (printLines sublines state)
             )
           )
         (println line)
@@ -79,46 +82,57 @@
     )
   )
 
-(defn controlLoop [data]
+(defn move [data rooms directions state current]
+  (loop [current (:start data)]
+    (let
+      [
+       room (rooms current)
+       doors (:doors room)
+       description (:description room)
+       ]
+      (printLines description state)
+      (println "WHERE WOULD YOU LIKE TO GO?")
+      (printLines (map name (keys doors)) state)
+      (Thread/sleep 1000)
+      (let
+        [
+         input (keyword (clojure.string/upper-case (read-line)))
+         error (if
+                (= input :QUIT)
+                (throw (Exception. "QUITING GAME"))
+                (if
+                  (contains? directions input)
+                  (when-not (contains? doors input)
+                    (str "THERE IS NO DOOR TO THE " input)
+                    )
+                  (str input " IS NOT A VALID DIRECTION")
+                  )
+                )
+         ]
+        (if error
+          (do
+            (println error)
+            (recur current)
+            )
+          (doors input)
+          )
+        )
+      )
+    )
+  )
+
+(defn controlLoop [data gamestate]
   (try
     (let [
           rooms (:rooms data)
           directions (:directions data)
           ]
-      (loop [current (:start data)]
-        (let
-          [
-           room (rooms current)
-           doors (:doors room)
-           description (:description room)
-           ]
-          (printLines description)
-          (println "WHERE WOULD YOU LIKE TO GO?")
-          (printLines (map name (keys doors)))
-          (Thread/sleep 1000)
-          (let
-            [
-             input (keyword (clojure.string/upper-case (read-line)))
-             step (if
-                    (= input :EXIT)
-                    (throw (Exception. "EXITING GAME"))
-                    (if
-                      (contains? directions input)
-                      (if
-                        (contains? doors input)
-                        {:room (doors input)}
-                        {:error (str "THERE IS NO DOOR TO THE " input) :room current}
-                        )
-                      {:error (str input " IS NOT A VALID DIRECTION") :room current}
-                      )
-                    )
-             ]
-            (when
-              (:error step)
-              (println (:error step))
-              )
-            (recur (:room step))
-            )
+      (loop [state gamestate]                                   ; main control loop
+        (let [
+              stepstate (merge state {:STRENGTH (- (:STRENGTH state) 5) :TALLY (inc (:TALLY state))})
+              ]
+
+          (recur (assoc stepstate :ROOM (move data rooms directions stepstate (:ROOM stepstate))))
           )
         )
       )
@@ -132,8 +146,9 @@
     [
      filename (first args)
      data (edn/read-string (slurp filename))
+     state (:init data)
      ]
-    (println "TYPE 'EXIT' TO QUIT")
-    (controlLoop data)
+    (println "TYPE 'QUIT' TO QUIT THE GAME")
+    (controlLoop data state)
     )
   )
