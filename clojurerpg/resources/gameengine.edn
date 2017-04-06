@@ -1,0 +1,30 @@
+[
+ {:STRENGTH (- :STRENGTH 5)}
+ [
+  (< :STRENGTH 10)
+  "WARNING, YOUR STRENGTH"
+  "IS RUNNING LOW"
+  ]
+ [
+  (> 1 :STRENGTH)
+  ($#!+ "YOU ARE DEAD")
+  ]
+ {:TALLY (+ 1 :TALLY)}
+ "YOUR STRENGTH IS "
+ :STRENGTH
+ [
+  (< 0 :WEALTH)
+  {:message ($ "YOU HAVE " :WEALTH " GOLD")}
+  :message
+  ]
+ [
+  (< 0 :FOOD)
+  {:message ($ "YOU HAVE " :FOOD " PROVISIONS")}
+  :message
+  {:message nil}
+  ]
+ [
+  (!?= :LIGHT)
+  "IT IS TOO DARK TO SEE ANYTHING"
+  ]
+ ]

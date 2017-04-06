@@ -2,59 +2,39 @@
   (require
     [clojure.java.io :as io]
     [clojure.edn :as edn]
+    [clojurerpg.common :as common]
     )
   )
 
-(defn decodeExpression [expression]
-  (let
-    [
-     d (fn makeDice [sideCount]
-         (fn rollDice
-           ([] (rollDice 1))
-           ([numberOf] (reduce + 0 (map #(inc (rand-int %)) (repeat numberOf sideCount))))
-           )
-         )
-     opmap {
-            '+ +
-            '- -
-            '* *
-            '/ /
-            '> >
-            'd4 (d 4)
-            'd6 (d 6)
-            'd8 (d 8)
-            'd10 (d 10)
-            'd12 (d 12)
-            'd20 (d 20)
-            'd100 (d 100)
-            }
-     resolver
-     (fn resolveExp [vars exp]
-       (let
-         [
-          resolveArg
-          (fn resolveAaarg [arg]
-            (if (seq? arg)
-              #(resolveExp vars arg)
-              (if (symbol? arg)
-                #(vars arg)
-                (if (keyword? arg)
-                  #(vars arg)
-                  #(identity arg)
-                  )
-                )
-              )
-            )
-          func (opmap (first exp))
-          args (map resolveArg (rest exp))
-          ]
-         (apply func (map #(%) args))
-         )
-       )]
-    (fn returnedFunction [varmap]
-      (resolver varmap expression)
-      )
-    )
+(def decodeExpression (
+                        (fn []
+                          (let
+                            [
+                             d (fn makeDice [sideCount]
+                                 (fn rollDice
+                                   ([] (rollDice 1))
+                                   ([numberOf] (reduce + 0 (map #(inc (rand-int %)) (repeat numberOf sideCount))))
+                                   )
+                                 )
+                             opmap {
+                                    '+ +
+                                    '- -
+                                    '* *
+                                    '/ /
+                                    '> >
+                                    'd4 (d 4)
+                                    'd6 (d 6)
+                                    'd8 (d 8)
+                                    'd10 (d 10)
+                                    'd12 (d 12)
+                                    'd20 (d 20)
+                                    'd100 (d 100)
+                                    }
+                             ]
+                            (common/expressionDecoder opmap)
+                            )
+                          )
+                        )
   )
 
 (defn printLines [allLines state]

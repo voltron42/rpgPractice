@@ -1,0 +1,13 @@
+[
+"Hello World"
+...
+"What is your name?"
+ ...
+{:input (?)}
+...
+{:message ($ "Hello " :input)}
+:message
+...
+(+ 2 3)
+ ($#!+ "Oh no, not again!")
+]
