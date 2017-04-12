@@ -37,6 +37,8 @@
                                     '?= #(if % true false)
                                     '!?= #(if % false true)
                                     '$#!+ #(throw (Exception. (str %)))
+                                    '| (fn [firstArg & args] (reduce #(or %1 %2) firstArg args))
+                                    '& (fn [firstArg & args] (reduce #(and %1 %2) firstArg args))
                                     }
                              ]
                             (common/expressionDecoder opmap)
