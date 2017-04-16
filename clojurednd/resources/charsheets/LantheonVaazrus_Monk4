@@ -36,7 +36,7 @@
 <weaponList>3⊠Monk Unarmed Strike⊠5 feet⊠0⊠1⊠0⊠0⊠0⊠0⊠true⊠true⊠1⊠1⊠4⊠Shortsword⊠5 feet⊠1⊠1⊠0⊠0⊠0⊠0⊠true⊠true⊠1⊠1⊠6⊠Dart⊠20/60⊠1⊠1⊠0⊠0⊠0⊠0⊠true⊠true⊠1⊠1⊠4</weaponList>
 <abilityScores>12⊠12⊠14⊠10⊠6⊠11⊠true⊠true⊠true⊠false⊠false⊠false⊠0⊠0⊠0⊠0⊠0⊠0⊠0</abilityScores>
 <skillInfo>true⊠true⊠false⊠true⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠true⊠false⊠false⊠false⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false⊠false</skillInfo>
-<spellList>v1.1⊠0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡⊠false⊡false⊡false⊡false⊡false⊡false⊡false⊡false⊡false⊡false⊡⊠0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡⊠0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡⊠-1⊠0⊠false⊠⊟</spellList>
+<spellList>v1.1⊠0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡⊠true⊡false⊡false⊡false⊡false⊡false⊡false⊡false⊡false⊡false⊡⊠0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡⊠0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡⊠-1⊠0⊠false⊠⊟</spellList>
 <noteList>Dragonborn Features:
 • Brass Dragon
 • You can breathe a 30 ft line of Fire(once between rests), dealing 2d6 Fire damage, Dex save for half damage (DC 11). DC = 8 + Con mod + prof
@@ -57,17 +57,17 @@ Class Features:
 • You can use a reaction to reduce fall damage by 5 x Monk level
 • Resilient: You gain proficiency with one save and +1 to that ability
 ⊠⊠Simple Weapons, Shortswords
-⊠One type of artisan's tools OR one musical instrument
+⊠Cook's Utensils
 One type of gaming set
 Vehicles (land)
 ⊠Common
 Draconic
-⊠shortsword OR simple weapon
+⊠quarterstaff
 ten darts
-dungeoneer's pack OR explorer's pack
+explorer's pack
 rank insignia
 trophy
-set of bone dice OR deck of cards
+set of bone dice
 set of common clothes
 belt pouch
 ⊠⊠Monk 4⊠Dragonborn⊠Soldier⊠⊠⊠⊠⊠⊠Lantheon Vaazrus⊠Monk 4⊠0⊠0⊠0⊠10⊠0⊠0</noteList>

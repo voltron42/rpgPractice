@@ -1,0 +1,462 @@
+DM SCREEN
+03/22/15 Version 1.0.0
+New file uploaded
+03/22/15 Version 1.0.1 
+Fixed bug with Food, Drink, and Lodging table.
+03/28/15 Version 1.1.0
+Table of contents overhauled, tons of new information added.
+04/01/15 Version 1.1.1
+Added missing arrow to top under encounter difficulty chart
+Fixed typo in Food, Drink, and Lodging chart
+04/04/15 Version 1.1.2
+Added 3 new charts
+04/08/15 Version 1.2
+Added section for adventure modules, contains information like random encounter tables and other charts from the modules
+04/08/15 Version 1.2.1
+Fixed missing version indicator
+04/19/15 Version 1.3
+Gave the table of contents a look more in line with the rest of the app
+Gave the version indicator a fancy looking flag
+Added a currency conversion chart
+Added a column for basic weapon properties
+Added descriptions for weapon properties
+Added adventure module information
+04/20/15 Version 1.3.1
+Added wild magic surge chart
+04/21/15 Version 1.3.2
+Replaced arrows to get to the top of the screen with a bar at the top that scrolls with you
+04/21/15 Version 1.3.3
+Tweaked top bar
+05/02/15 Version 1.4.0
+Added weather table
+Added languages table
+Added name generator
+Added Random Tables section to Table of Contents
+Added 17 charts from Appendix A of the DMG
+Added 2 charts from the DM screen
+06/08/15 Version 1.4.1
+Replaced single left quotes and single right quotes with straight apostrophes
+Cleaned up whitespace
+09/16/15 Version 1.4.2
+Fixed various typos
+Corrected Phandelver encounter
+
+BACKGROUNDS
+03/30/15 Version 1.0
+Added all backgrounds from PHB.
+04/26/15 Version 1.0.1
+Changed from indent to linebreak
+04/30/15 Version 1.0.2
+Changed <text /> to <text></text>
+05/25/15 Version 1.0.3
+Fixed typo with false identity feature
+06/07/15 Version 1.1.0
+Fixed typos	in Acolyte, Charlatan, Criminal, Entertainer, Guild Artisan, Spy, Gladiator, Guild Merchant, Knight, and Hermit
+Cleaned up whitespace
+Fixed indentions
+06/11/15 Version 1.2.0
+Updated to support PHB Errata
+10/24/15 Version 1.3.0
+Added SCAG backgrounds
+
+CLASSES
+03/30/15 Version 1.0
+Added Paladin (Vengeance)
+03/30/15 Version 1.1
+Added complete Rogue, minor updates to Paladin (Vengeance)
+03/31/15 Version 1.2
+Added Barbarian, Bard, Cleric, Paladin, and Wizard
+04/01/15 Version 1.3 
+Added Ranger
+04/01/15 version 1.4
+Added Fighter
+Added basic versions of Druid, Sorcerer, and Warlock. These classes are NOT complete, but can be used in the interim.
+04/04/15 Version 1.5
+Updated druid
+04/05/15 Version 1.6
+Updated sorcerer
+04/10/15 Version 1.7
+Added monk
+04/10/15 Version 1.7.1
+Fixed bug with import
+04/19/15 Version 1.7.2
+Fixed bug with evasive footwork/feinting attack
+Cleaned up class "spells"
+Fixed missing sorcerer information
+04/20/15 Version 1.7.3
+Removed components line from class "spells"
+04/26/15 Version 1.7.4
+Changed from indent to linebreak
+04/30/15 Version 1.7.5
+Changed <text /> to <text></text>
+05/02/15 Version 1.8.0
+Changed monk "spells" to sort based on level
+Made style more consistent throughout
+We know there are still some problems with the files, and that the two unearthed arcana classes have not been added. Subclasses are coming in the next month or so, and we will be doing a rewrite of the file then.
+05/07/15 Version 1.9.0
+Added classes from unearthed arcana
+05/17/15 Version 1.9.1
+corrected cleric text block saving throws, added missing feature to sorc.storm
+06/08/15 Version 2.0.0
+Rewrote entire file from scratch to support subclasses using the optional features that came in version 1.2.5 of Fight Club, you will need to delete your entire compendium in settings to remove the old classes.
+Added all Unearthed Arcana content
+06/08/15 Version 2.0.1
+Removed Cleric's Cantrip section from Paladin
+Added spellcasting feature to Wizard
+Made Pact Magic's formatting consistent with other spellcasting features
+Various formatting and typo fixes
+06/11/15 Version 2.1.0
+Updated to support PHB Errata version 1.0
+06/22/15 Version 2.1.1
+Minor changes to reflect Errata version 1.1
+06/22/15 Version 2.1.2 
+Fixed a mistake which reverted previous fixes
+07/21/15 Version 2.2
+Changed paladin hit dice from d8 to d10
+Added Mystic class (rules have only been released for up to level 5, so that's all that's included in the files)
+10/24/15 Version 2.3
+Added SCAG subclasses
+
+FEATS
+03/30/15 Version 1.0
+Added all feats from Player's Handbook
+04/26/15 Version 1.0.1
+Changed from indent to linebreak
+04/30/15 Version 1.0.2
+Changed <text /> to <text></text>
+05/02/15 Version 1.1.0
+Added sources to feats
+Added missing eberron feats
+05/03/15 Version 1.1.1
+Fixed parser error
+05/25/15 Version 1.1.2
+Fixed minor error
+06/08/15 Version 1.2.0
+Fixed missing <feat> tag for Dragonmark of Detection
+Fixed orphaned <text> elements for Resilient
+Cleaned up whitespace
+Removed spaces from inside words
+Cleaned up dice expressions
+06/11/15 Version 1.3.0
+Updated to support PHB Errata
+
+RACES
+03/30/15 Version 1.0
+Added all races from Player's Handbook, Unearthed Arcana: Eberron, and Elemental Evil.
+03/31/15 Version 1.0.1 
+Changed subraces to be Race (Subrace) instead of Subrace Race, so that they are sorted alphabetically by Race, not subrace. Importing the new file will create duplicate races and you will need to delete the old ones.
+03/31/15 Version 1.0.2
+Fixed Cliffwalk Shifter's missing parenthesis
+04/04/15 Version 1.1
+Added proficincies to races
+04/26/15 Version 1.1.1
+Changed from indent to linebreak
+04/30/15 Version 1.1.2
+Changed <text /> to <text></text>
+05/05/15 Version 1.1.3
+Added minotaur
+06/08/15 Version 1.2.0
+Cleaned up whitespace
+Fixed typo in Aasamir
+Fixed indentions
+Minor formatting fixes
+06/11/15 Version 1.3.0
+Updated to support PHB Errata
+10/24/15 Version 1.4.0
+Added SCAG races
+
+HOARD OF THE DRAGON QUEEN BESTIARY
+04/04/15 Version 1.0
+Added all creatures from HotDQ
+04/19/15 Version 1.0.1 
+Minor text fixes
+05/05/15 Version 1.1
+Added spells to all monsters
+Added source ("tyranny of dragons") to the <type> line for each monster. This makes it show up after the monsters type. For example, CR 4 humanoid (human), monster manual
+06/08/15 Version 1.1.1
+Cleaned up dice expressions
+Cleaned up whitespace
+
+MONSTER MANUAL BESTIARY
+03/07/15 Version 1.0 
+Contains monsters from the basic rules pdf
+03/23/15 Version 1.1
+Fixed attacks in all monsters from bestiary.
+03/26/15 Version 1.1.1 
+Added Aaracokra
+03/29/15 Version 2.0
+Added all monsters from DMG 
+03/30/15 Version 2.0.1
+Corrections and rolls added from MM pg. 12 - 78 (From Aarakocra to all Devils)
+03/31/15 Version 2.0.2
+Fixed major bug preventing file from being imported.
+04/02/15 Version 2.0.3
+Added 2 creatures from Mines of Phandelver
+04/02/15 Version 2.0.4
+Removed Mines of Phandelver monsters
+Renamed to Monster Manual Bestiary
+04/04/15 Version 2.0.5
+Fixed typos
+05/02/15 Version 2.1.0
+Added rolls to all creatures
+Fixed passive perception/damage resistance issue which mainly affected undead
+05/05/15 Version 2.2
+Added spells to all monsters
+Added source ("monster manual") to the <type> line for each monster. This makes it show up after the monsters type. For example, CR 4 humanoid (human), monster manual
+06/08/15 Version 2.2.1
+Cleaned up dice expressions
+Cleaned up whitespace
+Replaced "l" with "1"
+
+OUT OF THE ABYSS BESTIARY
+10/11/15 Version 1.0
+Added all mosnters from the Out of the Abyss adventure
+
+PHANDELVER BESTIARY 
+04/02/15 Version 1.0
+Added all monsters from Mines of Phandelver that are not in the monster manual
+05/05/15 Version 1.1
+Added spells to all monsters
+Added source ("lost mine of phandelver") to the <type> line for each monster. This makes it show up after the monsters type. For example, CR 4 humanoid (human), monster manual
+06/08/15 Version 1.1.1
+Cleaned up dice expressions
+Cleaned up whitespace
+
+PLAYER BESTIARY
+03/29/15 Version 2.0
+Added all creatures that players would need (summoning, companions, mounts, etc.)
+05/02/15 Version 2.1
+Added a few missing creatures
+Added rolls
+05/05/15 Version 2.2
+Added spells to all monsters
+Added source ("elemental evil" or "monster manual") to the <type> line for each monster. This makes it show up after the monsters type. For example, CR 4 humanoid (human), monster manual
+06/08/15 Version 2.2.1
+Cleaned up dice expressions
+Cleaned up whitespace
+Replaced "l" with "1"
+
+PRINCES OF THE APOCALYPSE BESTIARY
+04/30/15 Version 1.0
+Added all Prince of the Apocalypse creatures
+05/05/15 Version 1.1
+Added spells to all monsters
+Added source ("elemental evil") to the <type> line for each monster. This makes it show up after the monsters type. For example, CR 4 humanoid (human), monster manual
+06/08/15 Version 1.1.2
+Cleaned up dice expressions
+Cleaned up whitespace
+
+RISE OF TIAMAT BESTIARY
+04/19/15 Version 1.0
+Added all creatures from Rise of Tiamat
+05/05/15 Version 1.1
+Added spells to all monsters
+05/05/15 Version 1.1.1
+Added missing </monster> tag to line 104
+Added source ("tyranny of dragons") to the <type> line for each monster. This makes it show up after the monsters type. For example, CR 4 humanoid (human), monster manual
+06/07/15 Version 1.1.2
+Cleaned up whitespace
+
+FUTURISTIC ITEMS 
+04/26/15 Version 1.0
+Added all items from DMG
+05/02/15 Version 1.1
+Added magic versions of the items
+Added rolls to certain items
+Added source to items
+06/08/15 Version 1.1.1
+Cleaned up whitespace
+
+MAGIC ITEMS
+03/08/15 Version 1.0
+Started adding magic items from Dungeon master guide. 
+03/11/15 Version 2.0
+Updated with all armor and potions, fixed bug which prevented importing
+03/11/15 Version 2.1 
+Fixed some bugs which prevented importing. Will test better next time.
+03/14/15 Version 3.0
+Added Wands and Rods
+03/20/15 Version 3.1
+replaced <text></text> with <text /> and removed <src> tags
+03/29/15 Version 4.0
+Added the rest of the magic items from the DMG. I did some formatting changes to item names, so when you import Version 4.0 there will be some duplicates.
+04/04/15 Version 4.1
+Added items from Tyranny of Dragon and Mines of Phandelver
+Added HotDQ items
+04/04/15 Version 4.1.1
+Added ToD items
+04/05/15 Version 4.1.2
+Fixed bug with importing
+04/26/15 Version 4.2.0
+Added modifiers to appropriate items. Plate armor +1 is now 18 AC with a modifier of +1 AC, for example.
+Added sources to items
+Added unique items
+Started adding elemental evil items
+04/26/15 Version 4.2.1
+Fixed glamoured studded leather armor
+04/30/15 Version 4.3
+Added rest of Princes of the Apocalypse items
+05/02/15 Version 4.3.1
+Added rolls to all items
+06/08/15 Version 4.4.0
+Cleaned up whitespace
+Cleaned up dice expressions
+Removed spaces inside words
+06/18/15 version 4.4.1
+Fixed sentinel shield passive wisdom bonus
+10/11/15 Version 4.5.0
+Added all items from the Out of the Abyss adventure
+10/24/15 Version 4.6.0
+Added magical versions of Spiked Armor
+Cleanup whitespace
+
+MODERN ITEMS
+04/26/15 Version 1.0
+Added all items from DMG and article on D&D Website
+05/02/15 Version 1.1
+Added magic versions of the items
+Added rolls to certain items
+Added source to items
+06/08/15 Version 1.1.1
+Cleaned up whitespace
+Removed spaces inside words
+
+MUNDANE ITEMS
+03/07/15 Version 1.0
+Contains all mundane items from players handbook. I have no plans to further update this list.
+03/11/15 Version 2.0
+Updated list to fix typos, optimized file to reduce size. 
+Changed name to Mundane Items
+03/14/15 Version 2.1
+Fixed Holy Water
+03/20/15 Version 2.2
+Removed outdated <src> tag
+04/01/15 Version 2.3
+Added equipment packs
+04/26/15 Version 2.4
+Added more text to items
+Added sources to items
+05/02/15 Version 2.4.1
+Added rolls to a few items
+Fixed issue with climber's kit
+05/05/15 Version 2.5
+Added poison
+06/08/15 Version 2.5.1
+Cleaned up whitespace
+10/24/15 Version 2.5.2
+Added Spiked Armor
+Cleaned up whitespace (again)
+
+RENAISSANCE ITEMS 
+04/26/15 Version 1.0
+Added all items from DMG
+05/02/15 Version 1.1
+Added magic versions of the items
+Added rolls to certain items
+Added source to items
+06/08/15 Version 1.2
+Fixed magic items not actually showing up
+Removed whitespace
+
+VALUABLE ITEMS
+05/05/15 Version 1.0
+Added gemstones and art objects with their value before their name, so that they sort by value.
+06/08/15 Version 1.0.1
+Cleaned up whitespace
+
+PHB SPELLS
+03/15/15 Version 3.0
+With formatting corrections from 3/14/15, file is small enough to be combined again.
+04/01/15 Version 3.1
+Added Eldritch Knight class
+04/10/15 Version 3.2
+Fixed Eldritch Knight cantrips
+Added Arcane Trickster 
+04/22/15 Version 3.3
+Added rolls to all spells
+Fixed formatting on certain spells
+04/26/15 Version 3.4
+Replaced auto indent with line breaks
+05/02/15 Version 3.4.1
+Fixed roll modifiers
+05/05/15 Version 3.4.2
+Fixed armor of agathys
+06/07/15 Version 3.4.3
+Fixed typos/formatting errors
+06/08/15 Version 3.4.4
+Cleaned up whitespace
+06/11/15 Version 3.4.5
+Updated with PHB Errata
+06/12/15 Version 3.4.6
+Fixed import error
+10/12/15 Version 3.5.0
+Added missing spell "Circle of Power"
+Cleaned up typos
+Fixed hyphenated words missing their hyphens
+10/24/15 Version 3.6.0
+Added SCAG subclasses
+10/29/15 Version 3.6.1
+Fixes subclass typos
+
+EE Spells
+03/11/15 Version 1.0
+Complete with all spells from the new PDF supplement.
+03/14/15 Version 2.0
+Formatting and error correction
+04/01/15 Version 2.1 
+Added Eldritch Knight class
+04/10/15 Version 2.2
+Moved (EE) from class name to spell name. Delete compendium and reimport everything to remove the extra categories
+Fixed Eldritch Knight cantrips
+Added Arcane Trickster 
+04/22/15 Version 2.3
+Added rolls to all spells
+Fixed formatting on certain spells
+04/26/15 Version 2.4
+Replaced auto indent with line breaks
+05/02/15 Version 2.4.1
+Fixed roll modifiers
+06/07/15 Version 2.4.2
+Fixed typos/formatting errors
+06/08/15 Version 2.4.3
+Cleaned up whitespace
+
+MODERN MAGIC
+08/12/15 Version 1.0
+Added all spells from Unearthed Arcana PDF
+08/26/15 Version 1.0.1
+Fixed import bug
+10/12/15 Version 1.0.2
+Small typo fix
+
+RUSSIAN SPELLS
+09/16/15 Version 1.0
+Added Russian translation of spells.
+
+SCAG SPELLS
+10/24/15 Version 1.0.0
+Added SCAG cantrips
+
+BESTIARY COMPENDIUM
+10/24/15 Version 1.0.0
+Combines all bestiary files
+
+CHARACTER COMPENDIUM
+10/24/15 Version 1.0.0
+Combines all character files
+
+FULL COMPENDIUM
+10/24/15 Version 1.0.0
+Combines Bestiaries, Spells, and Items for the official game (modern, renaissance, etc. are not included)
+10/29/15 Version 1.0.1
+Fixes subclass typos for spells
+
+ITEMS COMPENDIUM
+10/24/15 Version 1.0.0
+Combines all items for the official game (Modern, futuristic, etc. not included)
+
+SPELLS COMPENDIUM
+10/24/15 Version 1.0.0
+Combines PHB, EE, SCAG spell files
+10/29/15 Version 1.0.1
+Fixes subclass typos
