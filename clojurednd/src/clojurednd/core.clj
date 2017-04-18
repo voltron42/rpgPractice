@@ -3,7 +3,7 @@
             [clojure.zip :as zip])
   (:import (java.io File)))
 
-(def delimiter (char 8864))
+(def delimiters [8864 8865 8863])
 
 (def resolverMap
   ((fn []
@@ -41,17 +41,31 @@
                     :featCode
                     ]
                  #(if (nil? %) nil (Boolean/parseBoolean %)) [:showDeathSaves]
-                 #(clojure.string/split % (re-pattern (str delimiter))) [
-                      :classData
+                 #(->> delimiters
+                       (first)
+                       (char)
+                       (str)
+                       (re-pattern)
+                       (clojure.string/split %)
+                       ) [
                       :weaponList
                       :abilityScores
                       :skillInfo
-                      :spellList
                       :noteList
                       :hitDiceList
                       :classResource
                       ]
                  #(if (empty? %) "" (clojure.string/split % #",")) [:multiclassFeatures]
+                 #(->> delimiters
+                       (first)
+                       (char)
+                       (str)
+                       (re-pattern)
+                       (clojure.string/split %)
+                       ) [
+                       :classData
+                       :spellList
+                       ]
                  }
            ]
        (reduce (fn [out [k vs]] (reduce (fn [prev v] (assoc prev v k)) out vs)) {} flip)
