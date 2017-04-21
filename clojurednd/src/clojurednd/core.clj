@@ -40,7 +40,12 @@
      )
   )
 
-(defn mapObj [func obj] (reduce (fn [out [k v]] (assoc out k (func (vector k v)))) {} obj))
+(defn mapObj [func obj]
+  (reduce
+    (fn [out [k v]]
+      (assoc out k (func (vector k v))))
+    {}
+    obj))
 
 (defn mapSplit [delim func] #(map func ((buildSplitter delim) %)))
 
@@ -76,7 +81,7 @@
           (loop [out [] step count vals values]
             (if (= 0 step)
               out
-              (recur (concat out (vector (obBuilder (take fieldCount vals)))) (dec step) (drop fieldCount vals))
+              (recur (concat out (vec (obBuilder (take fieldCount vals)))) (dec step) (drop fieldCount vals))
               )
             )
           )
@@ -116,20 +121,49 @@
   )
 
 (defn listInverter [fields objNames & fieldFuncs]
-  (let [buildObj (objectBuilder fields)
-        fieldFunc (buildFieldFunc fieldFuncs)]
+  (let [
+        objCount (count objNames)
+        buildObj (objectBuilder fields)
+        fieldFunc (buildFieldFunc fieldFuncs)
+        wrapFlip #(->> %
+                       (map buildObj)
+                       (map fieldFunc)
+                       (interleave objNames)
+                       (apply vector)
+                       )
+        ]
+    (println "fields: " fields)
+    (println "obj names: " objNames)
+    (println "obj count: " objCount)
     (fn [values]
-      (let [objCount (count objNames)
-            flipmix (loop [out (map vector (take objCount values))
-                           vals (drop objCount values)
-                           ]
-                      (if (< (count vals) objCount)
-                        out
-                        (recur (mapv conj out (take objCount vals)) (drop objCount vals))
+      (try
+        (println "values: " values)
+        (let [flipmix (loop [
+                             out (map vector (take objCount values))
+                             vals (drop objCount values)
+                             ]
+                        (println (str "out: " out))
+                        (println (str "vals: " vals))
+                        (println "")
+                        (if (< (count vals) objCount)
+                          out
+                          (recur
+                            (mapv concat out (map vec (take objCount vals)))
+                            (drop objCount vals)
+                            )
+                          )
                         )
-                      )
-            ]
-        (apply vector (interleave objNames (map fieldFunc (map buildObj flipmix))))
+              ]
+          (println flipmix)
+          (wrapFlip flipmix)
+          )
+        (catch Exception e
+          (println (str "Exception thrown"))
+          (println "fields: " fields)
+          (println "obj names: " objNames)
+          (println "obj count: " objCount)
+          (println "Exception: " e)
+          )
         )
       )
     )
@@ -211,9 +245,14 @@
                      )
       )
           output (map loadFile files)
+          abilityscores (->> output (first) (:contents) (:abilityScores))
 ]
-      (println (->> output (first) (:contents) (:abilityScores) (type)))
-      ;;(println output)
+      (println "output type: " (type output))
+      (println "output keys: " ())
+      (println "ability scores: " abilityscores)
+      (println "ability scores type: " (type abilityscores))
+      (println "ability scores first: " (first abilityscores))
+    ;;(println output)
     ;;(spit "characters.edn" output)
     )
     (catch Exception e

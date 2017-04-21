@@ -27,8 +27,8 @@
     <excludes null="true" />
     <alwaysExpandTestClasses>false</alwaysExpandTestClasses>
     <autoViewInCloudReport>true</autoViewInCloudReport>
-    <flushPolicy>0</flushPolicy>
     <filteredHighlight>-11513776</filteredHighlight>
+    <flushPolicy>0</flushPolicy>
     <outOfDateHighlight>-16777201</outOfDateHighlight>
     <showInline>true</showInline>
     <dumpInstrumentedSources>false</dumpInstrumentedSources>
@@ -51,8 +51,8 @@
     <generatedInitString>C:\projects\clojurednd\.clover\coverage.db</generatedInitString>
     <regexpContexts class="java.util.ArrayList" />
     <flushInterval>5000</flushInterval>
-    <viewIncludeAnnotation>true</viewIncludeAnnotation>
     <flattenPackages>false</flattenPackages>
+    <viewIncludeAnnotation>true</viewIncludeAnnotation>
     <loadPerTestData>true</loadPerTestData>
     <showErrorMarks>true</showErrorMarks>
     <buildWithClover>true</buildWithClover>
@@ -72,12 +72,12 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="core.clj" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/clojurednd/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="152" column="57" lean-forward="false" selection-start-line="152" selection-start-column="57" selection-end-line="152" selection-end-column="57" />
+            <state relative-caret-position="394">
+              <caret line="155" column="15" lean-forward="true" selection-start-line="155" selection-start-column="15" selection-end-line="155" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -96,6 +96,7 @@
       <find>Integer/parseInt</find>
       <find>Boolean/parseBoolean</find>
       <find>println</find>
+      <find>conj</find>
     </findStrings>
     <replaceStrings>
       <replace>Integer/parseInt</replace>
@@ -155,9 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -240,6 +238,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -259,7 +260,7 @@
       <recent name="C:\projects\clojurednd\resources" />
     </key>
   </component>
-  <component name="ReplState" timestamp="1492788217471">{:repl-history {:ide [], :local [&quot;\n(clojurednd.core/-main)&quot; &quot;0\n(clojurednd.core/-main)&quot; &quot;(map int (seq \&quot;⊡⊟\&quot;))&quot; &quot;(count [\&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot;])&quot; &quot;(count [\&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot;])&quot; &quot;(/ (count [\&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot;]) 19) &quot; &quot;(defn flip [lista listb] (mapv conj (map vector lista) listb))&quot; &quot;(flip [:a :b :c] [:x :y :z])&quot; &quot;(def listAbilities (clojurednd.core/listInverter (:abilityFields clojurednd.core/headers) (:abilities clojurednd.core/headers)))&quot; &quot;(listAbilities [\&quot;14\&quot; \&quot;13\&quot; \&quot;19\&quot; \&quot;9\&quot; \&quot;13\&quot; \&quot;10\&quot; \&quot;true\&quot; \&quot;false\&quot; \&quot;true\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot;])&quot; &quot;(clojurednd.core/varListBuilder (:weapon :damageDice :dice))&quot; &quot;(clojurednd.core/varListBuilder (:weapon clojurednd.core/headers) :damageDice (:dice clojurednd.core/headers))&quot; &quot;(weaponList [\&quot;4\&quot;\n             \&quot;Greatsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;2\&quot; \&quot;6\&quot;\n             \&quot;Longsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n             \&quot;Light Crossbow\&quot; \&quot;80/320\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;0\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n             \&quot;Handaxe\&quot; \&quot;20/60\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;6\&quot;])&quot; &quot;(weaponList 4 [\&quot;Greatsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;2\&quot; \&quot;6\&quot;\n               \&quot;Longsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n               \&quot;Light Crossbow\&quot; \&quot;80/320\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;0\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n               \&quot;Handaxe\&quot; \&quot;20/60\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;6\&quot;])&quot; &quot;(def weaponList (clojurednd.core/varListBuilder (:weapon clojurednd.core/headers) :damageDice (:dice clojurednd.core/headers)))&quot; &quot;(weaponList [\&quot;4\&quot; \&quot;Greatsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;2\&quot; \&quot;6\&quot;\n               \&quot;Longsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n               \&quot;Light Crossbow\&quot; \&quot;80/320\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;0\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n               \&quot;Handaxe\&quot; \&quot;20/60\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;6\&quot;])&quot; &quot;(weaponList)&quot; &quot;(clojurednd.core/listBuilder (:hitDice clojurednd.core/headers))&quot; &quot;(:weapon clojurednd.core/headers)&quot; &quot;(:dice clojurednd.core/headers)&quot; &quot;(into {} (:numberOf \&quot;3\&quot; :sideCount \&quot;8\&quot; :remaining \&quot;3\&quot;))&quot; &quot;(apply (partial into {}) (:numberOf \&quot;3\&quot; :sideCount \&quot;8\&quot; :remaining \&quot;3\&quot;))&quot; &quot;(apply assoc {} (:numberOf \&quot;3\&quot; :sideCount \&quot;8\&quot; :remaining \&quot;3\&quot;))&quot; &quot;(apply (partial assoc {}) (:numberOf \&quot;3\&quot; :sideCount \&quot;8\&quot; :remaining \&quot;3\&quot;))&quot; &quot;(def listAbilities (clojurednd.core/listInverter (:abilityFields clojurednd.core/headers) (:abilities clojurednd.core/headers) {:modifier (fn [{:keys [score]}] (int (/ (- score 10) 2)))}))&quot; &quot;(listAbilities [\&quot;14\&quot; \&quot;11\&quot; \&quot;15\&quot; \&quot;12\&quot; \&quot;9\&quot; \&quot;15\&quot; \&quot;false\&quot; \&quot;true\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;true\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot;])\\&quot; &quot;(def listAbilities (clojurednd.core/listInverter (:abilityFields clojurednd.core/headers) (:abilities clojurednd.core/headers) {:score (fn [{:keys [score]}] (Integer/parseInt score))} {:modifier (fn [{:keys [score]}] (int (/ (- score 10) 2)))}))&quot; &quot;(def listAbilities (clojurednd.core/listInverter (:abilityFields clojurednd.core/headers) (:abilities clojurednd.core/headers) {:score (fn [{:keys [score]}] (Integer/parseInt score)) :isSaveProficient (fn [{:keys [isSaveProficient]}] (Boolean/parseBoolean isSaveProficient))} {:modifier (fn [{:keys [score]}] (int (/ (- score 10) 2)))}))&quot; &quot;(defn testKeys [{:keys [a b]}]\n  (println a)\n  (println b)\n  )&quot; &quot;(defn testKeys [{:keys [a b]}]\n  (println (empty? a))\n  (println (empty? b))\n  )&quot; &quot;(testKeys {})&quot; &quot;(def listHitDice (clojurednd.core/listBuilder (:hitDice clojurednd.core/headers)))&quot; &quot;(listHitDice [\&quot;2\&quot; \&quot;3\&quot; \&quot;8\&quot; \&quot;3\&quot; \&quot;4\&quot; \&quot;10\&quot; \&quot;4\&quot;])&quot; &quot;(def listAbilities (clojurednd.core/listInverter (:abilityFields clojurednd.core/headers) (:abilities clojurednd.core/headers) {:score (fn [{:keys [score]}] (Integer/parseInt score)) :bonus (fn [{:keys [bonus]}] (Integer/parseInt bonus)) :isSaveProficient (fn [{:keys [isSaveProficient]}] (Boolean/parseBoolean isSaveProficient))} {:modifier (fn [{:keys [score]}] (int (/ (- score 10) 2)))}))&quot; &quot;(listAbilities [\&quot;14\&quot; \&quot;11\&quot; \&quot;15\&quot; \&quot;12\&quot; \&quot;9\&quot; \&quot;15\&quot; \&quot;false\&quot; \&quot;true\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;true\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot;])&quot; &quot;(def weaponList (clojurednd.core/varListBuilder (:weapon clojurednd.core/headers) :damageDice (:dice clojurednd.core/headers)))\n&quot; &quot;(weaponList [\&quot;2\&quot; \&quot;Longsword\&quot; \&quot;5 feet\&quot; \&quot;1102\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot; \&quot;Dagger\&quot; \&quot;20/60\&quot; \&quot;1101\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;4\&quot;])&quot; &quot;(clojurednd.core/mapObj clojurednd.core/embedKey {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:score :bonus]})&quot; &quot;(clojurednd.core/flipMap {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:score :bonus]})&quot; &quot;(clojurednd.core/mapObj\n  (fn [[k f]] (do (println k) #(f (% k))))\n  (clojurednd.core/flipMap {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:score :bonus]})\n  ) \n&quot; &quot;(clojurednd.core/mapObj\n  (fn perEntry [[k f]] (do (println k) (fn [obj] (f (obj k)))))\n  (clojurednd.core/flipMap {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:score :bonus]})\n  ) \n&quot; &quot;(clojurednd.core/mapObj\n  clojurednd.core/embedKey\n  (clojurednd.core/flipMap {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:score :bonus]})\n  ) \n&quot; &quot;((clojurednd.core/buildSplitter #\&quot;,\&quot;) \&quot;1,2,3,4\&quot;) &quot; &quot;((clojurednd.core/mapSplit #\&quot;,\&quot; #(Integer/parseInt %)) \&quot;1,2,3,4\&quot;)&quot; &quot;(clojurednd.core/charFuncs {:abilityScores \&quot;14⊠13⊠19⊠9⊠13⊠10⊠true⊠false⊠true⊠false⊠false⊠false⊠0⊠0⊠0⊠0⊠0⊠0⊠0\&quot;})&quot; &quot;(let [result ])&quot; &quot;(let [result (clojurednd.core/charFuncs {:abilityScores \&quot;14⊠13⊠19⊠9⊠13⊠10⊠true⊠false⊠true⊠false⊠false⊠false⊠0⊠0⊠0⊠0⊠0⊠0⊠0\&quot;})] (:abilityScores result))&quot; &quot;(def split8864 (clojurednd.core/mapSplit (clojurednd.core/charDelim 8864)))&quot; &quot;(def split8864 (clojurednd.core/mapSplit (clojurednd.core/charDelim 8864) identity))&quot; &quot;(split8864 \&quot;1⊠7⊠10⊠7\&quot;)&quot; &quot;(def buildHitDice (clojurednd.core/mapSplit (clojurednd.core/charDelim 8864) (clojurednd.core/listBuilder\n                                                                            (:hitDice clojurednd.core/headers)\n                                                                            (-&gt;&gt; {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:numberOf :sideCount :remaining]} (clojurednd.core/flipMap) (clojurednd.core/mapObj clojurednd.core/embedKey))\n                                                                            )))&quot; &quot;(buildHitDice \&quot;1⊠7⊠10⊠7\&quot;)&quot; &quot;(clojurednd.core/-main)&quot;], :remote []}}</component>
+  <component name="ReplState" timestamp="1492812251699">{:repl-history {:ide [], :local [&quot;\n(clojurednd.core/-main)&quot; &quot;0\n(clojurednd.core/-main)&quot; &quot;(map int (seq \&quot;⊡⊟\&quot;))&quot; &quot;(count [\&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot;])&quot; &quot;(count [\&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot;])&quot; &quot;(/ (count [\&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot;]) 19) &quot; &quot;(defn flip [lista listb] (mapv conj (map vector lista) listb))&quot; &quot;(flip [:a :b :c] [:x :y :z])&quot; &quot;(def listAbilities (clojurednd.core/listInverter (:abilityFields clojurednd.core/headers) (:abilities clojurednd.core/headers)))&quot; &quot;(listAbilities [\&quot;14\&quot; \&quot;13\&quot; \&quot;19\&quot; \&quot;9\&quot; \&quot;13\&quot; \&quot;10\&quot; \&quot;true\&quot; \&quot;false\&quot; \&quot;true\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot;])&quot; &quot;(clojurednd.core/varListBuilder (:weapon :damageDice :dice))&quot; &quot;(clojurednd.core/varListBuilder (:weapon clojurednd.core/headers) :damageDice (:dice clojurednd.core/headers))&quot; &quot;(weaponList [\&quot;4\&quot;\n             \&quot;Greatsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;2\&quot; \&quot;6\&quot;\n             \&quot;Longsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n             \&quot;Light Crossbow\&quot; \&quot;80/320\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;0\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n             \&quot;Handaxe\&quot; \&quot;20/60\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;6\&quot;])&quot; &quot;(weaponList 4 [\&quot;Greatsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;2\&quot; \&quot;6\&quot;\n               \&quot;Longsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n               \&quot;Light Crossbow\&quot; \&quot;80/320\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;0\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n               \&quot;Handaxe\&quot; \&quot;20/60\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;6\&quot;])&quot; &quot;(def weaponList (clojurednd.core/varListBuilder (:weapon clojurednd.core/headers) :damageDice (:dice clojurednd.core/headers)))&quot; &quot;(weaponList [\&quot;4\&quot; \&quot;Greatsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;2\&quot; \&quot;6\&quot;\n               \&quot;Longsword\&quot; \&quot;5 feet\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n               \&quot;Light Crossbow\&quot; \&quot;80/320\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;0\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot;\n               \&quot;Handaxe\&quot; \&quot;20/60\&quot; \&quot;2\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;6\&quot;])&quot; &quot;(weaponList)&quot; &quot;(clojurednd.core/listBuilder (:hitDice clojurednd.core/headers))&quot; &quot;(:weapon clojurednd.core/headers)&quot; &quot;(:dice clojurednd.core/headers)&quot; &quot;(into {} (:numberOf \&quot;3\&quot; :sideCount \&quot;8\&quot; :remaining \&quot;3\&quot;))&quot; &quot;(apply (partial into {}) (:numberOf \&quot;3\&quot; :sideCount \&quot;8\&quot; :remaining \&quot;3\&quot;))&quot; &quot;(apply assoc {} (:numberOf \&quot;3\&quot; :sideCount \&quot;8\&quot; :remaining \&quot;3\&quot;))&quot; &quot;(apply (partial assoc {}) (:numberOf \&quot;3\&quot; :sideCount \&quot;8\&quot; :remaining \&quot;3\&quot;))&quot; &quot;(def listAbilities (clojurednd.core/listInverter (:abilityFields clojurednd.core/headers) (:abilities clojurednd.core/headers) {:modifier (fn [{:keys [score]}] (int (/ (- score 10) 2)))}))&quot; &quot;(listAbilities [\&quot;14\&quot; \&quot;11\&quot; \&quot;15\&quot; \&quot;12\&quot; \&quot;9\&quot; \&quot;15\&quot; \&quot;false\&quot; \&quot;true\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;true\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot;])\\&quot; &quot;(def listAbilities (clojurednd.core/listInverter (:abilityFields clojurednd.core/headers) (:abilities clojurednd.core/headers) {:score (fn [{:keys [score]}] (Integer/parseInt score))} {:modifier (fn [{:keys [score]}] (int (/ (- score 10) 2)))}))&quot; &quot;(def listAbilities (clojurednd.core/listInverter (:abilityFields clojurednd.core/headers) (:abilities clojurednd.core/headers) {:score (fn [{:keys [score]}] (Integer/parseInt score)) :isSaveProficient (fn [{:keys [isSaveProficient]}] (Boolean/parseBoolean isSaveProficient))} {:modifier (fn [{:keys [score]}] (int (/ (- score 10) 2)))}))&quot; &quot;(defn testKeys [{:keys [a b]}]\n  (println a)\n  (println b)\n  )&quot; &quot;(defn testKeys [{:keys [a b]}]\n  (println (empty? a))\n  (println (empty? b))\n  )&quot; &quot;(testKeys {})&quot; &quot;(def listHitDice (clojurednd.core/listBuilder (:hitDice clojurednd.core/headers)))&quot; &quot;(listHitDice [\&quot;2\&quot; \&quot;3\&quot; \&quot;8\&quot; \&quot;3\&quot; \&quot;4\&quot; \&quot;10\&quot; \&quot;4\&quot;])&quot; &quot;(def listAbilities (clojurednd.core/listInverter (:abilityFields clojurednd.core/headers) (:abilities clojurednd.core/headers) {:score (fn [{:keys [score]}] (Integer/parseInt score)) :bonus (fn [{:keys [bonus]}] (Integer/parseInt bonus)) :isSaveProficient (fn [{:keys [isSaveProficient]}] (Boolean/parseBoolean isSaveProficient))} {:modifier (fn [{:keys [score]}] (int (/ (- score 10) 2)))}))&quot; &quot;(listAbilities [\&quot;14\&quot; \&quot;11\&quot; \&quot;15\&quot; \&quot;12\&quot; \&quot;9\&quot; \&quot;15\&quot; \&quot;false\&quot; \&quot;true\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;false\&quot; \&quot;true\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot;])&quot; &quot;(def weaponList (clojurednd.core/varListBuilder (:weapon clojurednd.core/headers) :damageDice (:dice clojurednd.core/headers)))\n&quot; &quot;(weaponList [\&quot;2\&quot; \&quot;Longsword\&quot; \&quot;5 feet\&quot; \&quot;1102\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;8\&quot; \&quot;Dagger\&quot; \&quot;20/60\&quot; \&quot;1101\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;0\&quot; \&quot;true\&quot; \&quot;true\&quot; \&quot;1\&quot; \&quot;1\&quot; \&quot;4\&quot;])&quot; &quot;(clojurednd.core/mapObj clojurednd.core/embedKey {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:score :bonus]})&quot; &quot;(clojurednd.core/flipMap {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:score :bonus]})&quot; &quot;(clojurednd.core/mapObj\n  (fn [[k f]] (do (println k) #(f (% k))))\n  (clojurednd.core/flipMap {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:score :bonus]})\n  ) \n&quot; &quot;(clojurednd.core/mapObj\n  (fn perEntry [[k f]] (do (println k) (fn [obj] (f (obj k)))))\n  (clojurednd.core/flipMap {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:score :bonus]})\n  ) \n&quot; &quot;(clojurednd.core/mapObj\n  clojurednd.core/embedKey\n  (clojurednd.core/flipMap {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:score :bonus]})\n  ) \n&quot; &quot;((clojurednd.core/buildSplitter #\&quot;,\&quot;) \&quot;1,2,3,4\&quot;) &quot; &quot;((clojurednd.core/mapSplit #\&quot;,\&quot; #(Integer/parseInt %)) \&quot;1,2,3,4\&quot;)&quot; &quot;(clojurednd.core/charFuncs {:abilityScores \&quot;14⊠13⊠19⊠9⊠13⊠10⊠true⊠false⊠true⊠false⊠false⊠false⊠0⊠0⊠0⊠0⊠0⊠0⊠0\&quot;})&quot; &quot;(let [result ])&quot; &quot;(let [result (clojurednd.core/charFuncs {:abilityScores \&quot;14⊠13⊠19⊠9⊠13⊠10⊠true⊠false⊠true⊠false⊠false⊠false⊠0⊠0⊠0⊠0⊠0⊠0⊠0\&quot;})] (:abilityScores result))&quot; &quot;(def split8864 (clojurednd.core/mapSplit (clojurednd.core/charDelim 8864)))&quot; &quot;(def split8864 (clojurednd.core/mapSplit (clojurednd.core/charDelim 8864) identity))&quot; &quot;(split8864 \&quot;1⊠7⊠10⊠7\&quot;)&quot; &quot;(def buildHitDice (clojurednd.core/mapSplit (clojurednd.core/charDelim 8864) (clojurednd.core/listBuilder\n                                                                            (:hitDice clojurednd.core/headers)\n                                                                            (-&gt;&gt; {(clojurednd.core/nilSafe (clojurednd.core/parse :int)) [:numberOf :sideCount :remaining]} (clojurednd.core/flipMap) (clojurednd.core/mapObj clojurednd.core/embedKey))\n                                                                            )))&quot; &quot;(buildHitDice \&quot;1⊠7⊠10⊠7\&quot;)&quot; &quot;(type (apply vector (lazy-seq [1 2 3 4 5])))&quot; &quot;(clojurednd.core/-main)&quot;], :remote []}}</component>
   <component name="RunManager" selected="Clojure REPL.REPL">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -636,14 +637,16 @@
       <workItem from="1492197815350" duration="7365000" />
       <workItem from="1492528068435" duration="3780000" />
       <workItem from="1492610354193" duration="27435000" />
+      <workItem from="1492788261296" duration="26000" />
+      <workItem from="1492809433722" duration="2449000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38580000" />
+    <option name="totallyTimeSpent" value="41055000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -671,8 +674,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CxGrid" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16257995" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16577825" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -680,6 +682,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,7 +693,33 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="86" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/clojurednd/core.clj</url>
+          <line>128</line>
+          <properties />
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/clojurednd/core.clj</url>
+          <line>129</line>
+          <properties />
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/clojurednd/core.clj</url>
+          <line>130</line>
+          <properties />
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/clojurednd/core.clj</url>
+          <line>131</line>
+          <properties />
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="105" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -699,11 +728,26 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/clojurednd/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/clojurednd/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/characters.edn">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
           <caret line="59" column="73" lean-forward="false" selection-start-line="59" selection-start-column="73" selection-end-line="59" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -755,14 +798,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="19" column="72" lean-forward="false" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clojurednd/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="152" column="57" lean-forward="false" selection-start-line="152" selection-start-column="57" selection-end-line="152" selection-end-column="57" />
+        <state relative-caret-position="394">
+          <caret line="155" column="15" lean-forward="true" selection-start-line="155" selection-start-column="15" selection-end-line="155" selection-end-column="15" />
           <folding />
         </state>
       </provider>
