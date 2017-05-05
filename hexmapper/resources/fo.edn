@@ -1,0 +1,29 @@
+[:xsl:stylesheet
+ {:version 1.0
+  :xmlns:xsl "http://www.w3.org/1999/XSL/Transform"
+  :xmlns:fo "http://www.w3.org/1999/XSL/Format"
+  :xmlns:xlink "http://www.w3.org/1999/xlink"}
+ [:xsl:template
+  {:match "/"}
+  [:fo:root
+   [:fo:layout-master-set
+    [:fo:simple-page-master
+     {:master-name "first"
+      :margin-right ".25in"
+      :margin-left ".25in"
+      :margin-bottom ".25in"
+      :margin-top ".25in"
+      :page-width "8.5in"
+      :page-height "11in"}
+     [:fo:region-body {:margin-top 0}]
+     [:fo:region-before {:extent 0}]
+     [:fo:region-after {:extent 0}]]]
+   [:fo:page-sequence {:master-reference "first"}
+    [:fo:flow {:flow-name "xsl-region-body"}
+     [:fo:block
+      [:fo:instream-foreign-object
+       [:svg {:xmlns "http://www.w3.org/2000/svg"
+              :width "8in"
+              :height "10.5in"
+              :viewBox "0 0 800 1050"}
+        [:rect {:x 10 :y 35 :width 330 :height 50 :rx 10 :ry 10 :style "fill:none;stroke:black;stroke-width:1"}]]]]]]]]]
