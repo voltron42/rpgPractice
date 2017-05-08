@@ -104,6 +104,7 @@
         xsl (->> "resources/fo.xml" (slurp) (.getBytes) (ByteArrayInputStream.))
         out (ByteArrayOutputStream.)]
     (xsl-to-pdf xml xsl out)
+    (.flush out)
     (spit "resources/fo.pdf" (.toString out))
     )
   "Completed"
