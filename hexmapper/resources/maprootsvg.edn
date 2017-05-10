@@ -1,0 +1,5 @@
+[:svg {:xmlns "http://www.w3.org/2000/svg" :xmlns:xlink "http://www.w3.org/1999/xlink" :width "%s" :height "%s" :viewBox "0 0 %s %s"}
+  [:defs "%s"]
+  [:rect {:x 0 :y 0 :width "$s" :height "$s" :stroke "black" :stroke-width 1 :fill "white"}]
+  "%s"
+]

@@ -1,10 +1,7 @@
 [:html
  [:head
-  [:style {:}]
-  ]
+  [:link {:rel "stylesheet" :type "text/css" :href "mystyle.css"}]]
  [:body
   [:h2 "Hello World!"]
   [:p "The quick brown fox jumped over the lazy dog!"]
-  :hr
-  ]
- ]
+  :hr]]

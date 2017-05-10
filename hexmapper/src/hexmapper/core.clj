@@ -3,7 +3,7 @@
             [clojure.edn :as edn]
             [clojure.string :as s])
   (:import
-    (java.io InputStream OutputStream File FileOutputStream ByteArrayInputStream ByteArrayOutputStream)
+    (java.io InputStream OutputStream File FileOutputStream ByteArrayInputStream ByteArrayOutputStream FileInputStream)
     (org.apache.fop.apps FopFactory MimeConstants)
     (javax.xml.transform.sax SAXResult)
     (javax.xml.transform.stream StreamSource)
@@ -101,11 +101,18 @@
 
 (defn -main [& args]
   (let [xml (ByteArrayInputStream. (.getBytes (stringify-xml-doc {:tag :root})))
-        xsl (->> "resources/fo.xml" (slurp) (.getBytes) (ByteArrayInputStream.))
-        out (ByteArrayOutputStream.)]
+        ;;xsl (FileInputStream. "resources/fo.xml")
+        ;;xsl (ByteArrayInputStream. (.getBytes (slurp "resources/fo.xml")))
+        xsl (->> "resources/fo2.edn"
+                 (slurp)
+                 (edn/read-string)
+                 (map-clm)
+                 (stringify-xml-doc)
+                 (.getBytes)
+                 (ByteArrayInputStream.))
+        out (FileOutputStream. "resources/fo2.pdf")
+        ]
     (xsl-to-pdf xml xsl out)
-    (.flush out)
-    (spit "resources/fo.pdf" (.toString out))
     )
   "Completed"
   )

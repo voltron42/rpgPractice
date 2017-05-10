@@ -1,5 +1,12 @@
 {:orientation :hexvert
- :tiles [{:name ""
-          :color ""
-          :contents []}]
- :map [[]]}
+ :tiles [{:name :plains :color "green"}
+         {:name :desert :color "yellow"}
+         {:name :mountain :color "grey"
+          :contents [[:polygon {:points "5,15 10,5 15,15 13,15 10,10 7,15" :stroke "black" :stroke-width 1 :fill "black"}]]}
+         {:name :blank :color "white"}
+         {:name :freshwater :color "lightblue"}
+         {:name :ocean :color "navyblue"}
+         {:name :pit :color "grey"
+          :contents [[:circle {:cx 10 :cy 10 :r 5 :fill "grey" :stroke "black" :stroke-width 2 }]]}]
+ :map [[0 1 2] [4 5 6]]
+ :overlay []}

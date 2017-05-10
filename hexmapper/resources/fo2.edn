@@ -1,0 +1,47 @@
+[:xsl:stylesheet
+ {:version 1.0
+  :xmlns:xsl "http://www.w3.org/1999/XSL/Transform"
+  :xmlns:fo "http://www.w3.org/1999/XSL/Format"
+  :xmlns:xlink "http://www.w3.org/1999/xlink"}
+ [:xsl:template
+  {:match "/"}
+  [:fo:root
+   [:fo:layout-master-set
+    [:fo:simple-page-master
+     {:master-name "first"
+      :margin-right ".25in"
+      :margin-left ".25in"
+      :margin-bottom ".25in"
+      :margin-top ".25in"
+      :page-width "8.5in"
+      :page-height "11in"}
+     [:fo:region-body {:margin-top 0}]
+     [:fo:region-before {:extent 0}]
+     [:fo:region-after {:extent 0}]]]
+   [:fo:page-sequence {:master-reference "first"}
+    [:fo:flow {:flow-name "xsl-region-body"}
+     [:fo:block
+      [:fo:instream-foreign-object
+       [:svg {:xmlns "http://www.w3.org/2000/svg"
+              :width "8in"
+              :height "10.5in"
+              :viewBox "0 0 400 300"}
+        [:defs
+         [:g {:id "hexvert"}
+          [:polygon {:points "0,10 5,1.34 15,1.34 20,10 15,18.66 5,18.66" :fill "inherit" :stroke "black" :stroke-width 1}]]
+         [:pattern {:id "plains" :width 20 :height 20} [:rect {:x 0 :y 0 :width 20 :height 20 :fill "green"}]]
+         [:pattern {:id "desert" :width 20 :height 20} [:rect {:x 0 :y 0 :width 20 :height 20 :fill "yellow"}]]
+         [:pattern {:id "mountain" :width 20 :height 20} [:rect {:x 0 :y 0 :width 20 :height 20 :fill "grey"}]]
+         [:pattern {:id "blank" :width 20 :height 20} [:rect {:x 0 :y 0 :width 20 :height 20 :fill "white"}]]
+         [:pattern {:id "freshwater" :width 20 :height 20} [:rect {:x 0 :y 0 :width 20 :height 20 :fill "lightblue"}]]
+         [:pattern {:id "ocean" :width 20 :height 20} [:rect {:x 0 :y 0 :width 20 :height 20 :fill "navy"}]]
+         [:pattern {:id "pit" :width 20 :height 20} [:rect {:x 0 :y 0 :width 20 :height 20 :fill "brown"}]]
+         ]
+        [:rect {:x 0 :y 0 :width 400 :height 300 :stroke "black" :stroke-width 1 :fill "white"}]
+         [:use {:x 0 :y -1.33 :xlink:href "#hexvert" :fill "url(#plains)"}]
+         [:use {:x 15 :y 7.33 :xlink:href "#hexvert" :fill "url(#desert)"}]
+         [:use {:x 30 :y -1.33 :xlink:href "#hexvert" :fill "url(#mountain)"}]
+         [:use {:x 0 :y 15.99 :xlink:href "#hexvert" :fill "url(#freshwater)"}]
+         [:use {:x 15 :y 24.65 :xlink:href "#hexvert" :fill "url(#ocean)"}]
+         [:use {:x 30 :y 15.99 :xlink:href "#hexvert" :fill "url(#pit)"}]
+        ]]]]]]]]
