@@ -9,5 +9,5 @@
 :message
 ...
 (+ 2 3)
- ($#!+ "Oh no, not again!")
+($#!+ "Oh no, not again!")
 ]
