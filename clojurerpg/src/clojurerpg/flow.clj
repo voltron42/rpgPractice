@@ -28,7 +28,7 @@
                                     'd12 (d 12)
                                     'd20 (d 20)
                                     'd100 (d 100)
-                                    '? #(read-line)
+                                    '? read-line
                                     '?= #(if % true false)
                                     '!?= #(if % false true)
                                     '$#!+ #(throw (Exception. (str %)))
@@ -40,6 +40,7 @@
   (let [commands {'... (fn [line state]
                            (do
                              (Thread/sleep 1000)
+                             (Thread/sleep 10)
                              state))}]
     {vector? (fn [line state]
                (let [expression (first line)
