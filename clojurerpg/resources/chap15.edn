@@ -1,4 +1,4 @@
-[{initialise [{:STRENGTH (+ 60 (d100))
+[{initialize [{:STRENGTH (+ 60 (d100))
                :WEALTH (+ 30 (d100))
                :FOOD 0
                :TALLY 0
@@ -233,7 +233,23 @@
           ""
           ""
           ...]]}
- {list-menu []
+ {list-menu ["CHOOSE FROM ONE OF THE FOLLOWING:"
+             [(< :K 0)  "(F)IGHT" "(R)UN"]
+             [(>= :K 0)
+              "(Q)UIT"
+              [(<> 0 (>> (>> :CASTLE :ROOM) "N")) "GO (N)ORTH"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "S")) "GO (S)OUTH"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "E")) "GO (E)AST"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "W")) "GO (W)EST"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "U")) "GO (U)P"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "D")) "GO (D)OWN"]
+              [(> :FOOD 0) "(C)ONSUME FOOD"]
+              [(> :WEALTH 0) "(I)NVENTORY & PROVISIONS"]
+              [(> :K 9) "(P)ICK UP TREASURE"]
+              [(?= :AMULET) "(M)AGIC AMULET"]
+              "(T)ALLY SCORE"
+              ]
+             ]
   validate-menu-option []
   handle-action []}
  {major-handling-routine [{:STRENGTH (- :STRENGTH 5)}
@@ -295,7 +311,7 @@
                           handle-action
                           ]
   }
- initialise
+ initialize
  [{:while (<> :ROOM 11)}
   major-handling-routine]
  "YOU'VE DONE IT!!"
