@@ -1,0 +1,11 @@
+[{:sum 0}
+ [{:init {:x 1}
+   :while (<= :x 10)
+   :step {:x (++ :x)}}
+  :x
+  {:sum (+ :sum :x)}
+  ]
+ ""
+ "SUM ="
+ :sum
+ ]

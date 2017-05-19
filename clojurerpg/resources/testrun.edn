@@ -1,13 +1,15 @@
 [
+ {hello [{:message ($ "Hello " :input)}
+         :message]}
 "Hello World"
 ...
 "What is your name?"
  ...
 {:input (?)}
 ...
-{:message ($ "Hello " :input)}
-:message
+hello
 ...
 (+ 2 3)
 ($#!+ "Oh no, not again!")
+ "This line will not print!"
 ]

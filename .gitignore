@@ -1,1 +1,3 @@
 *.exe
+clojurerpg/.idea/*
+clojurednd/.idea/*
