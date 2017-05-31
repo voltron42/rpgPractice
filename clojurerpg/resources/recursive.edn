@@ -1,0 +1,11 @@
+[{recurse [:x
+           {:swap :x}
+           {:x :y}
+           {:y (+ :swap :x)}
+           {:swap nil}
+           [(< :x :top)
+            recurse]]}
+ {:top 1000000 :x 1 :y 1}
+ "fibonacci"
+ recurse
+ ]

@@ -96,11 +96,21 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="recursive.edn" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/recursive.edn">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="140">
+                  <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="chap15.edn" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/resources/chap15.edn">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="437">
-                  <caret line="284" column="34" lean-forward="true" selection-start-line="284" selection-start-column="34" selection-end-line="284" selection-end-column="34" />
+                <state relative-caret-position="360">
+                  <caret line="329" column="0" lean-forward="false" selection-start-line="329" selection-start-column="0" selection-end-line="329" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -129,8 +139,8 @@
           <file leaf-file-name="flow.clj" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/clojurerpg/flow.clj">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
-                  <caret line="22" column="70" lean-forward="false" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
+                <state relative-caret-position="120">
+                  <caret line="24" column="111" lean-forward="true" selection-start-line="24" selection-start-column="111" selection-end-line="24" selection-end-column="111" />
                   <folding />
                 </state>
               </provider>
@@ -154,8 +164,8 @@
             <entry file="file://$PROJECT_DIR$/resources/chapter15.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                 <state split_layout="FIRST">
-                  <first_editor relative-caret-position="160">
-                    <caret line="434" column="40" lean-forward="true" selection-start-line="434" selection-start-column="40" selection-end-line="434" selection-end-column="40" />
+                  <first_editor relative-caret-position="-30">
+                    <caret line="531" column="50" lean-forward="true" selection-start-line="531" selection-start-column="50" selection-end-line="531" selection-end-column="50" />
                     <folding />
                   </first_editor>
                   <second_editor />
@@ -179,9 +189,10 @@
       <find>if</find>
       <find>println</find>
       <find>2600</find>
-      <find>?:</find>
       <find>AMULET</find>
       <find>rand</find>
+      <find>?:</find>
+      <find>(?)</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -212,6 +223,7 @@
         <option value="$PROJECT_DIR$/src/clojurerpg/Continue.java" />
         <option value="$PROJECT_DIR$/resources/simpleloop.edn" />
         <option value="$PROJECT_DIR$/resources/chapter15.md" />
+        <option value="$PROJECT_DIR$/resources/recursive.edn" />
         <option value="$PROJECT_DIR$/src/clojurerpg/flow.clj" />
         <option value="$PROJECT_DIR$/resources/chap15.edn" />
       </list>
@@ -224,10 +236,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1921" />
-    <option name="y" value="1" />
-    <option name="width" value="1918" />
-    <option name="height" value="1078" />
+    <option name="width" value="960" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -335,7 +345,7 @@
       <recent name="C:\practice\code\rpgPractice\clojurerpg\resources" />
     </key>
   </component>
-  <component name="ReplState" timestamp="1495227811753">{:repl-history {:ide [], :local [{:command &quot;(meta +)&quot;, :offset 8} {:command &quot;+&quot;, :offset 1} {:command &quot;(name +)&quot;, :offset 8} {:command &quot;(apply partial [apply (resolve '/)])&quot;, :offset 36} {:command &quot;(let [div (apply partial [apply (resolve '/)])] (div 16 8))&quot;, :offset 59} {:command &quot;(let [div (apply partial [apply (resolve '/)])] (div [16 8]))&quot;, :offset 61} {:command &quot;(map type '(true false))&quot;, :offset 24} {:command &quot;(let [myif (apply partial [apply (resolve 'if)])] (map #(%) [#(myif [true \&quot;yes\&quot; \&quot;no\&quot;]) #(myif [false \&quot;yes\&quot; \&quot;no\&quot;])]))&quot;, :offset 116} {:command &quot;(apply partial [apply if])&quot;, :offset 26} {:command &quot;(resolve 'if)&quot;, :offset 13} {:command &quot;(partial apply or)&quot;, :offset 18} {:command &quot;(resolve 'or)&quot;, :offset 13} {:command &quot;(type (type true))&quot;, :offset 18} {:command &quot;(= Boolean (type true))&quot;, :offset 23} {:command &quot;((partial some true?) [true false true])&quot;, :offset 40} {:command &quot;((partial some true?) (map #(%) (map #(constantly %) [false false true])))&quot;, :offset 74} {:command &quot;((partial some true?) (map #(%) (map #(constantly %) [false false false])))&quot;, :offset 75} {:command &quot;((partial some true?) (map #(%) (map #(do (println \&quot;counting\&quot;) (constantly %)) [false false false])))&quot;, :offset 101} {:command &quot;((partial some true?) (map #(%) (map #(do (println \&quot;counting\&quot;) (constantly %)) [true false false])))&quot;, :offset 100} {:command &quot;((partial every? true?) (map #(%) (map #(do (println \&quot;counting\&quot;) (constantly %)) [false false true])))&quot;, :offset 102} {:command &quot;(type nil)&quot;, :offset 10, :ns &quot;user&quot;} {:command &quot;(clojurerpg.flow/-main \&quot;resources/testrun.edn\&quot;)&quot;, :offset 47, :ns &quot;user&quot;} {:command &quot;(clojurerpg.flow/-main \&quot;resources/mapwalk.edn\&quot;)&quot;, :offset 47, :ns &quot;user&quot;} {:command &quot;()&quot;, :offset 1} {:command &quot;(keys {:a 1 :b 2})&quot;, :offset 18, :ns &quot;user&quot;} {:command &quot;(set (keys {:a 1 :b 2})) &quot;, :offset 24, :ns &quot;user&quot;} {:command &quot;(clojurerpg.flow/-main \&quot;resources/simpleloop.edn\&quot;)&quot;, :offset 50, :ns &quot;user&quot;} {:command &quot;(drop 3 [1 2 3 4 5])&quot;, :offset 20, :ns &quot;user&quot;}], :remote []}}</component>
+  <component name="ReplState" timestamp="1496242485120">{:repl-history {:ide [], :local [{:command &quot;(meta +)&quot;, :offset 8} {:command &quot;+&quot;, :offset 1} {:command &quot;(name +)&quot;, :offset 8} {:command &quot;(apply partial [apply (resolve '/)])&quot;, :offset 36} {:command &quot;(let [div (apply partial [apply (resolve '/)])] (div 16 8))&quot;, :offset 59} {:command &quot;(let [div (apply partial [apply (resolve '/)])] (div [16 8]))&quot;, :offset 61} {:command &quot;(map type '(true false))&quot;, :offset 24} {:command &quot;(let [myif (apply partial [apply (resolve 'if)])] (map #(%) [#(myif [true \&quot;yes\&quot; \&quot;no\&quot;]) #(myif [false \&quot;yes\&quot; \&quot;no\&quot;])]))&quot;, :offset 116} {:command &quot;(apply partial [apply if])&quot;, :offset 26} {:command &quot;(resolve 'if)&quot;, :offset 13} {:command &quot;(partial apply or)&quot;, :offset 18} {:command &quot;(resolve 'or)&quot;, :offset 13} {:command &quot;(type (type true))&quot;, :offset 18} {:command &quot;(= Boolean (type true))&quot;, :offset 23} {:command &quot;((partial some true?) [true false true])&quot;, :offset 40} {:command &quot;((partial some true?) (map #(%) (map #(constantly %) [false false true])))&quot;, :offset 74} {:command &quot;((partial some true?) (map #(%) (map #(constantly %) [false false false])))&quot;, :offset 75} {:command &quot;((partial some true?) (map #(%) (map #(do (println \&quot;counting\&quot;) (constantly %)) [false false false])))&quot;, :offset 101} {:command &quot;((partial some true?) (map #(%) (map #(do (println \&quot;counting\&quot;) (constantly %)) [true false false])))&quot;, :offset 100} {:command &quot;((partial every? true?) (map #(%) (map #(do (println \&quot;counting\&quot;) (constantly %)) [false false true])))&quot;, :offset 102} {:command &quot;(type nil)&quot;, :offset 10, :ns &quot;user&quot;} {:command &quot;(clojurerpg.flow/-main \&quot;resources/testrun.edn\&quot;)&quot;, :offset 47, :ns &quot;user&quot;} {:command &quot;(clojurerpg.flow/-main \&quot;resources/mapwalk.edn\&quot;)&quot;, :offset 47, :ns &quot;user&quot;} {:command &quot;()&quot;, :offset 1} {:command &quot;(keys {:a 1 :b 2})&quot;, :offset 18, :ns &quot;user&quot;} {:command &quot;(set (keys {:a 1 :b 2})) &quot;, :offset 24, :ns &quot;user&quot;} {:command &quot;(drop 3 [1 2 3 4 5])&quot;, :offset 20, :ns &quot;user&quot;} {:command &quot;(clojurerpg.flow/-main \&quot;resources/simpleloop.edn\&quot;)&quot;, :offset 50, :ns &quot;user&quot;} {:command &quot;(clojurerpg.flow/-main \&quot;resources/recursive.edn\&quot;)&quot;, :offset 49, :ns &quot;user&quot;} {:command &quot;(int \&quot;3\&quot;)&quot;, :offset 9, :ns &quot;user&quot;} {:command &quot;(Integer/parseInt \&quot;5\&quot;)&quot;, :offset 22, :ns &quot;user&quot;} {:command &quot;(Integer/parseInt \&quot;s\&quot;)&quot;, :offset 22, :ns &quot;user&quot;}], :remote []}}</component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -737,12 +747,12 @@
       <workItem from="1495033858022" duration="2837000" />
       <workItem from="1495049143270" duration="32252000" />
       <workItem from="1495227916687" duration="1162000" />
-      <workItem from="1495548492387" duration="3002000" />
+      <workItem from="1495548492387" duration="8061000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59218000" />
+    <option name="totallyTimeSpent" value="64277000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -754,14 +764,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1921" y="1" width="1918" height="1078" extended-state="0" />
+    <frame x="0" y="0" width="960" height="1040" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34898612" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.72049" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -774,6 +784,7 @@
       <window_info id="Cloverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -781,14 +792,13 @@
       <window_info id="CxGrid" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1169181" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24164811" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -843,13 +853,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/clojurerpg/core_test.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/testrun.edn">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -1117,6 +1120,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1080">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,10 +1178,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/simpleloop.edn">
+    <entry file="file://$PROJECT_DIR$/resources/mapwalk.edn">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/clojurerpg/flow.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <caret line="24" column="111" lean-forward="true" selection-start-line="24" selection-start-column="111" selection-end-line="24" selection-end-column="111" />
           <folding />
         </state>
       </provider>
@@ -1190,18 +1202,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/clojurerpg/flow.clj">
+    <entry file="file://$PROJECT_DIR$/resources/recursive.edn">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="22" column="70" lean-forward="false" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
+        <state relative-caret-position="140">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/mapwalk.edn">
+    <entry file="file://$PROJECT_DIR$/resources/simpleloop.edn">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        <state relative-caret-position="120">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/chap15.edn">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="329" column="0" lean-forward="false" selection-start-line="329" selection-start-column="0" selection-end-line="329" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1209,19 +1229,11 @@
     <entry file="file://$PROJECT_DIR$/resources/chapter15.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="160">
-            <caret line="434" column="40" lean-forward="true" selection-start-line="434" selection-start-column="40" selection-end-line="434" selection-end-column="40" />
+          <first_editor relative-caret-position="-30">
+            <caret line="531" column="50" lean-forward="true" selection-start-line="531" selection-start-column="50" selection-end-line="531" selection-end-column="50" />
             <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/chap15.edn">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="284" column="34" lean-forward="true" selection-start-line="284" selection-start-column="34" selection-end-line="284" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>

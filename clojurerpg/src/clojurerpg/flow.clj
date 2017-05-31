@@ -19,35 +19,40 @@
                                    ([] (rollDice 1))
                                    ([numberOf] (reduce + 0 (map #(inc (rand-int %)) (repeat numberOf sideCount))))))
                              opmap (merge (common/build-opmap '(+ - * / > < >= <= = peek pop empty? count keys vars nil?))
-                                          (common/build-opmap {'__ int
-                                                               '++ inc
-                                                               '<> not=
-                                                               '$ str
-                                                               '! not
+                                          (common/build-opmap {'in    contains?
+                                                               'int   #(try
+                                                                         (Integer/parseInt %1)
+                                                                          (catch NumberFormatException nfe %2))
+                                                               '__    int
+                                                               '++    inc
+                                                               '<>    not=
+                                                               '$     str
+                                                               '!     not
                                                                '!nil? some?
-                                                               '<< assoc
-                                                               '>> get-in
-                                                               '-> nth
-                                                               'list vector
-                                                               'push conj
-                                                               'map hash-map
-                                                               'rand rand-int
-                                                               'd4 (d 4)
-                                                               'd6 (d 6)
-                                                               'd8 (d 8)
-                                                               'd10 (d 10)
-                                                               'd12 (d 12)
-                                                               'd20 (d 20)
-                                                               'd100 (d 100)
-                                                               '? read-line
-                                                               '?= #(if % true false)
-                                                               '!?= #(if % false true)
-                                                               '$#!+ #(throw (Exception. (str %)))
-                                                               '<- (fn [what in where] (concat (take where in) (vector what) (drop (inc where) in)))
+                                                               '<<    assoc
+                                                               '>>    get-in
+                                                               '->    nth
+                                                               'list  vector
+                                                               'push  conj
+                                                               'map   hash-map
+                                                               'set   #(set (vec %&))
+                                                               'rand  rand-int
+                                                               'd4    (d 4)
+                                                               'd6    (d 6)
+                                                               'd8    (d 8)
+                                                               'd10   (d 10)
+                                                               'd12   (d 12)
+                                                               'd20   (d 20)
+                                                               'd100  (d 100)
+                                                               '?     read-line
+                                                               '?=    #(if % true false)
+                                                               '!?=   #(if % false true)
+                                                               '$#!+  #(throw (Exception. (str %)))
+                                                               '<-    (fn [what in where] (concat (take where in) (vector what) (drop (inc where) in)))
                                                                })
                                           {'or (lazy-compare true)
                                            'and (lazy-compare false)
-                                           '?: #(if (%1) (%2) (%3))})]
+                                           'if #(if (%1) (%2) (%3))})]
                             (common/expressionDecoder opmap)))))
 
 (defn typemap [singleline recursor]

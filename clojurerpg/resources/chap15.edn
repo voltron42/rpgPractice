@@ -234,9 +234,17 @@
           ""
           ...]]
   list-menu ["CHOOSE FROM ONE OF THE FOLLOWING:"
-             [(< :K 0) "(Q)UIT" "(F)IGHT" "(R)UN"]
+             "(Q)UIT"
+             [(< :K 0)
+              "(F)IGHT"
+              [(<> 0 (>> (>> :CASTLE :ROOM) "N")) "RUN (N)ORTH"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "S")) "RUN (S)OUTH"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "E")) "RUN (E)AST"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "W")) "RUN (W)EST"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "U")) "RUN (U)P"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "D")) "RUN (D)OWN"]
+              ]
              [(>= :K 0)
-              "(Q)UIT"
               [(<> 0 (>> (>> :CASTLE :ROOM) "N")) "GO (N)ORTH"]
               [(<> 0 (>> (>> :CASTLE :ROOM) "S")) "GO (S)OUTH"]
               [(<> 0 (>> (>> :CASTLE :ROOM) "E")) "GO (E)AST"]
@@ -257,22 +265,18 @@
                          [(and (= :A$ "W") (= 0 (>> (>> :CASTLE :ROOM) "W"))) "YOU CANNOT MOVE THROUGH SOLID STONE" break]
                          [(and (= :A$ "U") (= 0 (>> (>> :CASTLE :ROOM) "U"))) "THERE IS NO WAY UP FROM HERE" break]
                          [(and (= :A$ "D") (= 0 (>> (>> :CASTLE :ROOM) "D"))) "YOU CANNOT DESCEND FROM HERE" break]
+                         [(and (> 0 (>> (>> :CASTLE :ROOM) "C")) (in (set "N" "S" "E" "W" "U" "P") :A$) (> (d10) 7))
+                          "NO YOU MUST STAND AND FIGHT"
+                          {:A$ "F"}
+                          break
+                          ]
                          [(and (= :A$ "C") (= 0 :FOOD)) "YOU HAVE NO FOOD" break]
                          [(and (= :A$ "F") (<= 0 (>> (>> :CASTLE :ROOM) "C"))) "THERE IS NOTHING TO FIGHT HERE" break]
-                         [(and (= :A$ "F") (<= 0 (>> (>> :CASTLE :ROOM) "C"))) "THERE IS NOTHING TO FIGHT HERE" break]
+                         [(and (= :A$ "P") (> 10 (>> (>> :CASTLE :ROOM) "C"))) "THERE IS NO TREASURE HERE" break]
+                         [(and (= :A$ "P") (!?= :LIGHT)) "YOU CANNOT SEE THE TREASURE" "YOU HAVE NO LIGHT" break]
                          {:menu-option-valid true}
                          break
                         ]]
-  
-
-
-570 IF AS="R" THEN K=0:PRINT "WHICH WAY DO YOU WANT TO FLEE";:GOTO 460
-
-560 IF A$="R" AND RND(1)>.7 THEN 2420
-590 IF A$="I" THEN GOSUB 3010:RETURN
-610 IF A$="P" THEN GOSUB 2350:RETURN
-640 IF A$="C" THEN GOSUB 2480:RETURN
-
   handle-action [[{}
                   [(= :ACTION "N") {:ROOM (>> (>> :CASTLE :ROOM) "N")} break]
                   [(= :ACTION "S") {:ROOM (>> (>> :CASTLE :ROOM) "S")} break]
@@ -290,11 +294,44 @@
                    [{:init {:old-room :ROOM} :while (or (= :ROOM 6) (= :ROOM 11) (= :ROOM :old-room)) :step {:ROOM (++ (rand (count :CASTLE)))}}]
                    break
                    ]
-                  [(= :ACTION "T")]
-                  [(= :ACTION "T")]
-  break
-  ]]}
- {major-handling-routine [{:STRENGTH (- :STRENGTH 5)}
+                  [(= :ACTION "I") inventory break] ;;590 IF A$="I" THEN GOSUB 3010:RETURN
+                  [(= :ACTION "P") {:WEALTH (+ :WEALTH (>> (>> :CASTLE :ROOM) "C")) :CASTLE (<< :CASTLE :ROOM (<< (>> :CASTLE :ROOM) "C" 0))}]
+                  [(= :ACTION "C")
+                   {:msg ($ "YOU HAVE " :FOOD " UNITS OF FOOD")}
+                   :msg
+                   "HOW MANY DO YOU WANT TO EAT"
+                   ...
+                   {:Z (++ :FOOD)}
+                   [{:while (or (> :Z :FOOD) (< :Z 0)) :step {:Z (int (?) :Z)}}]
+                   {:FOOD (- :FOOD :Z) :STRENGTH (+ :STRENGTH (* 5 :Z))}
+                   ""
+                   ""]
+                  break
+                  ]]
+  inventory [[{}
+              [(< :WEALTH 1) break]
+              "YOU CAN BUY 1 - FLAMING TORCH ($15)"
+              "            2 - AXE ($10)"
+              "            3 - SWORD ($20)"
+              "            4 - FOOD ($2 PER UNIT)"
+              "            5 - MAGIC AMULET ($30)"
+              "            6 - SUIT OF ARMOR ($50)"
+              "            0 - TO CONTINUE ADVENTURE"
+              [(?= :LIGHT) "YOU HAVE A TORCH"]
+              [(?= :AXE) "YOUR SUPPLIES INCLUDE ONE AXE"]
+              [(?= :SWORD) "YOU SHOULD GUARD YOUR SWORD WELL"]
+              [(?= :AMULET) "YOUR AMULET WILL AID YOU IN TIMES OF STRESS"]
+              [(?= :SUIT) "YOU LOOK GOOD IN YOUR ARMOR"]
+              "ENTER NO. OF ITEM REQUIRED"
+              ...
+              [{}
+               [{:while (or (> :Z 6) (< :Z 0)) :step {:Z (int (?) :Z)}}]
+               [(= 0 :Z) break]
+
+               ]
+              break
+              ]]
+  major-handling-routine [{:STRENGTH (- :STRENGTH 5)}
                           [(< :STRENGTH 10)
                            {:msg ($ "WARNING, " :NAME ", YOUR STRENGTH IS RUNNING LOW")}
                            :msg]
@@ -320,7 +357,7 @@
                           [(<> 0 :K)
                            {:M (d10)}
                            [(> :K 9)
-                            {:msg ($ "THERE " (?: (> :M 5) "IS TREASURE" "ARE GEMS") " HERE WORTH $" :K)}
+                            {:msg ($ "THERE " (if (> :M 5) "IS TREASURE" "ARE GEMS") " HERE WORTH $" :K)}
                             :msg]
                            [(< :K 0)
                             ""
@@ -352,19 +389,22 @@
                            [(?= :menu-option-valid) {:ACTION :A$}]]
                           handle-action
                           ]
+  main [
+        initialize
+        [{:while (<> :ROOM 11)}
+         major-handling-routine]
+        "YOU'VE DONE IT!!"
+        ...
+        "THAT WAS THE EXIT FROM THE CASTLE"
+        ...
+        {:msg ($ "YOU HAVE SUCCEEDED, " :NAME "!")}
+        :msg
+        "YOU MANAGED TO GET YOUT OF THE CASTLE"
+        ...
+        "WELL DONE!"
+        ...
+        score
+        ]
   }
- initialize
- [{:while (<> :ROOM 11)}
-  major-handling-routine]
- "YOU'VE DONE IT!!"
- ...
- "THAT WAS THE EXIT FROM THE CASTLE"
- ...
- {:msg ($ "YOU HAVE SUCCEEDED, " :NAME "!")}
- :msg
- "YOU MANAGED TO GET YOUT OF THE CASTLE"
- ...
- "WELL DONE!"
- ...
- score
+ main
  ]
