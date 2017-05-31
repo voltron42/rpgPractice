@@ -309,7 +309,8 @@
                   break
                   ]]
   inventory [[{}
-              [(< :WEALTH 1) break]
+              [(< 0 :WEALTH) {:msg ($ "YOU HAVE $" :WEALTH)} :msg]
+              [(= 0 :WEALTH) "YOU HAVE NO MONEY" ... break]
               "YOU CAN BUY 1 - FLAMING TORCH ($15)"
               "            2 - AXE ($10)"
               "            3 - SWORD ($20)"
@@ -324,10 +325,22 @@
               [(?= :SUIT) "YOU LOOK GOOD IN YOUR ARMOR"]
               "ENTER NO. OF ITEM REQUIRED"
               ...
-              [{}
+              [{:init {:Z 7 :Q 0}}
                [{:while (or (> :Z 6) (< :Z 0)) :step {:Z (int (?) :Z)}}]
                [(= 0 :Z) break]
-
+               [(= 1 :Z) {:LIGHT true :WEALTH (- :WEALTH 15)} break]
+               [(= 2 :Z) {:AXE true :WEALTH (- :WEALTH 10)} break]
+               [(= 3 :Z) {:SWORD true :WEALTH (- :WEALTH 20)} break]
+               [(= 5 :Z) {:AMULET true :WEALTH (- :WEALTH 30)} break]
+               [(= 6 :Z) {:SUIT true :WEALTH (- :WEALTH 50)} break]
+               [(> 0 :WEALTH) "YOU HAVE TRIED TO CHEAT ME!" {:WEALTH false :SUIT false :LIGHT false :AXE false :SWORD false :AMULET false :FOOD (__ (/ :FOOD 4))}]
+               [(= 4 :Z)
+                "HOW MANY UNITS OF FOOD?"
+                ...
+                [{:while (or (<= :Q 0) (< :WEALTH (* 2 :Q))) :step {:Q (int (?) :Q)}}]
+                {:FOOD (+ :FOOD :Q) :WEALTH (- :WEALTH (* 2 :Q))}
+                break
+                ]
                ]
               break
               ]]
