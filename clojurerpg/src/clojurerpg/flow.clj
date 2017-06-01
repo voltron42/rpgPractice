@@ -30,7 +30,7 @@
                                                                '!     not
                                                                '!nil? some?
                                                                '<<    assoc
-                                                               '>>    get-in
+                                                               '>>    get
                                                                '->    nth
                                                                'list  vector
                                                                'push  conj

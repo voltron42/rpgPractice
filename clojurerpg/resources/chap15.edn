@@ -1,349 +1,20 @@
-[{initialize [{:STRENGTH (+ 60 (d100))
-               :WEALTH (+ 30 (d100))
-               :FOOD 0
-               :TALLY 0
-               :MK 0
-               :CASTLE (map  1 (map "N" 0 "S" 2 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
-                             2 (map "N" 1 "S" 3 "E" 3 "W" 0 "U" 0 "D" 0 "C" 0)
-                             3 (map "N" 2 "S" 0 "E" 5 "W" 2 "U" 0 "D" 0 "C" 0)
-                             4 (map "N" 0 "S" 5 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
-                             5 (map "N" 4 "S" 0 "E" 0 "W" 3 "U" 15 "D" 13 "C" 0)
-                             6 (map "N" 0 "S" 0 "E" 1 "W" 0 "U" 0 "D" 0 "C" 0)
-                             7 (map "N" 0 "S" 8 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
-                             8 (map "N" 7 "S" 10 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
-                             9 (map "N" 0 "S" 19 "E" 0 "W" 8 "U" 0 "D" 8 "C" 0)
-                             10 (map "N" 8 "S" 0 "E" 11 "W" 0 "U" 0 "D" 0 "C" 0)
-                             11 (map "N" 0 "S" 0 "E" 10 "W" 0 "U" 0 "D" 0 "C" 0)
-                             12 (map "N" 0 "S" 0 "E" 0 "W" 13 "U" 0 "D" 0 "C" 0)
-                             13 (map "N" 0 "S" 0 "E" 12 "W" 0 "U" 5 "D" 0 "C" 0)
-                             14 (map "N" 0 "S" 15 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
-                             15 (map "N" 14 "S" 0 "E" 0 "W" 0 "U" 0 "D" 5 "C" 0)
-                             16 (map "N" 17 "S" 0 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
-                             17 (map "N" 18 "S" 16 "E" 0 "W" 14 "U" 0 "D" 0 "C" 0)
-                             18 (map "N" 0 "S" 17 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
-                             19 (map "N" 9 "S" 0 "E" 16 "W" 0 "U" 0 "D" 0 "C" 0))}
-              "WHAT IS YOUR NAME EXPLORER?"
-              ...
-              {:NAME (?)
-               :ROOM 6
-               :SWORD FALSE
-               :AMULET FALSE
-               :SUIT FALSE
-               :LIGHT FALSE}
-              [{:init {:J 1 :M 6} :while (<= :J 4) :step {:J (++ :J)}}
-               [{:while (or (= :M 6) (= :M 11) (<> 0 (>> (>> :CASTLE :M) "C")))}
-                {:M (++ (rand (count :CASTLE)))}]
-               {:CASTLE (<< :CASTLE :M (<< (>> :CASTLE :M) "C" (+ 10 (d100))))}]
-              [{:init {:J 1 :M 6} :while (<= :J 6) :step {:J (++ :J)}}
-               [{:while (or (= :M 6) (= :M 11) (<> 0 (>> (>> :CASTLE :M) "C")))}
-                {:M (++ (rand (count :CASTLE)))}]
-               {:CASTLE (<< :CASTLE :M (<< (>> :CASTLE :M) "C" (- 0 :J)))}]
-              {:CASTLE (<< :CASTLE 4 (<< (>> :CASTLE 4) "C" (+ 100 (d100))))}
-              {:CASTLE (<< :CASTLE 16 (<< (>> :CASTLE 16) "C" (+ 100 (d100))))}]
-  describe-room [[(= :ROOM 1)
-                 "YOU ARE IN THE HALLWAY"
-                 [(> (d10) 4)
-                  "FROM THE DUST ON THE GROUND YOU CAN TELL"
-                  "NO-ONE HAS WALKED HERE FOR A LONG, LONG TIME"]
-                 "THERE IS A DOOR TO THE SOUTH"
-                 "THROUGH WINDOWS TO THE NORTH YOU CAN SEE A SECRET HERB GARDEN"
-                 ]
-                [(= :ROOM 2)
-                 "THIS IS THE AUDIENCE CHAMBER"
-                 [(> (d10) 4)
-                  "THE FADED TAPE STRIPES ON THE WALL ONLY"
-                  "HINT AT THE SPLENDOR WHICH THIS ROOM ONCE HAD"]
-                 "THERE IS A WINDOW TO THE WEST BY LOOKING TO THE RIGHT"
-                 "THROUGH IT YOU CAN SEE THE ENTRANCE TO THE CASTLE"]
-                [(= :ROOM 3)
-                 "YOU ARE IN THE GREAT HALL, AN L-SHAPED ROOM"
-                 "THERE ARE TWO DOORS IN THIS ROOM"
-                 "THE WOOD PANELS ARE WARPED AND FADED..."
-                 [(> (d10) 4)
-                  "AS YOU STAND THERE, YOU HEAR A MOUSE SCAMPER ALONG"
-                  "THE FLOOR BEHIND YOU..."
-                  "YOU WHIRL AROUND...BUT SEE NOTHING!"
-                  ]]
-                [(= :ROOM 4)
-                 "THIS IS THE MONARCH'S PRIVATE MEETING ROOM"
-                 [(< (d10) 4)
-                  "THE ECHO OF ANCIENT PLOTTING AND WRANGLING HANGS"
-                  "HEAVY IN THE MUSTY AIR..."]
-                 "THERE IS A SINGLE EXIT TO THE SOUTH"]
-                [(= :ROOM 5)
-                 "THIS INNER HALLWAY CONTAINS A DOOR TO THE NORTH,"
-                 "AND ONE TO THE WEST, AND A CIRCULAR STAIRWELL"
-                 "PASSES THROUGH THE ROOM"
-                 [(> (d10) 6) "THE ROOM IS SMALL, AND UNFRIENDLY"]
-                 "YOU CAN SEE AN ORNAMENTAL LAKE THROUGH THE"
-                 "WINDOWS TO THE SOUTH"]
-                [(= :ROOM 6)
-                 "YOU ARE AT THE ENTRANCE TO A FORBIDDING-LOOKING"
-                 "STONE CASTLE.  YOU ARE FACING EAST"]
-                [(= :ROOM 7)
-                 "THIS IS THE CASTLE'S KITCHEN. THROUGH WINDOWS IN"
-                 "THE NORTH WALL YOU CAN SEE A SECRET HERB GARDEN."
-                 "IT HAS BEEN MANY YEARS SINCE MEALS WERE"
-                 "PREPARED FOR THE MONARCH AND THE COURT"
-                 "IN THIS KITCHEN......."
-                 [(> (d10) 4) "...A RAT SCURRIES ACROSS THE FLOOR..."]]
-                [(= :ROOM 8)
-                 "YOU ARE IN THE STORE ROOM, AMIDST SPICES,"
-                 "VEGETABLES, AND VAST SACKS OF FLOUR AND"
-                 "OTHER PROVISIONS."
-                 "THE AIR IS THICK WITH SPICE AND CURRY FUMES..."]
-                [(= :ROOM 9)
-                 "YOU HAVE ENTERED THE LIFT..."
-                 ...
-                 "IT SLOWLY DESCENDS..."
-                 ...
-                 {:ROOM 10}]
-                [(= :ROOM 10)
-                 "YOU ARE IN THE REAR VESTIBULE"
-                 "THERE ARE WINDOWS TO THE SOUTH FROM WHICH YOU"
-                 "YOU CAN SEE THE ORNAMENTAL LAKE"
-                 "THERE IS AN EXIT TO THE EAST, AND"
-                 "ONE TO THE NORTH"]
-                [(= :ROOM 12)
-                 "YOU ARE IN THE DANK, DARK DUNGEON"
-                 "THERE IS A SINGLE EXIT, A SMALL HOLE IN"
-                 "WALL TOWARDS THE WEST"
-                 [(> (d10) 4)
-                  "...A HOLLOW, DRY CHUCKLE IS HEARD"
-                  "FROM THE GUARD ROOM...."]]
-                [(= :ROOM 13)
-                 "YOU ARE IN THE PRISON GUARDROOM, IN THE"
-                 "BASEMENT OF THE CASTLE. THE STAIRWELL"
-                 "ENDS IN THIS ROOM. THERE IS ONE OTHER"
-                 "EXIT, A SMALL HOLE IN THE EAST WALL"
-                 "THE AIR IS DAMP AND UNPLEASANT...A CHILL WIND"
-                 "RUSHES INTO THE ROOM FROM GAPS IN THE STONE"
-                 "AT THE TOP OF THE WALLS"]
-                [(= :ROOM 14)
-                 "YOU ARE IN THE MASTER BEDROOM ON THE UPPER"
-                 "LEVEL OF THE CASTLE...."
-                 "LOOKING DOWN FROM THE WINDOW TO THE WEST YOU"
-                 "CAN SEE THE ENTRANCE TO THE CASTLE, WHILE THE"
-                 "SECRET HERB GARDEN IS VISIBLE BELOW THE NORTH"
-                 "WINDOW. THERE ARE DOORS TO THE EAST AND"
-                 "TO THE SOUTH...."]
-                [(= :ROOM 15)
-                 "THIS IS THE L-SHAPED UPPER HALLWAY."
-                 [(> (d10) 4) "...A MOTH FLITS ACROSS NEAR THE CEILING..."]
-                 "TO THE NORTH IS A DOOR, AND THERE IS A"
-                 "STAIRWELL IN THE HALL AS WELL. YOU CAN SEE"
-                 "THE LAKE THROUGH THE SOUTH WINDOWS"]
-                [(= :ROOM 16)
-                 "THIS ROOM WAS USED AS THE CASTLE TREASURY IN"
-                 "BY-GONE YEARS...."
-                 [(> (d10) 4) "...A SPIDER SCAMPERS DOWN THE WALL........"]
-                 "THERE ARE NO WINDOWS, JUST EXITS."]
-                [(= :ROOM 17)
-                 "OOOOH...YOU ARE IN THE CHAMBERMAIDS' BEDROOM"
-                 "FAINT PERFUME STILL HANGS IN THE AIR..."
-                 "THERE IS AN EXIT TO THE WEST AND A DOOR"
-                 "TO THE SOUTH...."]
-                [(= :ROOM 18)
-                 "THIS TINY ROOM ON THE UPPER LEVEL IS THE"
-                 "DRESSING CHAMBER. THERE IS A WINDOW TO THE"
-                 "NORTH, WITH A VIEW OF THE HERB GARDEN DOWN"
-                 "BELOW. A DOOR LEAVES TO THE SOUTH"
-                 "YOU CATCH A GLIMPSE OF YOURSELF IN THE MIRROR"
-                 "HANGING ON THE WALL AND ARE SHOCKED AT YOUR"
-                 "DISHEVELED APPEARANCE"]
-                [(= :ROOM 19)
-                 "THIS IS THE SMALL ROOM OUTSIDE THE CASTLE"
-                 "YOU CAN SEE......................"
-                 "THE LAKE THROUGH THE SOUTHERN WINDOWS"]]
+[{main [initialize
+        [{:while (<> :ROOM 11)}
+         major-handling-routine]
+        "YOU'VE DONE IT!!"
+        ...
+        "THAT WAS THE EXIT FROM THE CASTLE"
+        ...
+        {:msg ($ "YOU HAVE SUCCEEDED, " :NAME "!")}
+        :msg
+        "YOU MANAGED TO GET YOUT OF THE CASTLE"
+        ...
+        "WELL DONE!"
+        ...
+        score
+        ]
   score [{:score ($ "YOUR SCORE IS " (+ (* 3 :TALLY) (* 5 :STRENGTH) (* 2 :WEALTH) (* 30 :MK)))}
          :score]
-  end-game [score halt]
-  death ["YOU HAVE DIED..........."
-         ...
-         end-game]
-  use-sword [{:FF (* 3 (__ (/ :FF 4)))}]
-  use-axe [{:FF (* 4 (__ (/ :FF 5)))}]
-  fight ["READY..."
-         ...
-         "FIGHT!!!"
-         [(?= :SUIT)
-          "YOUR ARMOR INCREASES YOUR CHANCE OF SUCCESS"
-          {:FF (* 3 (__ (/ :FF 4)))}
-          ...]
-         ""
-         [{:init {:J 1} :while (<= :J 6) :step {:J (++ :J)}}
-          "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*"]
-         [(and (!?= :AXE) (!?= :SWORD))
-          "YOU HAVE NO WEAPONS"
-          "YOU MUST FIGHT WITH BARE HANDS"
-          {:FF (__ (+ :FF (/ :FF 5)))}
-          ]
-         [(and (?= :AXE) (!?= :SWORD))
-          "YOU HAVE ONLY AN AXE TO FIGHT WITH"
-          use-axe]
-         [(and (!?= :AXE) (?= :SWORD))
-          "YOU MUST FIGHT WITH YOUR SWORD"
-          use-sword]
-         [(and (?= :AXE) (?= :SWORD))
-          [{:init {:z 0} :while (and (<> :z 1) (<> :z 2))}
-           "WHICH WEAPON? 1 - AXE, 2 - SWORD"
-           ...
-           {:Z (?)}]
-          [(= :z 1) use-axe]
-          [(= :z 2) use-sword]]
-         ""
-         ""
-         [{:init {:escape 0} :while (< :escape 35) :step {:escape (d100)}}
-          {:msg (?: (> (d10) 5) ($ :MONSTER " ATTACKS") "YOU ATTACK")}
-          :msg
-          ...
-          [(and :LIGHT (> (d10) 5))
-           "YOUR TORCH WAS KNOCKED FROM YOUR HAND"
-           {:LIGHT false}
-           ...]
-          [(and :AXE (> (d10) 5))
-           "YOU DROP YOUR AXE IN THE HEAT OF BATTLE"
-           {:AXE false :FF (* 5 (__ (/ :FF 4)))}]
-          [(and :SWORD (> (d10) 5))
-           "YOUR SWORD IS KNOCKED FROM YOUR HAND!!!"
-           {:SWORD false :FF (* 4 (__ (/ :FF 3)))}]
-          [(> (d10) 5)
-           ""
-           "YOU MANAGE TO WOUND IT"
-           {:FF (__ (* 5 (/ :FF 6)))}]
-          [(> (d20) 19)
-           "Aaaaargh!!!"
-           ...
-           "RIP! TEAR! RIP!"]
-          [(> (d10) 9) "YOU WANT TO RUN BUT YOU STAND YOUR GROUND..."]
-          [(> (d10) 9) "*&%%$#$% $%# !! @ #$$# #$@! #$ $#$"]
-          [(> (d10) 7) "WILL THIS BE A BATTLE TO THE DEATH?"]
-          [(> (d10) 7) "HIS EYES FLASH FEARFULLY"]
-          [(> (d10) 7) "BLOOD DRIPS FROM HIS CLAWS"]
-          [(> (d10) 7) "YOU SMELL THE SULPHUR ON HIS BREATH"]
-          [(> (d10) 7) "HE STRIKES WILDLY, MADLY..........."]
-          [(> (d10) 7) "YOU HAVE NEVER FOUGHT AN OPPONENT LIKE THIS!!"]
-          ...
-          [(> (d10) 5) "" "THE MONSTER WOUNDS YOU!" {:STRENGTH (- :STRENGTH 5)}]]
-         {:succeeds? (> (rand 16) :FF)}
-         [(?= :succeeds?) {:msg ($ "AND YOU MANAGED TO KILL THE " :MONSTER) :MK (++ :MK)} :msg]
-         [(!?= :succeeds?) {:msg ($ "THE " :MONSTER " DEFEATED YOU") :STRENGTH (__ (/ :STRENGTH 2))}
-          {:CASTLE (<< :CASTLE :ROOM (<< (>> :CASTLE :ROOM) "C" 0))}
-          ...
-          ""
-          ""
-          ...]]
-  list-menu ["CHOOSE FROM ONE OF THE FOLLOWING:"
-             "(Q)UIT"
-             [(< :K 0)
-              "(F)IGHT"
-              [(<> 0 (>> (>> :CASTLE :ROOM) "N")) "RUN (N)ORTH"]
-              [(<> 0 (>> (>> :CASTLE :ROOM) "S")) "RUN (S)OUTH"]
-              [(<> 0 (>> (>> :CASTLE :ROOM) "E")) "RUN (E)AST"]
-              [(<> 0 (>> (>> :CASTLE :ROOM) "W")) "RUN (W)EST"]
-              [(<> 0 (>> (>> :CASTLE :ROOM) "U")) "RUN (U)P"]
-              [(<> 0 (>> (>> :CASTLE :ROOM) "D")) "RUN (D)OWN"]
-              ]
-             [(>= :K 0)
-              [(<> 0 (>> (>> :CASTLE :ROOM) "N")) "GO (N)ORTH"]
-              [(<> 0 (>> (>> :CASTLE :ROOM) "S")) "GO (S)OUTH"]
-              [(<> 0 (>> (>> :CASTLE :ROOM) "E")) "GO (E)AST"]
-              [(<> 0 (>> (>> :CASTLE :ROOM) "W")) "GO (W)EST"]
-              [(<> 0 (>> (>> :CASTLE :ROOM) "U")) "GO (U)P"]
-              [(<> 0 (>> (>> :CASTLE :ROOM) "D")) "GO (D)OWN"]
-              [(> :FOOD 0) "(C)ONSUME FOOD"]
-              [(> :WEALTH 0) "(I)NVENTORY & PROVISIONS"]
-              [(> :K 9) "(P)ICK UP TREASURE"]
-              [(?= :AMULET) "(M)AGIC AMULET"]
-              "(T)ALLY SCORE"
-              ]
-             ]
-  validate-menu-option [[{}
-                         [(and (= :A$ "N") (= 0 (>> (>> :CASTLE :ROOM) "N"))) "NO EXIT THAT WAY" break]
-                         [(and (= :A$ "S") (= 0 (>> (>> :CASTLE :ROOM) "S"))) "THERE IS NO EXIT SOUTH" break]
-                         [(and (= :A$ "E") (= 0 (>> (>> :CASTLE :ROOM) "E"))) "YOU CANNOT GO IN THAT DIRECTION" break]
-                         [(and (= :A$ "W") (= 0 (>> (>> :CASTLE :ROOM) "W"))) "YOU CANNOT MOVE THROUGH SOLID STONE" break]
-                         [(and (= :A$ "U") (= 0 (>> (>> :CASTLE :ROOM) "U"))) "THERE IS NO WAY UP FROM HERE" break]
-                         [(and (= :A$ "D") (= 0 (>> (>> :CASTLE :ROOM) "D"))) "YOU CANNOT DESCEND FROM HERE" break]
-                         [(and (> 0 (>> (>> :CASTLE :ROOM) "C")) (in (set "N" "S" "E" "W" "U" "P") :A$) (> (d10) 7))
-                          "NO YOU MUST STAND AND FIGHT"
-                          {:A$ "F"}
-                          break
-                          ]
-                         [(and (= :A$ "C") (= 0 :FOOD)) "YOU HAVE NO FOOD" break]
-                         [(and (= :A$ "F") (<= 0 (>> (>> :CASTLE :ROOM) "C"))) "THERE IS NOTHING TO FIGHT HERE" break]
-                         [(and (= :A$ "P") (> 10 (>> (>> :CASTLE :ROOM) "C"))) "THERE IS NO TREASURE HERE" break]
-                         [(and (= :A$ "P") (!?= :LIGHT)) "YOU CANNOT SEE THE TREASURE" "YOU HAVE NO LIGHT" break]
-                         {:menu-option-valid true}
-                         break
-                        ]]
-  handle-action [[{}
-                  [(= :ACTION "N") {:ROOM (>> (>> :CASTLE :ROOM) "N")} break]
-                  [(= :ACTION "S") {:ROOM (>> (>> :CASTLE :ROOM) "S")} break]
-                  [(= :ACTION "E") {:ROOM (>> (>> :CASTLE :ROOM) "E")} break]
-                  [(= :ACTION "W") {:ROOM (>> (>> :CASTLE :ROOM) "W")} break]
-                  [(= :ACTION "U") {:ROOM (>> (>> :CASTLE :ROOM) "U")} break]
-                  [(= :ACTION "D") {:ROOM (>> (>> :CASTLE :ROOM) "D")} break]
-                  [(= :ACTION "T") score [(> (d10) 5) {:msg ($ "YOU HAVE KILLED " :MK " MONSTERS SO FAR...")} :msg] break]
-                  [(= :ACTION "F") fight break]
-                  [(= :ACTION "M")
-                   {:msg ""}
-                   [{:init {:x 1} :while (<= :x 30) :step {:x (++ :x) :msg ($ :msg "*")}}
-                    [{:init {:y 1} :while (<= :y :x) :step {:y (++ :Y) :msg ($ :msg " ")}}]]
-                   :msg
-                   [{:init {:old-room :ROOM} :while (or (= :ROOM 6) (= :ROOM 11) (= :ROOM :old-room)) :step {:ROOM (++ (rand (count :CASTLE)))}}]
-                   break
-                   ]
-                  [(= :ACTION "I") inventory break] ;;590 IF A$="I" THEN GOSUB 3010:RETURN
-                  [(= :ACTION "P") {:WEALTH (+ :WEALTH (>> (>> :CASTLE :ROOM) "C")) :CASTLE (<< :CASTLE :ROOM (<< (>> :CASTLE :ROOM) "C" 0))}]
-                  [(= :ACTION "C")
-                   {:msg ($ "YOU HAVE " :FOOD " UNITS OF FOOD")}
-                   :msg
-                   "HOW MANY DO YOU WANT TO EAT"
-                   ...
-                   {:Z (++ :FOOD)}
-                   [{:while (or (> :Z :FOOD) (< :Z 0)) :step {:Z (int (?) :Z)}}]
-                   {:FOOD (- :FOOD :Z) :STRENGTH (+ :STRENGTH (* 5 :Z))}
-                   ""
-                   ""]
-                  break
-                  ]]
-  inventory [[{}
-              [(< 0 :WEALTH) {:msg ($ "YOU HAVE $" :WEALTH)} :msg]
-              [(= 0 :WEALTH) "YOU HAVE NO MONEY" ... break]
-              "YOU CAN BUY 1 - FLAMING TORCH ($15)"
-              "            2 - AXE ($10)"
-              "            3 - SWORD ($20)"
-              "            4 - FOOD ($2 PER UNIT)"
-              "            5 - MAGIC AMULET ($30)"
-              "            6 - SUIT OF ARMOR ($50)"
-              "            0 - TO CONTINUE ADVENTURE"
-              [(?= :LIGHT) "YOU HAVE A TORCH"]
-              [(?= :AXE) "YOUR SUPPLIES INCLUDE ONE AXE"]
-              [(?= :SWORD) "YOU SHOULD GUARD YOUR SWORD WELL"]
-              [(?= :AMULET) "YOUR AMULET WILL AID YOU IN TIMES OF STRESS"]
-              [(?= :SUIT) "YOU LOOK GOOD IN YOUR ARMOR"]
-              "ENTER NO. OF ITEM REQUIRED"
-              ...
-              [{:init {:Z 7 :Q 0}}
-               [{:while (or (> :Z 6) (< :Z 0)) :step {:Z (int (?) :Z)}}]
-               [(= 0 :Z) break]
-               [(= 1 :Z) {:LIGHT true :WEALTH (- :WEALTH 15)} break]
-               [(= 2 :Z) {:AXE true :WEALTH (- :WEALTH 10)} break]
-               [(= 3 :Z) {:SWORD true :WEALTH (- :WEALTH 20)} break]
-               [(= 5 :Z) {:AMULET true :WEALTH (- :WEALTH 30)} break]
-               [(= 6 :Z) {:SUIT true :WEALTH (- :WEALTH 50)} break]
-               [(> 0 :WEALTH) "YOU HAVE TRIED TO CHEAT ME!" {:WEALTH false :SUIT false :LIGHT false :AXE false :SWORD false :AMULET false :FOOD (__ (/ :FOOD 4))}]
-               [(= 4 :Z)
-                "HOW MANY UNITS OF FOOD?"
-                ...
-                [{:while (or (<= :Q 0) (< :WEALTH (* 2 :Q))) :step {:Q (int (?) :Q)}}]
-                {:FOOD (+ :FOOD :Q) :WEALTH (- :WEALTH (* 2 :Q))}
-                break
-                ]
-               ]
-              break
-              ]]
   major-handling-routine [{:STRENGTH (- :STRENGTH 5)}
                           [(< :STRENGTH 10)
                            {:msg ($ "WARNING, " :NAME ", YOUR STRENGTH IS RUNNING LOW")}
@@ -402,22 +73,355 @@
                            [(?= :menu-option-valid) {:ACTION :A$}]]
                           handle-action
                           ]
-  main [
-        initialize
-        [{:while (<> :ROOM 11)}
-         major-handling-routine]
-        "YOU'VE DONE IT!!"
-        ...
-        "THAT WAS THE EXIT FROM THE CASTLE"
-        ...
-        {:msg ($ "YOU HAVE SUCCEEDED, " :NAME "!")}
-        :msg
-        "YOU MANAGED TO GET YOUT OF THE CASTLE"
-        ...
-        "WELL DONE!"
-        ...
-        score
-        ]
+  use-sword [{:FF (* 3 (__ (/ :FF 4)))}]
+  use-axe [{:FF (* 4 (__ (/ :FF 5)))}]
+  fight ["READY..."
+         ...
+         "FIGHT!!!"
+         [(?= :SUIT)
+          "YOUR ARMOR INCREASES YOUR CHANCE OF SUCCESS"
+          {:FF (* 3 (__ (/ :FF 4)))}
+          ...]
+         ""
+         [{:init {:J 1} :while (<= :J 6) :step {:J (++ :J)}}
+          "*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*"]
+         [(and (!?= :AXE) (!?= :SWORD))
+          "YOU HAVE NO WEAPONS"
+          "YOU MUST FIGHT WITH BARE HANDS"
+          {:FF (__ (+ :FF (/ :FF 5)))}
+          ]
+         [(and (?= :AXE) (!?= :SWORD))
+          "YOU HAVE ONLY AN AXE TO FIGHT WITH"
+          use-axe]
+         [(and (!?= :AXE) (?= :SWORD))
+          "YOU MUST FIGHT WITH YOUR SWORD"
+          use-sword]
+         [(and (?= :AXE) (?= :SWORD))
+          [{:init {:z 0} :while (and (<> :z 1) (<> :z 2))}
+           "WHICH WEAPON? 1 - AXE, 2 - SWORD"
+           ...
+           {:Z (?)}]
+          [(= :z 1) use-axe]
+          [(= :z 2) use-sword]]
+         ""
+         ""
+         [{:init {:escape 0} :while (< :escape 35) :step {:escape (d100)}}
+          {:msg (if (> (d10) 5) ($ :MONSTER " ATTACKS") "YOU ATTACK")}
+          :msg
+          ...
+          [(and :LIGHT (> (d10) 5))
+           "YOUR TORCH WAS KNOCKED FROM YOUR HAND"
+           {:LIGHT false}
+           ...]
+          [(and :AXE (> (d10) 5))
+           "YOU DROP YOUR AXE IN THE HEAT OF BATTLE"
+           {:AXE false :FF (* 5 (__ (/ :FF 4)))}]
+          [(and :SWORD (> (d10) 5))
+           "YOUR SWORD IS KNOCKED FROM YOUR HAND!!!"
+           {:SWORD false :FF (* 4 (__ (/ :FF 3)))}]
+          [(> (d10) 5)
+           ""
+           "YOU MANAGE TO WOUND IT"
+           {:FF (__ (* 5 (/ :FF 6)))}]
+          [(> (d20) 19)
+           "Aaaaargh!!!"
+           ...
+           "RIP! TEAR! RIP!"]
+          [(> (d10) 9) "YOU WANT TO RUN BUT YOU STAND YOUR GROUND..."]
+          [(> (d10) 9) "*&%%$#$% $%# !! @ #$$# #$@! #$ $#$"]
+          [(> (d10) 7) "WILL THIS BE A BATTLE TO THE DEATH?"]
+          [(> (d10) 7) "HIS EYES FLASH FEARFULLY"]
+          [(> (d10) 7) "BLOOD DRIPS FROM HIS CLAWS"]
+          [(> (d10) 7) "YOU SMELL THE SULPHUR ON HIS BREATH"]
+          [(> (d10) 7) "HE STRIKES WILDLY, MADLY..........."]
+          [(> (d10) 7) "YOU HAVE NEVER FOUGHT AN OPPONENT LIKE THIS!!"]
+          ...
+          [(> (d10) 5) "" "THE MONSTER WOUNDS YOU!" {:STRENGTH (- :STRENGTH 5)}]]
+         {:succeeds? (> (rand 16) :FF)}
+         [(?= :succeeds?) {:msg ($ "AND YOU MANAGED TO KILL THE " :MONSTER) :MK (++ :MK)} :msg]
+         [(!?= :succeeds?) {:msg ($ "THE " :MONSTER " DEFEATED YOU") :STRENGTH (__ (/ :STRENGTH 2))}
+          {:CASTLE (<< :CASTLE :ROOM (<< (>> :CASTLE :ROOM) "C" 0))}
+          ...
+          ""
+          ""
+          ...]]
+  describe-room [[(= :ROOM 1)
+                  "YOU ARE IN THE HALLWAY"
+                  [(> (d10) 4)
+                   "FROM THE DUST ON THE GROUND YOU CAN TELL"
+                   "NO-ONE HAS WALKED HERE FOR A LONG, LONG TIME"]
+                  "THERE IS A DOOR TO THE SOUTH"
+                  "THROUGH WINDOWS TO THE NORTH YOU CAN SEE A SECRET HERB GARDEN"
+                  ]
+                 [(= :ROOM 2)
+                  "THIS IS THE AUDIENCE CHAMBER"
+                  [(> (d10) 4)
+                   "THE FADED TAPE STRIPES ON THE WALL ONLY"
+                   "HINT AT THE SPLENDOR WHICH THIS ROOM ONCE HAD"]
+                  "THERE IS A WINDOW TO THE WEST BY LOOKING TO THE RIGHT"
+                  "THROUGH IT YOU CAN SEE THE ENTRANCE TO THE CASTLE"]
+                 [(= :ROOM 3)
+                  "YOU ARE IN THE GREAT HALL, AN L-SHAPED ROOM"
+                  "THERE ARE TWO DOORS IN THIS ROOM"
+                  "THE WOOD PANELS ARE WARPED AND FADED..."
+                  [(> (d10) 4)
+                   "AS YOU STAND THERE, YOU HEAR A MOUSE SCAMPER ALONG"
+                   "THE FLOOR BEHIND YOU..."
+                   "YOU WHIRL AROUND...BUT SEE NOTHING!"
+                   ]]
+                 [(= :ROOM 4)
+                  "THIS IS THE MONARCH'S PRIVATE MEETING ROOM"
+                  [(< (d10) 4)
+                   "THE ECHO OF ANCIENT PLOTTING AND WRANGLING HANGS"
+                   "HEAVY IN THE MUSTY AIR..."]
+                  "THERE IS A SINGLE EXIT TO THE SOUTH"]
+                 [(= :ROOM 5)
+                  "THIS INNER HALLWAY CONTAINS A DOOR TO THE NORTH,"
+                  "AND ONE TO THE WEST, AND A CIRCULAR STAIRWELL"
+                  "PASSES THROUGH THE ROOM"
+                  [(> (d10) 6) "THE ROOM IS SMALL, AND UNFRIENDLY"]
+                  "YOU CAN SEE AN ORNAMENTAL LAKE THROUGH THE"
+                  "WINDOWS TO THE SOUTH"]
+                 [(= :ROOM 6)
+                  "YOU ARE AT THE ENTRANCE TO A FORBIDDING-LOOKING"
+                  "STONE CASTLE.  YOU ARE FACING EAST"]
+                 [(= :ROOM 7)
+                  "THIS IS THE CASTLE'S KITCHEN. THROUGH WINDOWS IN"
+                  "THE NORTH WALL YOU CAN SEE A SECRET HERB GARDEN."
+                  "IT HAS BEEN MANY YEARS SINCE MEALS WERE"
+                  "PREPARED FOR THE MONARCH AND THE COURT"
+                  "IN THIS KITCHEN......."
+                  [(> (d10) 4) "...A RAT SCURRIES ACROSS THE FLOOR..."]]
+                 [(= :ROOM 8)
+                  "YOU ARE IN THE STORE ROOM, AMIDST SPICES,"
+                  "VEGETABLES, AND VAST SACKS OF FLOUR AND"
+                  "OTHER PROVISIONS."
+                  "THE AIR IS THICK WITH SPICE AND CURRY FUMES..."]
+                 [(= :ROOM 9)
+                  "YOU HAVE ENTERED THE LIFT..."
+                  ...
+                  "IT SLOWLY DESCENDS..."
+                  ...
+                  {:ROOM 10}]
+                 [(= :ROOM 10)
+                  "YOU ARE IN THE REAR VESTIBULE"
+                  "THERE ARE WINDOWS TO THE SOUTH FROM WHICH YOU"
+                  "YOU CAN SEE THE ORNAMENTAL LAKE"
+                  "THERE IS AN EXIT TO THE EAST, AND"
+                  "ONE TO THE NORTH"]
+                 [(= :ROOM 12)
+                  "YOU ARE IN THE DANK, DARK DUNGEON"
+                  "THERE IS A SINGLE EXIT, A SMALL HOLE IN"
+                  "WALL TOWARDS THE WEST"
+                  [(> (d10) 4)
+                   "...A HOLLOW, DRY CHUCKLE IS HEARD"
+                   "FROM THE GUARD ROOM...."]]
+                 [(= :ROOM 13)
+                  "YOU ARE IN THE PRISON GUARDROOM, IN THE"
+                  "BASEMENT OF THE CASTLE. THE STAIRWELL"
+                  "ENDS IN THIS ROOM. THERE IS ONE OTHER"
+                  "EXIT, A SMALL HOLE IN THE EAST WALL"
+                  "THE AIR IS DAMP AND UNPLEASANT...A CHILL WIND"
+                  "RUSHES INTO THE ROOM FROM GAPS IN THE STONE"
+                  "AT THE TOP OF THE WALLS"]
+                 [(= :ROOM 14)
+                  "YOU ARE IN THE MASTER BEDROOM ON THE UPPER"
+                  "LEVEL OF THE CASTLE...."
+                  "LOOKING DOWN FROM THE WINDOW TO THE WEST YOU"
+                  "CAN SEE THE ENTRANCE TO THE CASTLE, WHILE THE"
+                  "SECRET HERB GARDEN IS VISIBLE BELOW THE NORTH"
+                  "WINDOW. THERE ARE DOORS TO THE EAST AND"
+                  "TO THE SOUTH...."]
+                 [(= :ROOM 15)
+                  "THIS IS THE L-SHAPED UPPER HALLWAY."
+                  [(> (d10) 4) "...A MOTH FLITS ACROSS NEAR THE CEILING..."]
+                  "TO THE NORTH IS A DOOR, AND THERE IS A"
+                  "STAIRWELL IN THE HALL AS WELL. YOU CAN SEE"
+                  "THE LAKE THROUGH THE SOUTH WINDOWS"]
+                 [(= :ROOM 16)
+                  "THIS ROOM WAS USED AS THE CASTLE TREASURY IN"
+                  "BY-GONE YEARS...."
+                  [(> (d10) 4) "...A SPIDER SCAMPERS DOWN THE WALL........"]
+                  "THERE ARE NO WINDOWS, JUST EXITS."]
+                 [(= :ROOM 17)
+                  "OOOOH...YOU ARE IN THE CHAMBERMAIDS' BEDROOM"
+                  "FAINT PERFUME STILL HANGS IN THE AIR..."
+                  "THERE IS AN EXIT TO THE WEST AND A DOOR"
+                  "TO THE SOUTH...."]
+                 [(= :ROOM 18)
+                  "THIS TINY ROOM ON THE UPPER LEVEL IS THE"
+                  "DRESSING CHAMBER. THERE IS A WINDOW TO THE"
+                  "NORTH, WITH A VIEW OF THE HERB GARDEN DOWN"
+                  "BELOW. A DOOR LEAVES TO THE SOUTH"
+                  "YOU CATCH A GLIMPSE OF YOURSELF IN THE MIRROR"
+                  "HANGING ON THE WALL AND ARE SHOCKED AT YOUR"
+                  "DISHEVELED APPEARANCE"]
+                 [(= :ROOM 19)
+                  "THIS IS THE SMALL ROOM OUTSIDE THE CASTLE"
+                  "YOU CAN SEE......................"
+                  "THE LAKE THROUGH THE SOUTHERN WINDOWS"]]
+  death ["YOU HAVE DIED..........."
+         ...
+         end-game]
+  end-game [score halt]
+  list-menu ["CHOOSE FROM ONE OF THE FOLLOWING:"
+             "(Q)UIT"
+             [(< :K 0)
+              "(F)IGHT"
+              [(<> 0 (>> (>> :CASTLE :ROOM) "N")) "RUN (N)ORTH"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "S")) "RUN (S)OUTH"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "E")) "RUN (E)AST"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "W")) "RUN (W)EST"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "U")) "RUN (U)P"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "D")) "RUN (D)OWN"]
+              ]
+             [(>= :K 0)
+              [(<> 0 (>> (>> :CASTLE :ROOM) "N")) "GO (N)ORTH"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "S")) "GO (S)OUTH"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "E")) "GO (E)AST"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "W")) "GO (W)EST"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "U")) "GO (U)P"]
+              [(<> 0 (>> (>> :CASTLE :ROOM) "D")) "GO (D)OWN"]
+              [(> :FOOD 0) "(C)ONSUME FOOD"]
+              [(> :WEALTH 0) "(I)NVENTORY & PROVISIONS"]
+              [(> :K 9) "(P)ICK UP TREASURE"]
+              [(?= :AMULET) "(M)AGIC AMULET"]
+              "(T)ALLY SCORE"
+              ]
+             ]
+  validate-menu-option [[{}
+                         [(and (= :A$ "N") (= 0 (>> (>> :CASTLE :ROOM) "N"))) "NO EXIT THAT WAY" break]
+                         [(and (= :A$ "S") (= 0 (>> (>> :CASTLE :ROOM) "S"))) "THERE IS NO EXIT SOUTH" break]
+                         [(and (= :A$ "E") (= 0 (>> (>> :CASTLE :ROOM) "E"))) "YOU CANNOT GO IN THAT DIRECTION" break]
+                         [(and (= :A$ "W") (= 0 (>> (>> :CASTLE :ROOM) "W"))) "YOU CANNOT MOVE THROUGH SOLID STONE" break]
+                         [(and (= :A$ "U") (= 0 (>> (>> :CASTLE :ROOM) "U"))) "THERE IS NO WAY UP FROM HERE" break]
+                         [(and (= :A$ "D") (= 0 (>> (>> :CASTLE :ROOM) "D"))) "YOU CANNOT DESCEND FROM HERE" break]
+                         [(and (> 0 (>> (>> :CASTLE :ROOM) "C")) (in (set "N" "S" "E" "W" "U" "P") :A$) (> (d10) 7))
+                          "NO YOU MUST STAND AND FIGHT"
+                          {:A$ "F"}
+                          break
+                          ]
+                         [(and (= :A$ "C") (= 0 :FOOD)) "YOU HAVE NO FOOD" break]
+                         [(and (= :A$ "F") (<= 0 (>> (>> :CASTLE :ROOM) "C"))) "THERE IS NOTHING TO FIGHT HERE" break]
+                         [(and (= :A$ "P") (> 10 (>> (>> :CASTLE :ROOM) "C"))) "THERE IS NO TREASURE HERE" break]
+                         [(and (= :A$ "P") (!?= :LIGHT)) "YOU CANNOT SEE THE TREASURE" "YOU HAVE NO LIGHT" break]
+                         {:menu-option-valid true}
+                         break
+                        ]]
+  handle-action [[{}
+                  [(= :ACTION "Q") "YOU HAVE CHOSEN TO QUIT THE GAME" end-game]
+                  [(= :ACTION "N") {:ROOM (>> (>> :CASTLE :ROOM) "N")} break]
+                  [(= :ACTION "S") {:ROOM (>> (>> :CASTLE :ROOM) "S")} break]
+                  [(= :ACTION "E") {:ROOM (>> (>> :CASTLE :ROOM) "E")} break]
+                  [(= :ACTION "W") {:ROOM (>> (>> :CASTLE :ROOM) "W")} break]
+                  [(= :ACTION "U") {:ROOM (>> (>> :CASTLE :ROOM) "U")} break]
+                  [(= :ACTION "D") {:ROOM (>> (>> :CASTLE :ROOM) "D")} break]
+                  [(= :ACTION "T") score [(> (d10) 5) {:msg ($ "YOU HAVE KILLED " :MK " MONSTERS SO FAR...")} :msg] break]
+                  [(= :ACTION "F") fight break]
+                  [(= :ACTION "M")
+                   {:msg ""}
+                   [{:init {:x 1} :while (<= :x 30) :step {:x (++ :x) :msg ($ :msg "*")}}
+                    [{:init {:y 1} :while (<= :y :x) :step {:y (++ :Y) :msg ($ :msg " ")}}]]
+                   :msg
+                   [{:init {:old-room :ROOM} :while (or (= :ROOM 6) (= :ROOM 11) (= :ROOM :old-room)) :step {:ROOM (++ (rand (count :CASTLE)))}}]
+                   break
+                   ]
+                  [(= :ACTION "I") inventory break] ;;590 IF A$="I" THEN GOSUB 3010:RETURN
+                  [(= :ACTION "P") {:WEALTH (+ :WEALTH (>> (>> :CASTLE :ROOM) "C")) :CASTLE (<< :CASTLE :ROOM (<< (>> :CASTLE :ROOM) "C" 0))} break]
+                  [(= :ACTION "C")
+                   {:msg ($ "YOU HAVE " :FOOD " UNITS OF FOOD")}
+                   :msg
+                   "HOW MANY DO YOU WANT TO EAT"
+                   ...
+                   {:Z (++ :FOOD)}
+                   [{:while (or (> :Z :FOOD) (< :Z 0)) :step {:Z (int (?) :Z)}}]
+                   {:FOOD (- :FOOD :Z) :STRENGTH (+ :STRENGTH (* 5 :Z))}
+                   ""
+                   "" break]
+                  {:msg ($ "'" :ACTION "' IS NOT A VALID OPTION")}
+                  :msg
+                  "TRY AGAIN"
+                  break
+                  ]]
+  initialize [{:STRENGTH (+ 60 (d100))
+               :WEALTH (+ 30 (d100))
+               :FOOD 0
+               :TALLY 0
+               :MK 0}
+              castle
+              "WHAT IS YOUR NAME EXPLORER?"
+              ...
+              {:NAME (?)
+               :ROOM 6
+               :SWORD FALSE
+               :AMULET FALSE
+               :SUIT FALSE
+               :LIGHT FALSE}
+              [{:init {:J 1 :M 6} :while (<= :J 4) :step {:J (++ :J)}}
+               [{:while (or (= :M 6) (= :M 11) (<> 0 (>> (>> :CASTLE :M) "C")))}
+                {:M (++ (rand (count :CASTLE)))}]
+               {:CASTLE (<< :CASTLE :M (<< (>> :CASTLE :M) "C" (+ 10 (d100))))}]
+              [{:init {:J 1 :M 6} :while (<= :J 6) :step {:J (++ :J)}}
+               [{:while (or (= :M 6) (= :M 11) (<> 0 (>> (>> :CASTLE :M) "C")))}
+                {:M (++ (rand (count :CASTLE)))}]
+               {:CASTLE (<< :CASTLE :M (<< (>> :CASTLE :M) "C" (- 0 :J)))}]
+              {:CASTLE (<< :CASTLE 4 (<< (>> :CASTLE 4) "C" (+ 100 (d100))))}
+              {:CASTLE (<< :CASTLE 16 (<< (>> :CASTLE 16) "C" (+ 100 (d100))))}]
+  inventory [[{}
+              [(< 0 :WEALTH) {:msg ($ "YOU HAVE $" :WEALTH)} :msg]
+              [(= 0 :WEALTH) "YOU HAVE NO MONEY" ... break]
+              "YOU CAN BUY 1 - FLAMING TORCH ($15)"
+              "            2 - AXE ($10)"
+              "            3 - SWORD ($20)"
+              "            4 - FOOD ($2 PER UNIT)"
+              "            5 - MAGIC AMULET ($30)"
+              "            6 - SUIT OF ARMOR ($50)"
+              "            0 - TO CONTINUE ADVENTURE"
+              [(?= :LIGHT) "YOU HAVE A TORCH"]
+              [(?= :AXE) "YOUR SUPPLIES INCLUDE ONE AXE"]
+              [(?= :SWORD) "YOU SHOULD GUARD YOUR SWORD WELL"]
+              [(?= :AMULET) "YOUR AMULET WILL AID YOU IN TIMES OF STRESS"]
+              [(?= :SUIT) "YOU LOOK GOOD IN YOUR ARMOR"]
+              "ENTER NO. OF ITEM REQUIRED"
+              ...
+              [{:init {:Z 7 :Q 0}}
+               [{:while (or (> :Z 6) (< :Z 0)) :step {:Z (int (?) :Z)}}]
+               [(= 0 :Z) break]
+               [(= 1 :Z) "YOU'VE BOUGHT A TORCH!" {:LIGHT true :WEALTH (- :WEALTH 15)} break]
+               [(= 2 :Z) "YOU'VE BOUGHT A TORCH!" {:AXE true :WEALTH (- :WEALTH 10)} break]
+               [(= 3 :Z) {:SWORD true :WEALTH (- :WEALTH 20)} break]
+               [(= 5 :Z) {:AMULET true :WEALTH (- :WEALTH 30)} break]
+               [(= 6 :Z) {:SUIT true :WEALTH (- :WEALTH 50)} break]
+               [(> 0 :WEALTH) "YOU HAVE TRIED TO CHEAT ME!" {:WEALTH false :SUIT false :LIGHT false :AXE false :SWORD false :AMULET false :FOOD (__ (/ :FOOD 4))}]
+               [(= 4 :Z)
+                "HOW MANY UNITS OF FOOD?"
+                ...
+                [{:while (or (<= :Q 0) (< :WEALTH (* 2 :Q))) :step {:Q (int (?) :Q)}}]
+                {:FOOD (+ :FOOD :Q) :WEALTH (- :WEALTH (* 2 :Q))}
+                break
+                ]
+               ]
+              break
+              ]]
+  castle [{:CASTLE (map  1 (map "N" 0 "S" 2 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
+                         2 (map "N" 1 "S" 3 "E" 3 "W" 0 "U" 0 "D" 0 "C" 0)
+                         3 (map "N" 2 "S" 0 "E" 5 "W" 2 "U" 0 "D" 0 "C" 0)
+                         4 (map "N" 0 "S" 5 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
+                         5 (map "N" 4 "S" 0 "E" 0 "W" 3 "U" 15 "D" 13 "C" 0)
+                         6 (map "N" 0 "S" 0 "E" 1 "W" 0 "U" 0 "D" 0 "C" 0)
+                         7 (map "N" 0 "S" 8 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
+                         8 (map "N" 7 "S" 10 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
+                         9 (map "N" 0 "S" 19 "E" 0 "W" 8 "U" 0 "D" 8 "C" 0)
+                         10 (map "N" 8 "S" 0 "E" 11 "W" 0 "U" 0 "D" 0 "C" 0)
+                         11 (map "N" 0 "S" 0 "E" 10 "W" 0 "U" 0 "D" 0 "C" 0)
+                         12 (map "N" 0 "S" 0 "E" 0 "W" 13 "U" 0 "D" 0 "C" 0)
+                         13 (map "N" 0 "S" 0 "E" 12 "W" 0 "U" 5 "D" 0 "C" 0)
+                         14 (map "N" 0 "S" 15 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
+                         15 (map "N" 14 "S" 0 "E" 0 "W" 0 "U" 0 "D" 5 "C" 0)
+                         16 (map "N" 17 "S" 0 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
+                         17 (map "N" 18 "S" 16 "E" 0 "W" 14 "U" 0 "D" 0 "C" 0)
+                         18 (map "N" 0 "S" 17 "E" 0 "W" 0 "U" 0 "D" 0 "C" 0)
+                         19 (map "N" 9 "S" 0 "E" 16 "W" 0 "U" 0 "D" 0 "C" 0))}]
   }
  main
  ]
