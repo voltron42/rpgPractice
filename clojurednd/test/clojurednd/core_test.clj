@@ -3,15 +3,16 @@
             [clojure.string :as s]))
 
 (deftest test-hit-dice-list
-  (let [hit-dice-list "2⊠4⊠10⊠4⊠3⊠8⊠3"]
-    (->> 8864
-         (char)
-         (str)
-         (re-pattern)
-         (s/split hit-dice-list)
-         (map #(Integer/parseInt %))
-         (= [2 4 10 4 3 8 3])
-         (is))))
+  (let [hit-dice-list "2⊠4⊠10⊠4⊠3⊠8⊠3"
+        delim (->> 8864 (char) (str) (re-pattern))
+        [hit-dice-count & numbers] (->> delim (s/split hit-dice-list) (map #(Integer/parseInt %)))
+        hit-dice (mapv (fn [[number-of side-count _]]
+                         {:number-of number-of
+                          :side-count side-count})
+                       (partition 3 numbers))
+        ]
+    (is (= hit-dice [{:number-of 4 :side-count 10} {:number-of 3 :side-count 8}]))
+    ))
 
 (deftest test-spell-list
   (let [spell-list "v1.61⊠0⊡4⊡3⊡3⊡3⊡2⊡1⊡0⊡0⊡0⊡⊠true⊡true⊡true⊡true⊡true⊡true⊡true⊡false⊡false⊡false⊡⊠0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡⊠0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡0⊡⊠0⊠11⊠false⊠0⊟Guidance⊟⊟⊟⊟⊟⊟true⊟0⊡0⊟Resistance⊟⊟⊟⊟⊟⊟true⊟0⊡0⊟Mending⊟⊟⊟⊟⊟⊟true⊟0⊡0⊟Produce Flame⊟⊟⊟⊟⊟⊟true⊟0⊡1⊟Cure Wounds⊟⊟⊟⊟⊟⊟true⊟0⊡1⊟Healing Word⊟⊟⊟⊟⊟⊟true⊟0⊡1⊟Fog Cloud⊟⊟⊟⊟⊟⊟true⊟0⊡1⊟Faerie Fire⊟⊟⊟⊟⊟⊟true⊟0⊡2⊟Barkskin *⊟⊟⊟⊟⊟⊟true⊟0⊡2⊟Spider Climb *⊟⊟⊟⊟⊟⊟true⊟0⊡2⊟Enhance Ability⊟⊟⊟⊟⊟⊟true⊟0⊡2⊟Pass Without A Trace⊟⊟⊟⊟⊟⊟true⊟0⊡2⊟Lesser Restoration⊟⊟⊟⊟⊟⊟true⊟0⊡3⊟Call Lightning *⊟⊟⊟⊟⊟⊟true⊟0⊡3⊟Plant Growth *⊟⊟⊟⊟⊟⊟true⊟0⊡3⊟Dispel Magic⊟⊟⊟⊟⊟⊟true⊟0⊡3⊟Protection From Energy⊟⊟⊟⊟⊟⊟true⊟0⊡3⊟Wind Wall⊟⊟⊟⊟⊟⊟true⊟0⊡4⊟Divination *⊟⊟⊟⊟⊟⊟true⊟0⊡4⊟Freedom of Movement *⊟⊟⊟⊟⊟⊟true⊟0⊡4⊟Hallucinatory Terrain⊟⊟⊟⊟⊟⊟true⊟0⊡4⊟Stone Skin⊟⊟⊟⊟⊟⊟true⊟0⊡4⊟Wall Of Fire⊟⊟⊟⊟⊟⊟true⊟0⊡5⊟Commune with Nature *⊟⊟⊟⊟⊟⊟true⊟0⊡5⊟Tree Stride *⊟⊟⊟⊟⊟⊟true⊟0⊡5⊟Antilife Shell⊟⊟⊟⊟⊟⊟true⊟0⊡5⊟Greater Restoration⊟⊟⊟⊟⊟⊟true⊟0⊡6⊟Heal⊟⊟⊟⊟⊟⊟true⊟0⊡"
@@ -266,3 +267,98 @@
                     :bools2 false
                     :bools3 false}]))))
 
+(deftest test-class-data
+  (let [class-data "Fighter⊡Champion⊡4⊡-1⊠Ranger⊡Hunter⊡3⊡1⊟⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡-1⊡0⊠Action Surge⊡⊡1⊡1⊡0⊡2⊡0⊡0⊡303⊡0⊟Dual Wielder⊟fighting style⊡Archery⊟⊟⊟Human⊟Human Variant⊟Entertainer⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟1⊟1⊟0"
+        delims (map #(->> % (char) (str) (re-pattern)) [8864 8865 8863])
+        [class1 class2 features & extras] (s/split class-data (first delims))
+        ]
+    (reduce #(println %2) {} (s/split class1 (second delims)))
+    (reduce #(println %2) {} (s/split class2 (second delims)))
+    (reduce #(println %2) {} (s/split features (last delims)))
+    ))
+
+(deftest test-note-list
+  (let [note-list "Human Features:\n• One extra skill proficiency of your choosing\n• One bonus feat of your choosing\nNoble Feature:\n• You can secure an audience with a local noble\nClass Features:\n• Heal 1d10 + level hit points as a bonus action (once between rests)\n• Fighting Style - Archery: +2 to attack with ranged weapons\n• Dual Wielder: You can draw/stow two weapons per round, you can dual wield non-light weapons, and you gain +1 AC while dual wielding\n• Gain advantage on survival and Int checks concerning your chosen creature type, and you know a language spoken by those creatures\n• Gain advantage on Wis and Int checks concerning your chosen terrain, and bonuses while traveling through that terrain (see rules)\n• Take an extra action once between rests\n• Fighter Archetype: Champion\n• Crit on 19\n• You can sacrifice a spell slot as an action to determine if certain creature types are within 1 mile (6 miles if favored terrain) (see rules)\n• Big Game Hunter - You can use a reaction to attack a creature of at least Large size that attacks you\n⊠Light Armor, Medium Armor, Heavy Armor, Shields\n⊠Simple Weapons, Martial Weapons\n⊠One type of gaming set\n⊠Common\nExtra Language\nOne Extra Language\n⊠martial weapon\nshield\nlight crossbow + 20 bolts OR two hand axes\ndungeoneer's pack OR explorer's pack\nset of fine clothes\nsignet ring\nscroll of pedigree\npurse\nchain mail\n⊠⊠Fighter 4, Ranger 3⊠Human⊠Noble⊠⊠⊠⊠⊠⊠Baron Crispian Dale⊠Fighter 4, Ranger 3⊠0⊠0⊠0⊠25⊠0⊠0"
+        delim (->> 8864 (char) (str) (re-pattern))
+        bullet 8226
+        [features armor-proficiencies weapon-proficiencies tool-proficiencies
+         languages equiptment alignment classes race background traits ideals
+         bonds flaws notes char-name classes-match copper silver electrum gold
+         platinum] (s/split note-list delim)
+        feature-list (loop [out {} f-list (s/split features #"\n")]
+                       (if (empty? f-list)
+                         out
+                         (let [key (first f-list)
+                               remaining (rest f-list)
+                               bullets (vec (take-while #(= bullet (int (first %))) remaining))
+                               remaining (drop (count bullets) remaining)]
+                           (recur (assoc out key bullets) remaining))))
+        doc-text {:name char-name
+                  :race race
+                  :classes (mapv #(let [[class level]
+                                        (s/split % #" ")]
+                                    {:class class
+                                     :level (Integer/parseInt level)})
+                                 (s/split classes #", "))
+                  :background background
+                  :features feature-list
+                  :equiptment (s/split equiptment #"\n")
+                  :proficiencies {:armor (s/split (s/trim armor-proficiencies) #", ")
+                                  :weapon (s/split (s/trim weapon-proficiencies) #", ")
+                                  :tools (s/split (s/trim tool-proficiencies) #", ")
+                                  :languages (s/split (s/trim languages) #"\n")}
+                  :personality {:alignment alignment
+                                :traits traits
+                                :ideals ideals
+                                :bonds bonds
+                                :flaws flaws}
+                  :purse {:platinum (Integer/parseInt platinum)
+                          :gold (Integer/parseInt gold)
+                          :electrum (Integer/parseInt electrum)
+                          :silver (Integer/parseInt silver)
+                          :copper (Integer/parseInt copper)}
+                  :notes notes}]
+    (is (= doc-text {:name "Baron Crispian Dale"
+                     :race "Human"
+                     :classes [{:class "Fighter"
+                                :level 4}
+                               {:class "Ranger"
+                                :level 3}]
+                     :background "Noble"
+                     :features {"Human Features:" ["• One extra skill proficiency of your choosing"
+                                                   "• One bonus feat of your choosing"]
+                                "Noble Feature:" ["• You can secure an audience with a local noble"]
+                                "Class Features:" ["• Heal 1d10 + level hit points as a bonus action (once between rests)"
+                                                   "• Fighting Style - Archery: +2 to attack with ranged weapons"
+                                                   "• Dual Wielder: You can draw/stow two weapons per round, you can dual wield non-light weapons, and you gain +1 AC while dual wielding"
+                                                   "• Gain advantage on survival and Int checks concerning your chosen creature type, and you know a language spoken by those creatures"
+                                                   "• Gain advantage on Wis and Int checks concerning your chosen terrain, and bonuses while traveling through that terrain (see rules)"
+                                                   "• Take an extra action once between rests"
+                                                   "• Fighter Archetype: Champion"
+                                                   "• Crit on 19"
+                                                   "• You can sacrifice a spell slot as an action to determine if certain creature types are within 1 mile (6 miles if favored terrain) (see rules)"
+                                                   "• Big Game Hunter - You can use a reaction to attack a creature of at least Large size that attacks you"]}
+                     :equiptment ["martial weapon"
+                                  "shield"
+                                  "light crossbow + 20 bolts OR two hand axes"
+                                  "dungeoneer's pack OR explorer's pack"
+                                  "set of fine clothes"
+                                  "signet ring"
+                                  "scroll of pedigree"
+                                  "purse"
+                                  "chain mail"]
+                     :proficiencies {:armor ["Light Armor" "Medium Armor" "Heavy Armor" "Shields"]
+                                     :weapon ["Simple Weapons" "Martial Weapons"]
+                                     :tools ["One type of gaming set"]
+                                     :languages ["Common" "Extra Language" "One Extra Language"]}
+                     :personality {:alignment ""
+                                   :traits ""
+                                   :ideals ""
+                                   :bonds ""
+                                   :flaws ""}
+                     :purse {:platinum 0
+                             :gold 25
+                             :electrum 0
+                             :silver 0
+                             :copper 0}
+                     :notes ""}))))
