@@ -1,0 +1,2472 @@
+{"PiperRixi_Fighter5"
+ {:op
+  {:abilityScores
+   [{:label :STR,
+     :score 14,
+     :modifier 2,
+     :save-proficient true,
+     :bonus 0}
+    {:label :DEX,
+     :score 11,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CON,
+     :score 16,
+     :modifier 3,
+     :save-proficient true,
+     :bonus 0}
+    {:label :INT,
+     :score 16,
+     :modifier 3,
+     :save-proficient false,
+     :bonus 0}
+    {:label :WIS,
+     :score 10,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CHA,
+     :score 11,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}],
+   :raceCode -543,
+   :speedMiscMod 0,
+   :castingStatCode 3,
+   :miscSpellAttackBonus 0,
+   :showDeathSaves true,
+   :weaponList
+   [{:name "Greatsword",
+     :range "5 feet",
+     :damage-type :slashing,
+     :damage-dice [{:number-of 2, :dice-count 6}]}
+    {:name "Longsword",
+     :range "5 feet",
+     :damage-type :slashing,
+     :damage-dice [{:number-of 1, :dice-count 8}]}
+    {:name "Light Crossbow",
+     :range "80/320",
+     :damage-type :piercing,
+     :damage-dice [{:number-of 1, :dice-count 8}]}
+    {:name "Handaxe",
+     :range "20/60",
+     :damage-type :slashing,
+     :damage-dice [{:number-of 1, :dice-count 6}]}],
+   :backgroundCode 5,
+   :classResource "-1⊠-1⊠-1⊠-1⊠-1⊠-1⊠1⊠2⊠7⊠3⊠4⊠5",
+   :baseSpeed 25,
+   :maxDex 0,
+   :hitDiceList [{:number-of 5, :side-count 10}],
+   :spellList [{:id :cantrips, :slots 0, :spells []}],
+   :armorBonus 16,
+   :subraceCode 0,
+   :unarmoredDefense 0,
+   :shieldBonus 2,
+   :skillInfo
+   [{:label :ATHLETICS,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ACROBATICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SLEIGHT-OF-HAND,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :STEALTH,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ARCANA,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :HISTORY,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INVESTIGATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :NATURE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :RELIGION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ANIMAL-HANDLING,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INSIGHT,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :MEDICINE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERCEPTION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SURVIVAL,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :DECEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INTIMIDATION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERFORMANCE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERSUASION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}],
+   :miscArmorBonus 1,
+   :offenseAbilityDisplay 0,
+   :movementMode "Speed",
+   :proficiencyBonus 3,
+   :noteList
+   {:features
+    {"• Fighting Style - Two-Weapon Fighting: Add ability modifier to off-hand damage"
+     ["• Take an extra action once between rests"
+      "• Fighter Archetype: Battle Master"
+      "• Gain four superiority dice (d8) to spend on maneuvers"
+      "• One artisan's tools proficiency"
+      "• Distract: You can cause one creature you hit to take Superiority Die extra damage and grant advantage to the next attack against it this round from someone else"
+      "• Parry: You can use a reaction to take Superiority Die + Dex mod less damage from a melee attack"
+      "• Riposte: You can use a reaction when missed by a melee attack to make a melee attack back and deal Superiority Die extra damage"
+      "• Dual Wielder: You can draw/stow two weapons per round, you can dual wield non-light weapons, and you gain +1 AC while dual wielding"
+      "• You can make two attacks on your turn"]},
+    :race "",
+    :name "Piper Rixi",
+    :background "",
+    :proficiencies
+    {:armor [""],
+     :weapon [""],
+     :tools ["One type of artisan's tools"],
+     :languages [""]},
+    :notes "",
+    :personality
+    {:alignment "", :traits "", :ideals "", :bonds "", :flaws ""},
+    :equiptment ["chain mail"],
+    :classes [{:class "Fighter", :level 5}],
+    :purse {:platinum 0, :gold 0, :electrum 0, :silver 0, :copper 0}},
+   :improvedInitiative 0,
+   :featCode nil,
+   :initMiscMod 0,
+   :version 1,
+   :miscSpellDCBonus 0,
+   :maxHealth 49,
+   :multiclassFeatures "3,1,1,1,3,5,2,9,13"},
+  :non-op
+  {:pagePosition0 "1",
+   :classData
+   "Fighter⊡Battle Master⊡5⊡-1⊟⊠Extra Attack⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡-1⊡0⊠Action Surge⊡⊡1⊡1⊡0⊡2⊡0⊡0⊡-1⊡0⊠Superiority Dice⊡⊡4⊡4⊡8⊡2⊡0⊡0⊡303⊡0⊟Dual Wielder⊟combat superiority maneuvers⊡Distracting Strike⊡Parry⊡Riposte⊠fighting style⊡Two-Weapon Fighting⊟⊟⊟Halfling⊟Lightfoot Halfling⊟Guild Artisan⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟1⊟1⊟0",
+   :pagePosition2 "3",
+   :currentHealth "49",
+   :deathSaveSuccesses "0",
+   :currentTempHP "0",
+   :pagePosition1 "2",
+   :pagePosition4 "5",
+   :pagePosition3 "4",
+   :deathSaveFailures "0"}},
+ "LantheonVaazrus_Monk4"
+ {:op
+  {:abilityScores
+   [{:label :STR,
+     :score 12,
+     :modifier 1,
+     :save-proficient true,
+     :bonus 0}
+    {:label :DEX,
+     :score 12,
+     :modifier 1,
+     :save-proficient true,
+     :bonus 0}
+    {:label :CON,
+     :score 14,
+     :modifier 2,
+     :save-proficient true,
+     :bonus 0}
+    {:label :INT,
+     :score 10,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}
+    {:label :WIS,
+     :score 6,
+     :modifier -2,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CHA,
+     :score 11,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}],
+   :raceCode -543,
+   :speedMiscMod 10,
+   :castingStatCode 3,
+   :miscSpellAttackBonus 0,
+   :showDeathSaves true,
+   :weaponList
+   [{:name "Monk Unarmed Strike",
+     :range "5 feet",
+     :damage-type :bludgeoning,
+     :damage-dice [{:number-of 1, :dice-count 4}]}
+    {:name "Shortsword",
+     :range "5 feet",
+     :damage-type :piercing,
+     :damage-dice [{:number-of 1, :dice-count 6}]}
+    {:name "Dart",
+     :range "20/60",
+     :damage-type :piercing,
+     :damage-dice [{:number-of 1, :dice-count 4}]}],
+   :backgroundCode 5,
+   :classResource "-1⊠-1⊠-1⊠-1⊠-1⊠-1⊠1⊠2⊠8⊠3⊠4⊠5",
+   :baseSpeed 30,
+   :maxDex 10,
+   :hitDiceList [{:number-of 4, :side-count 8}],
+   :spellList [{:id :cantrips, :slots 0, :spells []}],
+   :armorBonus 10,
+   :subraceCode 0,
+   :unarmoredDefense 5,
+   :shieldBonus 0,
+   :skillInfo
+   [{:label :ATHLETICS,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ACROBATICS,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SLEIGHT-OF-HAND,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :STEALTH,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ARCANA,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :HISTORY,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INVESTIGATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :NATURE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :RELIGION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ANIMAL-HANDLING,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INSIGHT,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :MEDICINE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERCEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SURVIVAL,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :DECEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INTIMIDATION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERFORMANCE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERSUASION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}],
+   :miscArmorBonus 0,
+   :offenseAbilityDisplay 1,
+   :movementMode "Speed",
+   :proficiencyBonus 2,
+   :noteList
+   {:features
+    {"Dragonborn Features:"
+     ["• Brass Dragon"
+      "• You can breathe a 30 ft line of Fire(once between rests), dealing 2d6 Fire damage, Dex save for half damage (DC 11). DC = 8 + Con mod + prof"
+      "• You resist Fire damage"],
+     "Soldier Feature:"
+     ["• You have influence within your former army/organization"],
+     "Class Features:"
+     ["• Add Wis mod to AC when not wearing armor or using a shield"
+      "• When unarmed or using monk weapons, can use dex for attack and damage rolls, unarmed strikes deal more damage (d4), and can make an unarmed attack as a bonus action after normal attack action"
+      "• You gain a reservoir of energy (ki points = monk level) which is restored during a rest"
+      "• You can use a bonus action and spend 1 ki point to make two unarmed strikes right after using the attack action"
+      "• You can use a bonus action and spend 1 ki point to Dodge"
+      "• You can use a bonus action and spend 1 ki point to Dash or Disengage and double the distance you can jump"
+      "• When you are not in armor or using a shield your speed improves by 10 feet"
+      "• When you are hit by a ranged weapon attack you can use a reaction to reduce the damage by 1d10 + Dex mod + Monk level, and you can catch and throw the weapon if you would take 0 damage (see rules)"
+      "• Monk Archetype: Hand"
+      "• When you hit a creature with a Flurry of Blows attack you can inflict an additional effect (see rules)"
+      "• You can use a reaction to reduce fall damage by 5 x Monk level"
+      "• Resilient: You gain proficiency with one save and +1 to that ability"]},
+    :race "Dragonborn",
+    :name "Lantheon Vaazrus",
+    :background "Soldier",
+    :proficiencies
+    {:armor [""],
+     :weapon ["Simple Weapons" "Shortswords"],
+     :tools
+     ["Cook's Utensils\nOne type of gaming set\nVehicles (land)"],
+     :languages ["Common" "Draconic"]},
+    :notes "",
+    :personality
+    {:alignment "", :traits "", :ideals "", :bonds "", :flaws ""},
+    :equiptment
+    ["quarterstaff"
+     "ten darts"
+     "explorer's pack"
+     "rank insignia"
+     "trophy"
+     "set of bone dice"
+     "set of common clothes"
+     "belt pouch"],
+    :classes [{:class "Monk", :level 4}],
+    :purse {:platinum 0, :gold 10, :electrum 0, :silver 0, :copper 0}},
+   :improvedInitiative 0,
+   :featCode nil,
+   :initMiscMod 0,
+   :version 1,
+   :miscSpellDCBonus 0,
+   :maxHealth 37,
+   :multiclassFeatures "2,7,-1,0,0"},
+  :non-op
+  {:pagePosition0 "1",
+   :classData
+   "Monk⊡Way of the Open Hand⊡4⊡-1⊟Unarmored Defense⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡-1⊡0⊠Ki Points⊡⊡4⊡4⊡0⊡2⊡0⊡0⊡303⊡0⊟⊠Resilient⊟⊟monk⊟monk⊟Dragonborn⊟⊟Guild Artisan⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟4⊟1⊟0",
+   :pagePosition2 "3",
+   :currentHealth "37",
+   :deathSaveSuccesses "0",
+   :currentTempHP "0",
+   :pagePosition1 "2",
+   :pagePosition4 "5",
+   :pagePosition3 "4",
+   :deathSaveFailures "0"}},
+ "SimonDale_Bard1"
+ {:op
+  {:abilityScores
+   [{:label :STR,
+     :score 8,
+     :modifier -1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :DEX,
+     :score 14,
+     :modifier 2,
+     :save-proficient true,
+     :bonus 0}
+    {:label :CON,
+     :score 12,
+     :modifier 1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :INT,
+     :score 15,
+     :modifier 2,
+     :save-proficient false,
+     :bonus 0}
+    {:label :WIS,
+     :score 10,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CHA,
+     :score 17,
+     :modifier 3,
+     :save-proficient true,
+     :bonus 0}],
+   :raceCode -1,
+   :speedMiscMod 0,
+   :castingStatCode 5,
+   :miscSpellAttackBonus 0,
+   :showDeathSaves true,
+   :weaponList
+   [{:name "Unarmed strike",
+     :range "5 feet",
+     :damage-type 1100,
+     :damage-dice [{:number-of 1, :dice-count 1}]}
+    {:name "Dagger",
+     :range "20/60",
+     :damage-type 1101,
+     :damage-dice [{:number-of 1, :dice-count 4}]}],
+   :backgroundCode -1,
+   :classResource "-1⊠-1⊠-1⊠-1⊠-1⊠-1⊠1⊠2⊠1000⊠3⊠4⊠5",
+   :baseSpeed 35,
+   :maxDex 10,
+   :hitDiceList [{:number-of 1, :side-count 8}],
+   :spellList
+   [{:id :cantrips,
+     :slots 0,
+     :spells ["Minor Illusion" "Vicious Mockery"]}
+    {:id :first,
+     :slots 2,
+     :spells
+     ["Silent Image"
+      "Speak With Animals"
+      "Unseen Servant"
+      "Feather Fall"]}],
+   :armorBonus 11,
+   :subraceCode -1,
+   :unarmoredDefense 0,
+   :shieldBonus 0,
+   :skillInfo
+   [{:label :ATHLETICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ACROBATICS,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SLEIGHT-OF-HAND,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :STEALTH,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ARCANA,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :HISTORY,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INVESTIGATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :NATURE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :RELIGION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ANIMAL-HANDLING,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INSIGHT,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :MEDICINE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERCEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SURVIVAL,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :DECEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INTIMIDATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERFORMANCE,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERSUASION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}],
+   :miscArmorBonus 0,
+   :offenseAbilityDisplay 0,
+   :movementMode "Speed",
+   :proficiencyBonus 2,
+   :noteList
+   {:features
+    {"Half-Elf Features:"
+     ["• Within 60 feet of you, treat dim light as bright, darkness as dim light"
+      "• Immune to magical sleep, advantage on saves vs charmed"],
+     "Noble Feature:"
+     ["• You can secure an audience with a local noble"
+      "• Inspire an ally within 60 feet, giving them a bonus 1d6 on one ability check, attack roll, or save (Cha mod per day)"]},
+    :race "Variant",
+    :name "Simon Dale",
+    :background "Noble",
+    :proficiencies
+    {:armor ["Light Armor"],
+     :weapon
+     ["Simple Weapons"
+      "Hand Crossbows"
+      "Longswords"
+      "Rapiers"
+      "Shortswords"],
+     :tools ["One type of gaming set\nAny three musical instruments"],
+     :languages
+     ["Common" "Elvish" "Extra Language" "One Extra Language"]},
+    :notes "",
+    :personality
+    {:alignment "", :traits "", :ideals "", :bonds "", :flaws ""},
+    :equiptment
+    ["leather armor"
+     "unarmed strike"
+     "dagger"
+     "diplomat's pouch"
+     "any musical instrument"
+     "set of fine clothes"
+     "signet ring"
+     "scroll of pedigree"
+     "purse"],
+    :classes [{:class "Bard", :level 1}],
+    :purse {:platinum 0, :gold 25, :electrum 0, :silver 0, :copper 0}},
+   :improvedInitiative 0,
+   :featCode nil,
+   :initMiscMod 0,
+   :version 1,
+   :miscSpellDCBonus 0,
+   :maxHealth 9,
+   :multiclassFeatures nil},
+  :non-op
+  {:pagePosition0 "1",
+   :classData
+   "Bard⊡⊡1⊡0⊟⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡-1⊡0⊠Inspiration⊡⊡3⊡3⊡6⊡2⊡0⊡0⊡303⊡0⊟⊟⊟⊟⊟Half-Elf⊟Half-Elf Variant⊟Noble⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟1⊟1⊟1",
+   :pagePosition2 "3",
+   :currentHealth "9",
+   :deathSaveSuccesses "0",
+   :currentTempHP "0",
+   :pagePosition1 "2",
+   :pagePosition4 "5",
+   :pagePosition3 "4",
+   :deathSaveFailures "0"}},
+ "DrZanaHaranthi_Fighter3Monk4"
+ {:op
+  {:abilityScores
+   [{:label :STR,
+     :score 13,
+     :modifier 1,
+     :save-proficient true,
+     :bonus 0}
+    {:label :DEX,
+     :score 13,
+     :modifier 1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CON,
+     :score 10,
+     :modifier 0,
+     :save-proficient true,
+     :bonus 0}
+    {:label :INT,
+     :score 12,
+     :modifier 1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :WIS,
+     :score 13,
+     :modifier 1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CHA,
+     :score 11,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}],
+   :raceCode -543,
+   :speedMiscMod 10,
+   :castingStatCode 3,
+   :miscSpellAttackBonus 0,
+   :showDeathSaves true,
+   :weaponList
+   [{:name "Greatsword",
+     :range "5 feet",
+     :damage-type :slashing,
+     :damage-dice [{:number-of 2, :dice-count 6}]}
+    {:name "Light Crossbow",
+     :range "80/320",
+     :damage-type :piercing,
+     :damage-dice [{:number-of 1, :dice-count 8}]}
+    {:name "Rapier",
+     :range "5 feet",
+     :damage-type :piercing,
+     :damage-dice [{:number-of 1, :dice-count 8}]}
+    {:name "Unarmed",
+     :range "Melee",
+     :damage-type :bludgeoning,
+     :damage-dice [{:number-of 1, :dice-count 4}]}
+    {:name "Crossbow, Hand",
+     :range "30/120",
+     :damage-type :piercing,
+     :damage-dice [{:number-of 1, :dice-count 6}]}
+    {:name "Dagger",
+     :range "20/60",
+     :damage-type :piercing,
+     :damage-dice [{:number-of 1, :dice-count 4}]}],
+   :backgroundCode 8,
+   :classResource "-1⊠-1⊠-1⊠-1⊠-1⊠-1⊠1⊠2⊠5⊠3⊠4⊠5",
+   :baseSpeed 30,
+   :maxDex 10,
+   :hitDiceList
+   [{:number-of 3, :side-count 10} {:number-of 4, :side-count 8}],
+   :spellList
+   [{:id :cantrips, :slots 0, :spells ["Dancing Lights" "Light"]}
+    {:id :first,
+     :slots 2,
+     :spells ["Mage Armor" "Shield" "Burning Hands"]}],
+   :armorBonus 11,
+   :subraceCode 0,
+   :unarmoredDefense 0,
+   :shieldBonus 0,
+   :skillInfo
+   [{:label :ATHLETICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ACROBATICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SLEIGHT-OF-HAND,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :STEALTH,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ARCANA,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :HISTORY,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INVESTIGATION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :NATURE,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :RELIGION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ANIMAL-HANDLING,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INSIGHT,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :MEDICINE,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERCEPTION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SURVIVAL,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :DECEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INTIMIDATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERFORMANCE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERSUASION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}],
+   :miscArmorBonus 0,
+   :offenseAbilityDisplay 0,
+   :movementMode "Speed",
+   :proficiencyBonus 3,
+   :noteList
+   {:features
+    {"Dragonborn Features:"
+     ["• Silver Dragon"
+      "• You can breathe a 15 ft cone of Cold(once between rests), dealing 3d6 Cold damage, Con save for half damage (DC 11). DC = 8 + Con mod + prof"
+      "• You resist Cold damage"],
+     "Guild Artisan Feature:"
+     ["• While you are in good standing with your guild, your guild can gain you access to powerful politicians"],
+     "Class Features:"
+     ["• Heal 1d10 + level hit points as a bonus action (once between rests)"
+      "• Fighting Style - Two-Weapon Fighting: Add ability modifier to off-hand damage"
+      "• Take an extra action once between rests"
+      "• Fighter Archetype: Eldritch Knight"
+      "• Form a magical bond with a weapon (see rules)"
+      "• When unarmed or using monk weapons, can use dex for attack and damage rolls, unarmed strikes deal more damage (d4), and can make an unarmed attack as a bonus action after normal attack action"
+      "• You gain a reservoir of energy (ki points = monk level) which is restored during a rest"
+      "• You can use a bonus action and spend 1 ki point to make two unarmed strikes right after using the attack action"
+      "• You can use a bonus action and spend 1 ki point to Dodge"
+      "• You can use a bonus action and spend 1 ki point to Dash or Disengage and double the distance you can jump"
+      "• When you are not in armor or using a shield your speed improves by 10 feet"
+      "• When you are hit by a ranged weapon attack you can use a reaction to reduce the damage by 1d10 + Dex mod + Monk level, and you can catch and throw the weapon if you would take 0 damage (see rules)"
+      "• Monk Archetype: Hand"
+      "• When you hit a creature with a Flurry of Blows attack you can inflict an additional effect (see rules)"
+      "• You can use a reaction to reduce fall damage by 5 x Monk level"
+      "• Skilled: You gain three skill or tool proficiencies"]},
+    :race "Dragonborn",
+    :name "Dr Zana Haranthi",
+    :background "Guild Artisan",
+    :proficiencies
+    {:armor ["Light Armor" "Medium Armor" "Heavy Armor" "Shields"],
+     :weapon ["Simple Weapons" "Martial Weapons"],
+     :tools ["One type of artisan's tools"],
+     :languages ["Common" "Draconic" "One Extra Language"]},
+    :notes "",
+    :personality
+    {:alignment "", :traits "", :ideals "", :bonds "", :flaws ""},
+    :equiptment
+    ["two martial weapons"
+     "light crossbow + 20 bolts OR two hand axes"
+     "dungeoneer's pack OR explorer's pack"
+     "set of artisan's tools of your choice"
+     "letter of introduction"
+     "set of bone dice OR deck of cards"
+     "set of traveler's clothes"
+     "belt pouch"
+     "leather armor"],
+    :classes [{:class "Fighter", :level 3} {:class "Monk", :level 4}],
+    :purse {:platinum 0, :gold 15, :electrum 0, :silver 0, :copper 0}},
+   :improvedInitiative 0,
+   :featCode "35",
+   :initMiscMod 0,
+   :version 1,
+   :miscSpellDCBonus 0,
+   :maxHealth 45,
+   :multiclassFeatures "3,1,2,1,0,5,4,7,0,0,0"},
+  :non-op
+  {:pagePosition0 "1",
+   :classData
+   "Fighter⊡Eldritch Knight⊡3⊡2⊠Monk⊡Way of the Open Hand⊡4⊡-1⊟Unarmored Defense⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡-1⊡0⊠Action Surge⊡⊡1⊡1⊡0⊡2⊡0⊡0⊡303⊡0⊠Ki Points⊡⊡4⊡4⊡0⊡2⊡0⊡0⊡-1⊡0⊟Skilled⊟fighting style⊡Two-Weapon Fighting⊟monk⊟monk⊟Dragonborn⊟⊟Outlander⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟4⊟1⊟0",
+   :pagePosition2 "3",
+   :currentHealth "45",
+   :deathSaveSuccesses "0",
+   :currentTempHP "0",
+   :pagePosition1 "2",
+   :pagePosition4 "5",
+   :pagePosition3 "4",
+   :deathSaveFailures "0"}},
+ "BaronCrispianDale_Fighter4Ranger3"
+ {:op
+  {:abilityScores
+   [{:label :STR,
+     :score 14,
+     :modifier 2,
+     :save-proficient true,
+     :bonus 0}
+    {:label :DEX,
+     :score 13,
+     :modifier 1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CON,
+     :score 19,
+     :modifier 4,
+     :save-proficient true,
+     :bonus 0}
+    {:label :INT,
+     :score 9,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}
+    {:label :WIS,
+     :score 13,
+     :modifier 1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CHA,
+     :score 10,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}],
+   :raceCode -543,
+   :speedMiscMod 0,
+   :castingStatCode 3,
+   :miscSpellAttackBonus 0,
+   :showDeathSaves true,
+   :weaponList
+   [{:name "Greatsword",
+     :range "5 feet",
+     :damage-type :slashing,
+     :damage-dice [{:number-of 2, :dice-count 6}]}
+    {:name "Longsword",
+     :range "5 feet",
+     :damage-type :slashing,
+     :damage-dice [{:number-of 1, :dice-count 8}]}
+    {:name "Light Crossbow",
+     :range "80/320",
+     :damage-type :piercing,
+     :damage-dice [{:number-of 1, :dice-count 8}]}
+    {:name "Handaxe",
+     :range "20/60",
+     :damage-type :slashing,
+     :damage-dice [{:number-of 1, :dice-count 6}]}],
+   :backgroundCode 3,
+   :classResource "-1⊠-1⊠-1⊠-1⊠-1⊠-1⊠1⊠2⊠5⊠3⊠4⊠5",
+   :baseSpeed 30,
+   :maxDex 0,
+   :hitDiceList [{:number-of 7, :side-count 10}],
+   :spellList
+   [{:id :cantrips, :slots 0, :spells []}
+    {:id :first,
+     :slots 3,
+     :spells ["Hunter's Mark" "Hail Of Thorns" "Longstrider"]}],
+   :armorBonus 16,
+   :subraceCode 1,
+   :unarmoredDefense 0,
+   :shieldBonus 2,
+   :skillInfo
+   [{:label :ATHLETICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ACROBATICS,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SLEIGHT-OF-HAND,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :STEALTH,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ARCANA,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :HISTORY,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INVESTIGATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :NATURE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :RELIGION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ANIMAL-HANDLING,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INSIGHT,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :MEDICINE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERCEPTION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SURVIVAL,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :DECEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INTIMIDATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERFORMANCE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERSUASION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}],
+   :miscArmorBonus 1,
+   :offenseAbilityDisplay 0,
+   :movementMode "Speed",
+   :proficiencyBonus 3,
+   :noteList
+   {:features
+    {"Human Features:"
+     ["• One extra skill proficiency of your choosing"
+      "• One bonus feat of your choosing"],
+     "Noble Feature:"
+     ["• You can secure an audience with a local noble"],
+     "Class Features:"
+     ["• Heal 1d10 + level hit points as a bonus action (once between rests)"
+      "• Fighting Style - Archery: +2 to attack with ranged weapons"
+      "• Dual Wielder: You can draw/stow two weapons per round, you can dual wield non-light weapons, and you gain +1 AC while dual wielding"
+      "• Gain advantage on survival and Int checks concerning your chosen creature type, and you know a language spoken by those creatures"
+      "• Gain advantage on Wis and Int checks concerning your chosen terrain, and bonuses while traveling through that terrain (see rules)"
+      "• Take an extra action once between rests"
+      "• Fighter Archetype: Champion"
+      "• Crit on 19"
+      "• You can sacrifice a spell slot as an action to determine if certain creature types are within 1 mile (6 miles if favored terrain) (see rules)"
+      "• Big Game Hunter - You can use a reaction to attack a creature of at least Large size that attacks you"]},
+    :race "Human",
+    :name "Baron Crispian Dale",
+    :background "Noble",
+    :proficiencies
+    {:armor ["Light Armor" "Medium Armor" "Heavy Armor" "Shields"],
+     :weapon ["Simple Weapons" "Martial Weapons"],
+     :tools ["One type of gaming set"],
+     :languages ["Common" "Extra Language" "One Extra Language"]},
+    :notes "",
+    :personality
+    {:alignment "", :traits "", :ideals "", :bonds "", :flaws ""},
+    :equiptment
+    ["martial weapon"
+     "shield"
+     "light crossbow + 20 bolts OR two hand axes"
+     "dungeoneer's pack OR explorer's pack"
+     "set of fine clothes"
+     "signet ring"
+     "scroll of pedigree"
+     "purse"
+     "chain mail"],
+    :classes
+    [{:class "Fighter", :level 4} {:class "Ranger", :level 3}],
+    :purse {:platinum 0, :gold 25, :electrum 0, :silver 0, :copper 0}},
+   :improvedInitiative 0,
+   :featCode "6",
+   :initMiscMod 0,
+   :version 1,
+   :miscSpellDCBonus 0,
+   :maxHealth 71,
+   :multiclassFeatures "4,1,0,1,0,0,2,9,-1,0,0"},
+  :non-op
+  {:pagePosition0 "1",
+   :classData
+   "Fighter⊡Champion⊡4⊡-1⊠Ranger⊡Hunter⊡3⊡1⊟⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡-1⊡0⊠Action Surge⊡⊡1⊡1⊡0⊡2⊡0⊡0⊡303⊡0⊟Dual Wielder⊟fighting style⊡Archery⊟⊟⊟Human⊟Human Variant⊟Entertainer⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟1⊟1⊟0",
+   :pagePosition2 "3",
+   :currentHealth "71",
+   :deathSaveSuccesses "0",
+   :currentTempHP "0",
+   :pagePosition1 "2",
+   :pagePosition4 "5",
+   :pagePosition3 "4",
+   :deathSaveFailures "0"}},
+ "BaronessAzani_Druid11"
+ {:op
+  {:abilityScores
+   [{:label :STR,
+     :score 11,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}
+    {:label :DEX,
+     :score 12,
+     :modifier 1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CON,
+     :score 8,
+     :modifier -1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :INT,
+     :score 10,
+     :modifier 0,
+     :save-proficient true,
+     :bonus 0}
+    {:label :WIS,
+     :score 16,
+     :modifier 3,
+     :save-proficient true,
+     :bonus 0}
+    {:label :CHA,
+     :score 11,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}],
+   :raceCode -543,
+   :speedMiscMod 0,
+   :castingStatCode 4,
+   :miscSpellAttackBonus 0,
+   :showDeathSaves true,
+   :weaponList
+   [{:name "Scimitar",
+     :range "5 feet",
+     :damage-type :slashing,
+     :damage-dice [{:number-of 1, :dice-count 6}]}
+    {:name "Dagger",
+     :range "20/60",
+     :damage-type :piercing,
+     :damage-dice [{:number-of 1, :dice-count 4}]}],
+   :backgroundCode 3,
+   :classResource "-1⊠-1⊠-1⊠-1⊠-1⊠-1⊠1⊠2⊠4⊠3⊠4⊠5",
+   :baseSpeed 35,
+   :maxDex 10,
+   :hitDiceList [{:number-of 11, :side-count 8}],
+   :spellList
+   [{:id :cantrips,
+     :slots 0,
+     :spells ["Guidance" "Resistance" "Mending" "Produce Flame"]}
+    {:id :first,
+     :slots 4,
+     :spells ["Cure Wounds" "Healing Word" "Fog Cloud" "Faerie Fire"]}
+    {:id :second,
+     :slots 3,
+     :spells
+     ["Barkskin *"
+      "Spider Climb *"
+      "Enhance Ability"
+      "Pass Without A Trace"
+      "Lesser Restoration"]}
+    {:id :third,
+     :slots 3,
+     :spells
+     ["Call Lightning *"
+      "Plant Growth *"
+      "Dispel Magic"
+      "Protection From Energy"
+      "Wind Wall"]}
+    {:id :fourth,
+     :slots 3,
+     :spells
+     ["Divination *"
+      "Freedom of Movement *"
+      "Hallucinatory Terrain"
+      "Stone Skin"
+      "Wall Of Fire"]}
+    {:id :fifth,
+     :slots 2,
+     :spells
+     ["Commune with Nature *"
+      "Tree Stride *"
+      "Antilife Shell"
+      "Greater Restoration"]}
+    {:id :sixth, :slots 1, :spells ["Heal"]}],
+   :armorBonus 11,
+   :subraceCode 1,
+   :unarmoredDefense 0,
+   :shieldBonus 0,
+   :skillInfo
+   [{:label :ATHLETICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ACROBATICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SLEIGHT-OF-HAND,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :STEALTH,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ARCANA,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :HISTORY,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INVESTIGATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :NATURE,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :RELIGION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ANIMAL-HANDLING,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INSIGHT,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :MEDICINE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERCEPTION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SURVIVAL,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :DECEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INTIMIDATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERFORMANCE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERSUASION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}],
+   :miscArmorBonus 0,
+   :offenseAbilityDisplay 1,
+   :movementMode "Speed",
+   :proficiencyBonus 4,
+   :noteList
+   {:features
+    {"Elf Features:"
+     ["• Within 60 feet of you, treat dim light as bright, darkness as dim light"
+      "• Immune to magical sleep, advantage on saves vs charmed"
+      "• Meditating 4 hours counts as 8 hours of rest"
+      "• Perception proficiency"
+      "• Can hide while lightly obscured by natural phenomena"
+      "• Longsword, shortsword, shortbow, longbow proficiency"],
+     "Noble Feature:"
+     ["• You can secure an audience with a local noble"],
+     "Class Features:"
+     ["• Understand a secret druid language"
+      "• You can shapeshift into the form of a beast as an action (see rules)"
+      "• Druid Archetype: Land"
+      "• You know an extra druid cantrip"
+      "• Regain half your level worth of spell slots during a short rest (once per day)"
+      "• Forest - Gain bonus known spells"
+      "• You are unaffected by nonmagical difficult terrain or plants and gain advantage vs magical plants that effect movement"
+      "• War Caster: You gain advantage on concentration vs damage, can still cast while holding weapons, and can cast a single target 1 action spell as an opportunity attack"
+      "• You are immune to poison and disease, and to effects by elementals or fey that frighten or charm"]},
+    :race "Wood Elf",
+    :name "Baroness Azani",
+    :background "Noble",
+    :proficiencies
+    {:armor ["Light Armor" "Medium Armor" "Shields"],
+     :weapon
+     ["Longswords"
+      "Shortswords"
+      "Shortbows"
+      "Longbows\nClubs"
+      "Daggers"
+      "Darts"
+      "Javelins"
+      "Maces"
+      "Quarterstaffs"
+      "Scimitars"
+      "Sickles"
+      "Slings"
+      "Spears"],
+     :tools ["Herbalism Kit\nOne type of gaming set"],
+     :languages ["Common, Elvish" "Druidic" "One Extra Language"]},
+    :notes "",
+    :personality
+    {:alignment "", :traits "", :ideals "", :bonds "", :flaws ""},
+    :equiptment
+    ["wooden shield OR simple weapon"
+     "scimitar OR simple melee weapon"
+     "leather armor"
+     "explorer's pack"
+     "druidic focus"
+     "set of fine clothes"
+     "signet ring"
+     "scroll of pedigree"
+     "purse"],
+    :classes [{:class "Druid", :level 11}],
+    :purse {:platinum 0, :gold 25, :electrum 0, :silver 0, :copper 0}},
+   :improvedInitiative 0,
+   :featCode nil,
+   :initMiscMod 0,
+   :version 1,
+   :miscSpellDCBonus 0,
+   :maxHealth 43,
+   :multiclassFeatures "6,6,0,1,0,3"},
+  :non-op
+  {:pagePosition0 "1",
+   :classData
+   "Druid⊡Circle of the Land⊡11⊡0⊟Circle Spells - Forest⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡-1⊡0⊠Wild Shape⊡⊡2⊡2⊡0⊡2⊡0⊡0⊡303⊡0⊟War Caster⊟⊟⊟⊟Elf⊟Wood Elf⊟Entertainer⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟1⊟1⊟0",
+   :pagePosition2 "3",
+   :currentHealth "43",
+   :deathSaveSuccesses "0",
+   :currentTempHP "0",
+   :pagePosition1 "2",
+   :pagePosition4 "5",
+   :pagePosition3 "4",
+   :deathSaveFailures "0"}},
+ "DukeHalifax_Bard3Fighter4"
+ {:op
+  {:abilityScores
+   [{:label :STR,
+     :score 14,
+     :modifier 2,
+     :save-proficient false,
+     :bonus 0}
+    {:label :DEX,
+     :score 11,
+     :modifier 0,
+     :save-proficient true,
+     :bonus 0}
+    {:label :CON,
+     :score 15,
+     :modifier 2,
+     :save-proficient false,
+     :bonus 0}
+    {:label :INT,
+     :score 12,
+     :modifier 1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :WIS,
+     :score 9,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CHA,
+     :score 15,
+     :modifier 2,
+     :save-proficient true,
+     :bonus 0}],
+   :raceCode -1,
+   :speedMiscMod 0,
+   :castingStatCode 5,
+   :miscSpellAttackBonus 0,
+   :showDeathSaves true,
+   :weaponList
+   [{:name "Longsword",
+     :range "5 feet",
+     :damage-type 1102,
+     :damage-dice [{:number-of 1, :dice-count 8}]}
+    {:name "Dagger",
+     :range "20/60",
+     :damage-type 1101,
+     :damage-dice [{:number-of 1, :dice-count 4}]}
+    {:name "Shortsword",
+     :range "5 feet",
+     :damage-type 1101,
+     :damage-dice [{:number-of 1, :dice-count 6}]}],
+   :backgroundCode -1,
+   :classResource "-1⊠-1⊠-1⊠-1⊠-1⊠-1⊠1⊠2⊠1000⊠3⊠4⊠5",
+   :baseSpeed 30,
+   :maxDex 10,
+   :hitDiceList
+   [{:number-of 3, :side-count 8} {:number-of 4, :side-count 10}],
+   :spellList
+   [{:id :cantrips, :slots 0, :spells ["Blade Ward" "Vicious Mockery"]}
+    {:id :first,
+     :slots 4,
+     :spells ["Unseen Servant" "Detect Magic" "Sleep" "Charm Person"]}
+    {:id :second,
+     :slots 2,
+     :spells ["Hold Person" "See Invisibility"]}],
+   :armorBonus 11,
+   :subraceCode -1,
+   :unarmoredDefense 0,
+   :shieldBonus 0,
+   :skillInfo
+   [{:label :ATHLETICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :ACROBATICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :SLEIGHT-OF-HAND,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :STEALTH,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :ARCANA,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :HISTORY,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 true,
+     :bools2 true,
+     :bools3 false}
+    {:label :INVESTIGATION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :NATURE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :RELIGION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :ANIMAL-HANDLING,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :INSIGHT,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 true,
+     :bools2 true,
+     :bools3 false}
+    {:label :MEDICINE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :PERCEPTION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :SURVIVAL,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :DECEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :INTIMIDATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :PERFORMANCE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}
+    {:label :PERSUASION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 true,
+     :bools3 false}],
+   :miscArmorBonus 0,
+   :offenseAbilityDisplay 0,
+   :movementMode "Speed",
+   :proficiencyBonus 3,
+   :noteList
+   {:features
+    {"Human Features:"
+     ["• One extra skill proficiency of your choosing"
+      "• One bonus feat of your choosing"],
+     "Noble Feature:"
+     ["• You can secure an audience with a local noble"
+      "• Inspire an ally within 60 feet, giving them a bonus 1d6 on one ability check, attack roll, or save (Cha mod per day)"
+      "• Durable: You always regain at least 2x Con mod from a hit die and you gain +1 Con"],
+     "Fighter Features:"
+     ["• Fighting Style - Great Weapon Fighting: Reroll 1's and 2's on two-handed melee weapon damage dice"
+      "• Heal 1d10 + level hit points as a bonus action (once between rests)"
+      "• Take an extra action once between rests"
+      "• Fighter Archetype: Knight"
+      "• Three allies within 60ft heal your level in hp when you second wind"
+      "• Gain half your proficiency bonus on ability checks you aren't proficient in"
+      "• You can perform during a short rest to cause any ally or yourself to gain an additional 1d6 hp (once) if healed during the rest"
+      "• Double proficiency with chosen skills (History,Insight)"
+      "• Bard Archetype: Valor"
+      "• You are proficient with martial weapons. medium armor, and shields"
+      "• Allies can use your Bardic Inspiration on weapon damage rolls and as a reaction to increase their AC against one attack"
+      "• Tavern Brawler: Your unarmed strikes deal d4 damage, you are proficient in unarmed strikes and improvised weapons, can make a grapple as a bonus action after hitting with one, and +1 to either Str or Con"]},
+    :race "Human",
+    :name "Duke Halifax",
+    :background "Noble",
+    :proficiencies
+    {:armor
+     ["Light Armor\nLight Armor"
+      "Medium Armor"
+      "Shields\nMedium Armor\nShields"],
+     :weapon
+     ["Simple Weapons"
+      "Hand Crossbows"
+      "Longswords"
+      "Rapiers"
+      "Shortswords\nSimple Weapons"
+      "Martial Weapons\nMartial Weapons\nImprovised Weapons\nUnarmed Strikes"],
+     :tools ["One type of gaming set\nAny three musical instruments"],
+     :languages ["Common" "Extra Language" "One Extra Language"]},
+    :notes "",
+    :personality
+    {:alignment "", :traits "", :ideals "", :bonds "", :flaws ""},
+    :equiptment
+    ["leather armor"
+     "longsword"
+     "dagger"
+     "diplomat's pouch"
+     "any musical instrument"
+     "set of fine clothes"
+     "signet ring"
+     "scroll of pedigree"
+     "purse"],
+    :classes [{:class "Bard", :level 3} {:class "Fighter", :level 4}],
+    :purse {:platinum 0, :gold 25, :electrum 0, :silver 0, :copper 0}},
+   :improvedInitiative 0,
+   :featCode nil,
+   :initMiscMod 0,
+   :version 1,
+   :miscSpellDCBonus 0,
+   :maxHealth 56,
+   :multiclassFeatures nil},
+  :non-op
+  {:pagePosition0 "1",
+   :classData
+   "Bard⊡College of Valor⊡3⊡0⊠Fighter⊡Purple Dragon Knight⊡4⊡-1⊟⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡-1⊡0⊠Inspiration⊡⊡2⊡2⊡6⊡2⊡0⊡0⊡-1⊡0⊠Action Surge⊡Act. Surge⊡1⊡1⊡0⊡2⊡0⊡0⊡303⊡0⊟⊠Durable⊠Tavern Brawler⊟expertise⊡Insight⊡History⊠fighting style⊡Great Weapon Fighting⊟⊟⊟Human⊟Human Variant⊟Noble⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟1⊟4⊟1",
+   :pagePosition2 "3",
+   :currentHealth "56",
+   :deathSaveSuccesses "0",
+   :currentTempHP "0",
+   :pagePosition1 "2",
+   :pagePosition4 "5",
+   :pagePosition3 "4",
+   :deathSaveFailures "0"}},
+ "ZathustraDale_Druid1"
+ {:op
+  {:abilityScores
+   [{:label :STR,
+     :score 8,
+     :modifier -1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :DEX,
+     :score 9,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CON,
+     :score 10,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}
+    {:label :INT,
+     :score 14,
+     :modifier 2,
+     :save-proficient true,
+     :bonus 0}
+    {:label :WIS,
+     :score 9,
+     :modifier 0,
+     :save-proficient true,
+     :bonus 0}
+    {:label :CHA,
+     :score 14,
+     :modifier 2,
+     :save-proficient false,
+     :bonus 0}],
+   :raceCode -543,
+   :speedMiscMod 0,
+   :castingStatCode 4,
+   :miscSpellAttackBonus 0,
+   :showDeathSaves true,
+   :weaponList
+   [{:name "Dagger",
+     :range "20/60",
+     :damage-type :piercing,
+     :damage-dice [{:number-of 1, :dice-count 4}]}
+    {:name "Quarterstaff (2h)",
+     :range "5 feet",
+     :damage-type :bludgeoning,
+     :damage-dice [{:number-of 1, :dice-count 8}]}],
+   :backgroundCode 3,
+   :classResource "-1⊠-1⊠-1⊠-1⊠-1⊠-1⊠1⊠2⊠1000⊠3⊠4⊠5",
+   :baseSpeed 35,
+   :maxDex 10,
+   :hitDiceList [{:number-of 1, :side-count 8}],
+   :spellList
+   [{:id :cantrips, :slots 0, :spells ["Druid Craft" "Thorn Whip"]}
+    {:id :first, :slots 2, :spells ["Faerie Fire" "Jump"]}],
+   :armorBonus 11,
+   :subraceCode 2,
+   :unarmoredDefense 0,
+   :shieldBonus 0,
+   :skillInfo
+   [{:label :ATHLETICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ACROBATICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SLEIGHT-OF-HAND,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :STEALTH,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ARCANA,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :HISTORY,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INVESTIGATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :NATURE,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :RELIGION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ANIMAL-HANDLING,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INSIGHT,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :MEDICINE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERCEPTION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SURVIVAL,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :DECEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INTIMIDATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERFORMANCE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERSUASION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}],
+   :miscArmorBonus 0,
+   :offenseAbilityDisplay 0,
+   :movementMode "Speed",
+   :proficiencyBonus 2,
+   :noteList
+   {:features
+    {"Half-Elf Features:"
+     ["• Within 60 feet of you, treat dim light as bright, darkness as dim light"
+      "• Immune to magical sleep, advantage on saves vs charmed"],
+     "Noble Feature:"
+     ["• You can secure an audience with a local noble"],
+     "Class Features:" ["• Understand a secret druid language"]},
+    :race "Half-Elf",
+    :name "Zathustra Dale",
+    :background "Noble",
+    :proficiencies
+    {:armor ["Light Armor" "Medium Armor" "Shields"],
+     :weapon
+     ["Clubs"
+      "Daggers"
+      "Darts"
+      "Javelins"
+      "Maces"
+      "Quarterstaffs"
+      "Scimitars"
+      "Sickles"
+      "Slings"
+      "Spears"],
+     :tools ["Herbalism Kit\nOne type of gaming set"],
+     :languages
+     ["Common"
+      "Elvish"
+      "Extra Language"
+      "Druidic"
+      "One Extra Language"]},
+    :notes "",
+    :personality
+    {:alignment "", :traits "", :ideals "", :bonds "", :flaws ""},
+    :equiptment
+    ["wooden shield OR simple weapon"
+     "scimitar OR simple melee weapon"
+     "leather armor"
+     "explorer's pack"
+     "druidic focus"
+     "set of fine clothes"
+     "signet ring"
+     "scroll of pedigree"
+     "purse"],
+    :classes [{:class "Druid", :level 1}],
+    :purse {:platinum 0, :gold 25, :electrum 0, :silver 0, :copper 0}},
+   :improvedInitiative 0,
+   :featCode nil,
+   :initMiscMod 0,
+   :version 1,
+   :miscSpellDCBonus 0,
+   :maxHealth 8,
+   :multiclassFeatures "1,6,-1,0,0"},
+  :non-op
+  {:pagePosition0 "1",
+   :classData
+   "Druid⊡⊡1⊡0⊟⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡303⊡0⊟⊟⊟⊟⊟Half-Elf⊟⊟Entertainer⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟1⊟1⊟0",
+   :pagePosition2 "3",
+   :currentHealth "8",
+   :deathSaveSuccesses "0",
+   :currentTempHP "0",
+   :pagePosition1 "2",
+   :pagePosition4 "5",
+   :pagePosition3 "4",
+   :deathSaveFailures "0"}},
+ "CountlessCarolinia_Fighter4Monk3"
+ {:op
+  {:abilityScores
+   [{:label :STR,
+     :score 14,
+     :modifier 2,
+     :save-proficient true,
+     :bonus 0}
+    {:label :DEX,
+     :score 14,
+     :modifier 2,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CON,
+     :score 12,
+     :modifier 1,
+     :save-proficient true,
+     :bonus 0}
+    {:label :INT,
+     :score 9,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}
+    {:label :WIS,
+     :score 15,
+     :modifier 2,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CHA,
+     :score 11,
+     :modifier 0,
+     :save-proficient false,
+     :bonus 0}],
+   :raceCode -1,
+   :speedMiscMod 10,
+   :castingStatCode 3,
+   :miscSpellAttackBonus 0,
+   :showDeathSaves true,
+   :weaponList
+   [{:name "Longsword",
+     :range "5 feet",
+     :damage-type 1102,
+     :damage-dice [{:number-of 1, :dice-count 8}]}
+    {:name "Greatsword",
+     :range "5 feet",
+     :damage-type 1202,
+     :damage-dice [{:number-of 2, :dice-count 6}]}
+    {:name "Handaxe",
+     :range "20/60",
+     :damage-type 1102,
+     :damage-dice [{:number-of 1, :dice-count 6}]}],
+   :backgroundCode -1,
+   :classResource "-1⊠-1⊠-1⊠-1⊠-1⊠-1⊠1⊠2⊠1000⊠3⊠4⊠5",
+   :baseSpeed 30,
+   :maxDex 0,
+   :hitDiceList
+   [{:number-of 4, :side-count 10} {:number-of 3, :side-count 8}],
+   :spellList [],
+   :armorBonus 16,
+   :subraceCode -1,
+   :unarmoredDefense 5,
+   :shieldBonus 0,
+   :skillInfo
+   [{:label :ATHLETICS,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ACROBATICS,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SLEIGHT-OF-HAND,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :STEALTH,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ARCANA,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :HISTORY,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INVESTIGATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :NATURE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :RELIGION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ANIMAL-HANDLING,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INSIGHT,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :MEDICINE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERCEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SURVIVAL,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :DECEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INTIMIDATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERFORMANCE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERSUASION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}],
+   :miscArmorBonus 0,
+   :offenseAbilityDisplay 0,
+   :movementMode "Speed",
+   :proficiencyBonus 3,
+   :noteList
+   {:features
+    {"Human Features:"
+     ["• One extra skill proficiency of your choosing"
+      "• One bonus feat of your choosing"],
+     "Noble Feature:"
+     ["• You can secure an audience with a local noble"],
+     "Fighter Features:"
+     ["• Fighting Style - Great Weapon Fighting: Reroll 1's and 2's on two-handed melee weapon damage dice"
+      "• Heal 1d10 + level hit points as a bonus action (once between rests)"
+      "• Tavern Brawler: Your unarmed strikes deal d4 damage, you are proficient in unarmed strikes and improvised weapons, can make a grapple as a bonus action after hitting with one, and +1 to either Str or Con"],
+     "Monk Features:"
+     ["• Add Wis mod to AC when not wearing armor or using a shield"
+      "• When unarmed or using monk weapons, can use dex for attack and damage rolls, unarmed strikes deal more damage (d4), and can make an unarmed attack as a bonus action after normal attack action"
+      "• You gain a reservoir of energy (ki points = monk level) which is restored during a rest"
+      "• You can use a bonus action and spend 1 ki point to make two unarmed strikes right after using the attack action"
+      "• You can use a bonus action and spend 1 ki point to Dodge"
+      "• You can use a bonus action and spend 1 ki point to Dash or Disengage and double the distance you can jump"
+      "• When you are not in armor or using a shield your speed improves by 10 feet"
+      "• When you are hit by a ranged weapon attack you can use a reaction to reduce the damage by 1d10 + Dex mod + Monk level, and you can catch and throw the weapon if you would take 0 damage (see rules)"
+      "• Monk Archetype: Hand"
+      "• When you hit a creature with a Flurry of Blows attack you can inflict an additional effect (see rules)"
+      "• Take an extra action once between rests"
+      "• Fighter Archetype: Knight"
+      "• Three allies within 60ft heal your level in hp when you second wind"
+      "• Mounted Combatant: You can redirect an attack against your mount to yourself, you gain advantage vs unmounted foes, and your mount gains Evasion"]},
+    :race "Human",
+    :name "Countless Carolinia",
+    :background "Noble",
+    :proficiencies
+    {:armor
+     ["Light Armor"
+      "Medium Armor"
+      "Heavy Armor"
+      "Shields\nLight Armor"
+      "Shortswords"],
+     :weapon
+     ["Simple Weapons"
+      "Martial Weapons\nImprovised Weapons\nUnarmed Strikes"],
+     :tools ["One type of gaming set"],
+     :languages ["Common" "Extra Language" "One Extra Language"]},
+    :notes "",
+    :personality
+    {:alignment "", :traits "", :ideals "", :bonds "", :flaws ""},
+    :equiptment
+    ["chain mail"
+     "longsword"
+     "greatsword"
+     "handaxe (2)"
+     "explorer's pack"
+     "set of fine clothes"
+     "signet ring"
+     "scroll of pedigree"
+     "purse"],
+    :classes [{:class "Fighter", :level 4} {:class "Monk", :level 3}],
+    :purse {:platinum 0, :gold 25, :electrum 0, :silver 0, :copper 0}},
+   :improvedInitiative 0,
+   :featCode nil,
+   :initMiscMod 0,
+   :version 1,
+   :miscSpellDCBonus 0,
+   :maxHealth 50,
+   :multiclassFeatures nil},
+  :non-op
+  {:pagePosition0 "1",
+   :classData
+   "Fighter⊡Purple Dragon Knight⊡4⊡-1⊠Monk⊡Way of the Open Hand⊡3⊡-1⊟⊠Unarmored Defense⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡-1⊡0⊠Ki Points⊡⊡3⊡3⊡0⊡1⊡0⊡0⊡-1⊡0⊠Action Surge⊡Act. Surge⊡1⊡1⊡0⊡2⊡0⊡0⊡303⊡0⊟⊠Tavern Brawler⊠Mounted Combatant⊟fighting style⊡Great Weapon Fighting⊟⊠monk⊟⊠monk⊟Human⊟Human Variant⊟Noble⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟1⊟4⊟3",
+   :pagePosition2 "3",
+   :currentHealth "50",
+   :deathSaveSuccesses "0",
+   :currentTempHP "0",
+   :pagePosition1 "2",
+   :pagePosition4 "5",
+   :pagePosition3 "4",
+   :deathSaveFailures "0"}},
+ "DevinshirePoe_Paladin5"
+ {:op
+  {:abilityScores
+   [{:label :STR,
+     :score 8,
+     :modifier -1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :DEX,
+     :score 15,
+     :modifier 2,
+     :save-proficient false,
+     :bonus 0}
+    {:label :CON,
+     :score 12,
+     :modifier 1,
+     :save-proficient false,
+     :bonus 0}
+    {:label :INT,
+     :score 16,
+     :modifier 3,
+     :save-proficient false,
+     :bonus 0}
+    {:label :WIS,
+     :score 14,
+     :modifier 2,
+     :save-proficient true,
+     :bonus 0}
+    {:label :CHA,
+     :score 10,
+     :modifier 0,
+     :save-proficient true,
+     :bonus 0}],
+   :raceCode -1,
+   :speedMiscMod 0,
+   :castingStatCode 5,
+   :miscSpellAttackBonus 0,
+   :showDeathSaves true,
+   :weaponList
+   [{:name "Rapier",
+     :range "5 feet",
+     :damage-type 1101,
+     :damage-dice [{:number-of 1, :dice-count 8}]}
+    {:name "Rapier",
+     :range "5 feet",
+     :damage-type 1101,
+     :damage-dice [{:number-of 1, :dice-count 8}]}
+    {:name "Dagger",
+     :range "20/60",
+     :damage-type 1101,
+     :damage-dice [{:number-of 1, :dice-count 4}]}],
+   :backgroundCode -1,
+   :classResource "-1⊠-1⊠-1⊠-1⊠-1⊠-1⊠1⊠2⊠1000⊠3⊠4⊠5",
+   :baseSpeed 30,
+   :maxDex 0,
+   :hitDiceList [{:number-of 5, :side-count 10}],
+   :spellList
+   [{:id :cantrips, :slots 0, :spells ["Message"]}
+    {:id :first,
+     :slots 4,
+     :spells ["Command *" "Compelled Duel *" "Shield Of Faith"]}
+    {:id :second,
+     :slots 2,
+     :spells ["Warding Bond *" "Zone of Truth *" "Aid"]}],
+   :armorBonus 16,
+   :subraceCode -1,
+   :unarmoredDefense 0,
+   :shieldBonus 0,
+   :skillInfo
+   [{:label :ATHLETICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ACROBATICS,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SLEIGHT-OF-HAND,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :STEALTH,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ARCANA,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :HISTORY,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INVESTIGATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :NATURE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :RELIGION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :ANIMAL-HANDLING,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INSIGHT,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :MEDICINE,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERCEPTION,
+     :is-proficient true,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :SURVIVAL,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :DECEPTION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :INTIMIDATION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERFORMANCE,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}
+    {:label :PERSUASION,
+     :is-proficient false,
+     :bonus 0,
+     :bools1 false,
+     :bools2 false,
+     :bools3 false}],
+   :miscArmorBonus 1,
+   :offenseAbilityDisplay 0,
+   :movementMode "Speed",
+   :proficiencyBonus 3,
+   :noteList
+   {:features
+    {"Elf Features:"
+     ["• Within 60 feet of you, treat dim light as bright, darkness as dim light"
+      "• Immune to magical sleep, advantage on saves vs charmed"
+      "• Meditating 4 hours counts as 8 hours of rest"
+      "• Perception proficiency"
+      "• Longsword, shortsword, shortbow, longbow proficiency"
+      "• Gain 1 wizard cantrip"],
+     "Cloistered Scholar Feature:"
+     ["• You have information about your cloister and you can use its library. Other libraries are also more likely to admit you."],
+     "Paladin Features:"
+     ["• As an action, detect the location of any celestial, fiend or undead and any consecrated or desecrated place or object within 60 feet (1 + Cha mod per day)"
+      "• Gain a reservoir of healing power (25hp), and as an action, you can heal a creature you touch by draining that power. You can also cure one poison or disease from the creature by sacrificing 5hp from the reservoir"
+      "• Fighting Style - Dueling: +2 damage when using a single one-handed weapon"
+      "• You can sacrifice a spell slot to deal (1 + spell level)d8 radiant damage plus 1d8 extra damage vs undead/fiends, when you hit with a melee weapon attack"
+      "• Gain immunity to disease"
+      "• Paladin Archetype: Crown"
+      "• Champion Challenge (see rules)"
+      "• Turn the Tide (see rules)"
+      "• Dual Wielder: You can draw/stow two weapons per round, you can dual wield non-light weapons, and you gain +1 AC while dual wielding"
+      "• You can make two attacks on your turn"]},
+    :race "High Elf",
+    :name "Devinshire Poe",
+    :background "Cloistered Scholar",
+    :proficiencies
+    {:armor ["Light Armor" "Medium Armor" "Heavy Armor" "Shields"],
+     :weapon
+     ["Longsword\nShortsword\nShortbow\nLongbow\nSimple Weapons"
+      "Martial Weapons"],
+     :tools [""],
+     :languages
+     ["Common" "Elvish" "Extra Language" "Two Extra Languages"]},
+    :notes "",
+    :personality
+    {:alignment "", :traits "", :ideals "", :bonds "", :flaws ""},
+    :equiptment
+    ["chain mail"
+     "rapier"
+     "rapier"
+     "dagger"
+     "priest's pack"
+     "holy symbol"
+     "scholar's robes"
+     "writing kit"
+     "research book (borrowed)"
+     "pouch"],
+    :classes [{:class "Paladin", :level 5}],
+    :purse {:platinum 0, :gold 10, :electrum 0, :silver 0, :copper 0}},
+   :improvedInitiative 0,
+   :featCode nil,
+   :initMiscMod 0,
+   :version 1,
+   :miscSpellDCBonus 0,
+   :maxHealth 39,
+   :multiclassFeatures nil},
+  :non-op
+  {:pagePosition0 "1",
+   :classData
+   "Paladin⊡Oath of the Crown⊡5⊡1⊟⊠Extra Attack⊟Resource⊡Resource⊡0⊡0⊡0⊡2⊡0⊡0⊡-1⊡0⊠Lay on Hands⊡Lay Hands⊡25⊡25⊡0⊡2⊡0⊡0⊡303⊡0⊠Channel Divinity⊡Channel Div⊡1⊡1⊡0⊡1⊡0⊡0⊡-1⊡0⊟⊠Dual Wielder⊟fighting style⊡Dueling⊟⊟⊟Elf⊟High Elf⊟Cloistered Scholar⊟0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠0⊠⊟0⊠0⊠0⊠0⊠2⊠0⊠0⊠0⊠0⊠⊟20⊠20⊠20⊠20⊠20⊠20⊠⊟0⊟2⊟0⊟1⊟1⊟3",
+   :pagePosition2 "3",
+   :currentHealth "39",
+   :deathSaveSuccesses "0",
+   :currentTempHP "0",
+   :pagePosition1 "2",
+   :pagePosition4 "5",
+   :pagePosition3 "4",
+   :deathSaveFailures "0"}}}
