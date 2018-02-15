@@ -7,5 +7,4 @@
             recurse]]}
  {:top 1000000 :x 1 :y 1}
  "fibonacci"
- recurse
- ]
+ recurse]
