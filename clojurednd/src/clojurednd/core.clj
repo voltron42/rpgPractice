@@ -36,8 +36,7 @@
 
 (defn- parse-weapon-list [weapon-str]
   (let [delim (first delims)
-        [number-of & weapon-data] (s/split weapon-str delim)
-        number-of (Integer/parseInt number-of)
+        [_ & weapon-data] (s/split weapon-str delim)
         weapons (loop [data weapon-data out []]
                   (if (empty? data)
                     (vec out)
@@ -46,7 +45,7 @@
                           num-of (* 2 (Integer/parseInt dice-count))
                           dice (mapv (fn [die]
                                        (let [[x y] (map #(Integer/parseInt %) die)]
-                                         {:number-of x :dice-count y}))
+                                         {:number-of x :side-count y}))
                                      (partition 2 (take num-of data)))
                           data (drop num-of data)
                           new-weapon {:name (str weapon-name)
@@ -72,8 +71,7 @@
     abilities))
 
 (defn- parse-skill-list [skill-list]
-  (let [delim (first delims)
-        delim (->> 8864 (char) (str) (re-pattern))
+  (let [delim (->> 8864 (char) (str) (re-pattern))
         [skill-proficiency bonus bools1 bools2 bools3] (partition 19 (s/split skill-list delim))
         skills (mapv #(-> {:label %6
                            :is-proficient (Boolean/parseBoolean %1)
@@ -180,7 +178,7 @@
 (defn -main [& args]
   (try
     (let [files (->> "resources/charsheets" (File.) (.listFiles))
-          modeled-chars (reduce #(assoc %1 (.getName %2) (let [stream (FileInputStream. %2)
+          modeled-chars (reduce #(assoc %1 (.getName %2) (let [stream (FileInputStream. ^File %2)
                                                 doc (zip/xml-zip (xml/parse stream))]
                                             (model-character-data doc))) {} files)]
       (spit "resources/chardocs/chars.edn" (with-out-str (p/pprint modeled-chars))))
