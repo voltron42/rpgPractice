@@ -5,7 +5,22 @@
             [cypherflow.parse :as cfp])
   (:gen-class))
 
+(def ifs (edn/read (java.io.PushbackReader. (io/reader "./resources/ifs.edn"))))
+
 (defn -main [& _]
+  )
+
+(defn fetch-ifs []
+  (with-open [rdr (java.io.PushbackReader. (io/reader "./resources/werewolves.edn"))
+              w (io/writer "./resources/ifs.edn" :encoding "UTF-8")]
+    (let [ifs (->> (edn/read rdr)
+                   (filter #(= 'IF (second %)))
+                   (map #(vec (rest %)))
+                   (vec))]
+      (println (count ifs))
+      (.write w (with-out-str (pp/pprint ifs))))))
+
+(defn model-and-write-file []
   (with-open [rdr (java.io.PushbackReader. (io/reader "./resources/werewolves.edn"))
               w (io/writer "./resources/werewolves-model.edn" :encoding "UTF-8")]
     (let [code (edn/read rdr)

@@ -1,0 +1,416 @@
+[[IF RO <> 11 THEN 30]
+ [IF
+  STRENGTH
+  <
+  10
+  THEN
+  PRINT
+  "WARNING, "
+  N$
+  ", YOUR STRENGTH"
+  :_
+  PRINT
+  "IS RUNNING LOW"
+  :_
+  PRINT]
+ [IF STRENGTH < 1 THEN 2300 :_ REM "DEATH"]
+ [IF WEALTH > 0 THEN PRINT "YOU HAVE $ " WEALTH]
+ [IF
+  FOOD
+  >
+  0
+  THEN
+  PRINT
+  "YOUR PROVISIONS SACK HOLDS"
+  FOOD
+  "UNITS OF FOOD"]
+ [IF SUIT = 1 THEN PRINT "YOU ARE WEARING ARMOR"]
+ [IF AXE = 0 AND SWORD = 0 AND AMULET = 0 THEN 320]
+ [IF AXE = 1 THEN PRINT "AN AXE "]
+ [IF SWORD = 1 THEN PRINT "A SWORD "]
+ [IF SWORD + AXE > 0 AND AMULET = 1 THEN PRINT "AND "]
+ [IF AMULET = 1 THEN PRINT "THE MAGIC AMULET"]
+ [IF LIGHT = 0 THEN PRINT "IT IS TOO DARK TO SEE ANYTHING"]
+ [IF LIGHT = 1 THEN GOSUB 990 :_ REM "ROOM DESCRIPTION"]
+ [IF K = 0 THEN 440 :_ REM "ROOM IS EMPTY"]
+ [IF K > 9 THEN PRINT "THERE IS TREASURE HERE WORTH $" K :_ GOTO 440]
+ [IF K = - 1 THEN M$ = "FEROCIOUS WEREWOLF" :_ FF = 5]
+ [IF K = - 2 THEN M$ = "FANATICAL FLESHGORGER" :_ FF = 10]
+ [IF K = - 3 THEN M$ = "MALOVENTY MALDEMER" :_ FF = 15]
+ [IF K = - 4 THEN M$ = "DEVASTATING ICE - DRAGON" :_ FF = 20]
+ [IF K < 0 AND A$ <> "F" AND A$ <> "R" THEN 460]
+ [IF A$ = "Q" THEN 120]
+ [IF
+  A$
+  =
+  "N"
+  AND
+  A
+  (RO 1)
+  =
+  0
+  THEN
+  PRINT
+  "NO EXIT THAT WAY"
+  :_
+  GOTO
+  440]
+ [IF
+  A$
+  =
+  "S"
+  AND
+  A
+  (RO 2)
+  =
+  0
+  THEN
+  PRINT
+  "THERE IS NO EXIT SOUTH"
+  :_
+  GOTO
+  440]
+ [IF
+  A$
+  =
+  "E"
+  AN
+  >
+  A
+  (RO 3)
+  =
+  0
+  THEN
+  PRINT
+  "YOU CANNOT GO IN THAT DIRECTION"
+  :_
+  GOTO
+  440]
+ [IF
+  A$
+  =
+  "W"
+  AND
+  A
+  (RO 4)
+  =
+  0
+  THEN
+  PRINT
+  "YOU CANNOT MOVE THROUGH SOLID STONE"
+  :_
+  GOTO
+  440]
+ [IF
+  A$
+  =
+  "U"
+  AND
+  A
+  (RO 5)
+  =
+  0
+  THEN
+  PRINT
+  "THERE IS NO WAY UP FROM HERE"
+  :_
+  GOTO
+  440]
+ [IF
+  A$
+  =
+  "D"
+  AND
+  A
+  (RO 6)
+  =
+  0
+  THEN
+  PRINT
+  "YOU CANNOT DESCEND FROM HERE"
+  :_
+  GOTO
+  440]
+ [IF A$ = "R" AND RND (1) > 0.7 THEN 2420]
+ [IF A$ = "R" THEN PRINT "WHICH WAY DO YOU WANT TO FLEE" :_ GOTO 1160]
+ [IF
+  A$
+  =
+  "F"
+  AND
+  A
+  (RO 7)
+  >
+  -
+  1
+  THEN
+  PRINT
+  "THERE IS NOTHING TO FIGHT HERE"
+  :_
+  GOTO
+  440]
+ [IF A$ = "I" THEN GOSUB 3010 :_ RETURN]
+ [IF A$ = "C" AND FOOD = 0 THEN PRINT "YOU HAVE NO FOOD" :_ GOTO 440]
+ [IF A$ = "P" THEN GOSUB 2350 :_ RETURN]
+ [IF A$ = "F" THEN 730]
+ [IF
+  A$
+  =
+  "M"
+  THEN
+  RO
+  =
+  INT
+  (RND (1) 19)
+  +
+  1
+  :_
+  IF
+  RO
+  =
+  6
+  OR
+  RO
+  =
+  11
+  THEN
+  630
+  ELSE
+  710]
+ [IF A$ = "C" THEN GOSUB 2480 :_ RETURN]
+ [IF A$ = "N" THEN RO = A (RO 1)]
+ [IF A$ = "S" THEN RO = A (RO 2)]
+ [IF A$ = "E" THEN RO = A (RO 3)]
+ [IF A$ = "W" THEN RO = A (RO 4)]
+ [IF A$ = "U" THEN RO = A (RO 5)]
+ [IF A$ = "D" THEN RO = A (RO 6)]
+ [IF INKEY$ <> "" THEN 740]
+ [IF INKEY$ = "" THEN 760]
+ [IF
+  SUIT
+  =
+  1
+  THEN
+  PRINT
+  "YOUR ARMOR INCREASES YOUR CHANCE OF SUCCESS"
+  :_
+  FF
+  =
+  3
+  *
+  (INT (FF / 4))
+  :_
+  GOSUB
+  3520]
+ [IF
+  AXE
+  =
+  0
+  AND
+  SWORD
+  =
+  0
+  THEN
+  PRINT
+  "YOU HAVE NO WEAPONS"
+  :_
+  PRINT
+  "YOU MUST FIGHT WITH BARE HANDS"
+  :_
+  FF
+  =
+  INT
+  (FF + FF / 5)
+  :_
+  GOTO
+  870]
+ [IF
+  AXE
+  =
+  1
+  AND
+  SWORD
+  =
+  0
+  THEN
+  PRINT
+  "YOU HAVE ONLY AN AXE TO FIGHT WITH"
+  :_
+  FF
+  =
+  4
+  *
+  INT
+  (FF / 5)
+  :_
+  GOTO
+  870]
+ [IF
+  AXE
+  =
+  0
+  AND
+  SWORD
+  =
+  1
+  THEN
+  PRINT
+  "YOU MUST FIGHT WITH YOUR SWORD"
+  :_
+  FF
+  =
+  3
+  *
+  INT
+  (FF / 4)
+  :_
+  GOTO
+  870]
+ [IF Z < 1 OR Z > 2 THEN 820]
+ [IF Z = 1 THEN FF = 4 * INT (FF / 5)]
+ [IF Z = 2 THEN FF = 3 * INT (FF / 4)]
+ [IF RND (1) > 0.5 THEN PRINT M$ " ATTACKS" ELSE PRINT "YOU ATTACK"]
+ [IF
+  RND
+  (1)
+  >
+  0.5
+  THEN
+  PRINT
+  :_
+  PRINT
+  "YOU MANAGE TO WOUND IT"
+  :_
+  FF
+  =
+  INT
+  (5 * FF / 6)]
+ [IF
+  RND
+  (1)
+  >
+  0.5
+  THEN
+  PRINT
+  :_
+  PRINT
+  "THE MONSTER WOUNDS YOU!"
+  :_
+  STRENGTH
+  =
+  STRENGTH
+  -
+  5]
+ [IF RND (1) > 0.35 THEN 890]
+ [IF
+  RND
+  (1)
+  *
+  16
+  >
+  FF
+  THEN
+  PRINT
+  :_
+  PRINT
+  "AND YOU MANAGED TO KILL THE "
+  M$
+  :_
+  MK
+  =
+  MK
+  +
+  1
+  :_
+  GOTO
+  970]
+ [IF
+  A
+  (RO 7)
+  <
+  10
+  THEN
+  PRINT
+  "THERE IS NO TREASURE TO PICK UP"
+  :_
+  GOSUB
+  3520
+  :_
+  RETURN]
+ [IF
+  LIGHT
+  =
+  0
+  THEN
+  PRINT
+  "YOU CANNOT SEE WHERE IT IS"
+  :_
+  GOSUB
+  3520
+  :_
+  RETURN]
+ [IF FOOD < 1 THEN RETURN]
+ [IF Z > FOOD THEN 2530]
+ [IF M = 6 OR M = 11 OR A (M 7) <> 0 THEN 2860]
+ [IF M = 6 OR M = 11 OR A (M 7) <> 0 THEN 2930]
+ [IF WEALTH < 0.1 THEN Z = 0 :_ GOTO 3130]
+ [IF Z = 0 THEN CLS :_ RETURN]
+ [IF Z = 1 THEN LIGHT = 1 :_ WEALTH = WEALTH - 15]
+ [IF Z = 2 THEN AXE = 1 :_ WEALTH = WEALTH - 10]
+ [IF Z = 3 THEN SWORD = 1 :_ WEALTH = WEALTH - 20]
+ [IF Z = 5 THEN AMULET = 1 :_ WEALTH = WEALTH - 30]
+ [IF Z = 6 THEN SUIT = 1 :_ WEALTH = WEALTH - 50]
+ [IF
+  WEALTH
+  <
+  0
+  THEN
+  PRINT
+  "YOU HAVE TRIED TO CHEAT ME!"
+  :_
+  WEALTH
+  =
+  0
+  :_
+  SUIT
+  =
+  0
+  :_
+  LIGHT
+  =
+  0
+  :_
+  AXE
+  =
+  0
+  :_
+  SWORD
+  =
+  0
+  :_
+  AMULET
+  =
+  0
+  :_
+  FOOD
+  =
+  INT
+  (FOOD / 4)
+  :_
+  GOSUB
+  3520]
+ [IF Z <> 4 THEN 3030]
+ [IF
+  2
+  *
+  Q
+  >
+  WEALTH
+  THEN
+  PRINT
+  "YOU HAVEN'T GOT ENOUGH MONEY"
+  :_
+  GOTO
+  3210]
+ [IF WEALTH > 0 THEN PRINT :_ PRINT :_ PRINT "YOU HAVE $" WEALTH]
+ [IF WEALTH = 0 THEN PRINT "YOU HAVE NO MONEY" :_ GOSUB 3520 :_ RETURN]]
