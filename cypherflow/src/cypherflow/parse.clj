@@ -1,5 +1,6 @@
 (ns cypherflow.parse
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clojure.pprint :as pp]))
 
 (def replacements
   [[#"\:" " :_ "]
@@ -31,11 +32,16 @@
   (fn [queue _]
     (first queue)))
 
+(defn throw-error [error-body]
+  (throw (ex-info "" error-body)))
+
 (defn model [line]
-  (let [line-number (first line)
-        queue (vec (rest line))]
-    {:line-number line-number
-     :commands (model-commands queue [])}))
+  (let [line-number (first line)]
+    (try
+      {:line-number (first line)
+       :commands (model-commands (vec (rest line)) [])}
+      (catch clojure.lang.ExceptionInfo e
+        (throw-error (assoc (ex-data e) :line-number line-number))))))
 
 (defn has-operator [coll operator]
   (< -1 (.indexOf coll operator)))
@@ -47,10 +53,10 @@
 
 (defmulti model-function-call first)
 
-(defmulti model-operand type)
-
-; todo - defmethod model-operand java.lang.Long
-; todo - defmethod model-operand clojure.lang.Symbol
+(defn validate-operand [operand]
+  (if (#{java.lang.Long clojure.lang.Symbol} (type operand))
+    operand 
+    (throw-error {:operand operand})))
 
 (defn model-expression [expression]
   (let [out (reduce
@@ -65,14 +71,42 @@
     (if out out
         (if (= 2 (count expression))
           (model-function-call expression)
-          (model-operand (first expression))))))
+          (if (= 1 (count expression))
+            (validate-operand (first expression))
+            (throw-error {:expression expression}))))))
 
-(defmethod model-function-call 'RND [_]
+(defmethod model-function-call 'RND [[_ arg-list]]
   {:expression :function
-   :function :random})
+   :function :random
+   :args (model-expression arg-list)})
 
-; todo - model-function-call 'INT
-; todo - model-function-call :default
+(defmethod model-function-call 'INT [[_ arg-list]]
+  {:expression :function
+   :function :INT
+   :args (model-expression arg-list)})
+
+(defmethod model-function-call 'LEFT$ [[_ [string-var character-count]]]
+  {:expression :function
+   :function :left-string
+   :string-var string-var
+   :character-count character-count})
+
+(defmethod model-function-call :default [[array-var coordinates]]
+  (let [{operands :operands 
+         errors :errors} (reduce
+                           (fn [{operands :operands errors :errors} coordinate]
+                             (try
+                               (validate-operand coordinate)
+                               {:operands (conj operands coordinate) :errors errors}
+                               (catch clojure.lang.ExceptionInfo _
+                                 {:operands operands :errors (conj coordinate errors)})))
+                           {:operands [] :errors []}
+                           coordinates)]
+    (if (empty? errors)
+      {:expression :array-ref
+       :array-var array-var
+       :coordinates operands}
+      (throw-error {:bad-coordinates errors}))))
 
 (defn parse-comparison [predicate]
   (let [[left operator right] (partition-by '#{< > = <> <= >=} predicate)]
@@ -131,7 +165,7 @@
   (step-commands queue out #(hash-map :command :data :data %)))
 
 (defmethod model-commands 'DIM [queue out]
-  (step-commands queue out #(hash-map :command :read :variable (first %) :dimensions (vec (second %)))))
+  (step-commands queue out #(hash-map :command :dim :array-ref (model-function-call %))))
 
 (defmethod model-commands 'END [queue out]
   (model-commands (rest queue) (conj out {:command :end})))
@@ -146,7 +180,11 @@
   (step-commands queue out #(hash-map :command :goto :target (first %))))
 
 (defmethod model-commands 'INPUT [queue out]
-  (step-commands queue out #(hash-map :command :input :variable (first %))))
+  (step-commands queue out (fn [[prompt var]]
+                             (let [output (if (some? var)
+                                            {:prompt prompt :variable var}
+                                            {:variable prompt})]
+                               (assoc output :command :input)))))
 
 (defmethod model-commands 'NEXT [queue out]
   (step-commands queue out #(hash-map :command :next :variable (first %))))
@@ -158,7 +196,7 @@
   (step-commands queue out #(hash-map :command :print :args (vec %))))
 
 (defmethod model-commands 'READ [queue out]
-  (step-commands queue out #(hash-map :command :read :variable (first %) :args (vec (second %)))))
+  (step-commands queue out #(hash-map :command :read :array-ref (model-function-call %))))
 
 (defmethod model-commands 'REM [queue out]
   (step-commands queue out #(hash-map :command :rem :comment (first %))))
@@ -170,3 +208,8 @@
   (model-commands (rest queue) out))
 
 (defmethod model-commands nil [_ out] out)
+
+(defmethod model-commands :default [queue out]
+  (if (int? (first queue))
+    (model-commands (cons 'GOTO queue) out)
+    (throw-error {:queue queue :out out})))
