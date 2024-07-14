@@ -74,8 +74,11 @@
     (if out out
         (if (= 2 (count expression))
           (model-function-call expression)
-          (if (= 1 (count expression))
-            (validate-operand (first expression))
+          (if (= 1 (count expression)) 
+            (let [operand (first expression)]
+              (if (list? operand)
+                (model-expression operand)
+                (validate-operand operand)))
             (throw-error {:expression expression}))))))
 
 (defmethod model-function-call 'RND [[_ arg-list]]
@@ -114,15 +117,17 @@
 
 (defn parse-comparison [predicate]
   (let [[left operator right] (partition-by '#{< > = <> <= >=} predicate)]
-    {:predicate (first operator)
+    {:predicate :comparison
+     :operator (first operator)
      :left (model-expression left)
      :right (model-expression right)}))
 
 (defn parse-conjuctions [predicate conjunction]
-  {:predicate conjunction
+  {:predicate :conjunction
+   :conjunction (-> conjunction name str/lower-case keyword)
    :comparisons (->> predicate
                      (partition-by-operators #{conjunction})
-                     (map parse-comparison))})
+                     (mapv parse-comparison))})
 
 (defn model-predicate [predicate]
   (if (has-operator predicate 'AND)
@@ -170,7 +175,7 @@
 
 (defmethod model-commands 'DATA [queue out]
   (pp/pprint {:model-commands 'DATA})
-  (step-commands queue out #(hash-map :command :data :data %)))
+  (step-commands queue out #(hash-map :command :data :data (vec %))))
 
 (defmethod model-commands 'DIM [queue out]
   (pp/pprint {:model-commands 'DIM})

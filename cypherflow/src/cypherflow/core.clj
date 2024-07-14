@@ -2,23 +2,28 @@
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.pprint :as pp]
+            [clojure.set :as set]
             [cypherflow.parse :as cfp])
   (:gen-class))
-
-(def ifs (edn/read (java.io.PushbackReader. (io/reader "./resources/ifs.edn"))))
 
 (defn -main [& _]
   )
 
-(defn fetch-ifs []
-  (with-open [rdr (java.io.PushbackReader. (io/reader "./resources/werewolves.edn"))
-              w (io/writer "./resources/ifs.edn" :encoding "UTF-8")]
-    (let [ifs (->> (edn/read rdr)
-                   (filter #(= 'IF (second %)))
-                   (map #(vec (rest %)))
-                   (vec))]
-      (println (count ifs))
-      (.write w (with-out-str (pp/pprint ifs))))))
+(defn validate-targets []
+    (let [code (edn/read (java.io.PushbackReader. (io/reader "./resources/werewolves-model.edn")))
+          empties (->> code
+                       (filter #(empty? (:commands %)))
+                       (mapv :line-number)
+                       (into (sorted-set)))
+          targets (->> code
+                       (mapv :commands)
+                       (flatten)
+                       (mapv #(or (:target %) (:targets %)))
+                       (flatten)
+                       (into #{})
+                       (filter some?)
+                       (into (sorted-set)))]
+      (pp/pprint {:targeted-empties (set/intersection empties targets) :empties empties :targets targets})))
 
 (defn model-and-write-file []
   (with-open [rdr (java.io.PushbackReader. (io/reader "./resources/werewolves.edn"))

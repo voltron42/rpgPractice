@@ -1,0 +1,1534 @@
+[{:line-number 10, :commands []}
+ {:line-number 20, :commands [{:command :gosub, :target 2600}]}
+ {:line-number 30, :commands [{:command :gosub, :target 160}]}
+ {:line-number 40,
+  :commands
+  [{:command :if-then,
+    :if {:predicate <>, :left RO, :right 11},
+    :then [{:command :goto, :target 30}]}]}
+ {:line-number 50,
+  :commands
+  [{:args [], :command :print}
+   {:args ["YOU'VE DONE IT!!"], :command :print}
+   {:command :gosub, :target 3520}
+   {:args ["THAT WAS THE EXIT FROM THE CASTLE"], :command :print}]}
+ {:line-number 60, :commands [{:command :gosub, :target 3520}]}
+ {:line-number 70,
+  :commands
+  [{:args [], :command :print}
+   {:args ["YOU HAVE SUCCEEDED, " N$ "!"], :command :print}]}
+ {:line-number 80,
+  :commands
+  [{:args [], :command :print}
+   {:args ["YOU MANAGED TO GET OUT OF THE CASTLE"], :command :print}]}
+ {:line-number 90, :commands [{:command :gosub, :target 3520}]}
+ {:line-number 100,
+  :commands
+  [{:args [], :command :print}
+   {:args ["WELL DONE!"], :command :print}]}
+ {:line-number 110, :commands [{:command :gosub, :target 3520}]}
+ {:line-number 120,
+  :commands
+  [{:args [], :command :print}
+   {:args ["YOUR SCORE IS"], :command :print}]}
+ {:line-number 130,
+  :commands
+  [{:args [3 * TALLY + 5 * STRENGTH + 2 * WEALTH + FOOD + 30 * MK],
+    :command :print}]}
+ {:line-number 140, :commands [{:command :end}]}
+ {:line-number 150, :commands []}
+ {:line-number 160, :commands []}
+ {:line-number 170,
+  :commands
+  [{:expression
+    {:expression :operation, :operator -, :operands [STRENGTH 5]},
+    :variable STRENGTH,
+    :command :assign}]}
+ {:line-number 180,
+  :commands
+  [{:command :if-then,
+    :if {:predicate <, :left STRENGTH, :right 10},
+    :then
+    [{:args ["WARNING, " N$ ", YOUR STRENGTH"], :command :print}
+     {:args ["IS RUNNING LOW"], :command :print}
+     {:args [], :command :print}]}]}
+ {:line-number 190,
+  :commands
+  [{:command :if-then,
+    :if {:predicate <, :left STRENGTH, :right 1},
+    :then [{:command :goto, :target 2300}]}]}
+ {:line-number 200,
+  :commands
+  [{:expression
+    {:expression :operation, :operator +, :operands [TALLY 1]},
+    :variable TALLY,
+    :command :assign}]}
+ {:line-number 210,
+  :commands
+  [{:args [N$ ", YOUR STRENGTH IS" STRENGTH], :command :print}]}
+ {:line-number 220,
+  :commands
+  [{:command :if-then,
+    :if {:predicate >, :left WEALTH, :right 0},
+    :then [{:args ["YOU HAVE $ " WEALTH], :command :print}]}]}
+ {:line-number 230,
+  :commands
+  [{:command :if-then,
+    :if {:predicate >, :left FOOD, :right 0},
+    :then
+    [{:args ["YOUR PROVISIONS SACK HOLDS" FOOD "UNITS OF FOOD"],
+      :command :print}]}]}
+ {:line-number 240,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left SUIT, :right 1},
+    :then [{:args ["YOU ARE WEARING ARMOR"], :command :print}]}]}
+ {:line-number 250,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left AXE, :right 0}
+      {:predicate =, :left SWORD, :right 0}
+      {:predicate =, :left AMULET, :right 0}]},
+    :then [{:command :goto, :target 320}]}]}
+ {:line-number 260,
+  :commands [{:args ["YOU ARE CARRYING "], :command :print}]}
+ {:line-number 270,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left AXE, :right 1},
+    :then [{:args ["AN AXE "], :command :print}]}]}
+ {:line-number 280,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left SWORD, :right 1},
+    :then [{:args ["A SWORD "], :command :print}]}]}
+ {:line-number 290,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate >,
+       :left
+       {:expression :operation, :operator +, :operands [SWORD AXE]},
+       :right 0}
+      {:predicate =, :left AMULET, :right 1}]},
+    :then [{:args ["AND "], :command :print}]}]}
+ {:line-number 300,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left AMULET, :right 1},
+    :then [{:args ["THE MAGIC AMULET"], :command :print}]}]}
+ {:line-number 310, :commands [{:args [], :command :print}]}
+ {:line-number 320,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left LIGHT, :right 0},
+    :then
+    [{:args ["IT IS TOO DARK TO SEE ANYTHING"], :command :print}]}]}
+ {:line-number 330,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left LIGHT, :right 1},
+    :then [{:command :gosub, :target 990}]}]}
+ {:line-number 340,
+  :commands
+  [{:expression
+    {:expression :array-ref, :array-var A, :coordinates [RO 7]},
+    :variable K,
+    :command :assign}]}
+ {:line-number 350,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left K, :right 0},
+    :then [{:command :goto, :target 440}]}]}
+ {:line-number 360,
+  :commands
+  [{:command :if-then,
+    :if {:predicate >, :left K, :right 9},
+    :then
+    [{:args ["THERE IS TREASURE HERE WORTH $" K], :command :print}
+     {:command :goto, :target 440}]}]}
+ {:line-number 370,
+  :commands
+  [{:args [], :command :print}
+   {:args [], :command :print}
+   {:args ["DANCER...THERE IS A MONSTER HERE...."], :command :print}
+   {:command :gosub, :target 3520}]}
+ {:line-number 380,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate =,
+     :left K,
+     :right {:expression :operation, :operator -, :operands [1]}},
+    :then
+    [{:expression "FEROCIOUS WEREWOLF", :variable M$, :command :assign}
+     {:expression 5, :variable FF, :command :assign}]}]}
+ {:line-number 390,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate =,
+     :left K,
+     :right {:expression :operation, :operator -, :operands [2]}},
+    :then
+    [{:expression "FANATICAL FLESHGORGER",
+      :variable M$,
+      :command :assign}
+     {:expression 10, :variable FF, :command :assign}]}]}
+ {:line-number 400,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate =,
+     :left K,
+     :right {:expression :operation, :operator -, :operands [3]}},
+    :then
+    [{:expression "MALOVENTY MALDEMER", :variable M$, :command :assign}
+     {:expression 15, :variable FF, :command :assign}]}]}
+ {:line-number 410,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate =,
+     :left K,
+     :right {:expression :operation, :operator -, :operands [4]}},
+    :then
+    [{:expression "DEVASTATING ICE - DRAGON",
+      :variable M$,
+      :command :assign}
+     {:expression 20, :variable FF, :command :assign}]}]}
+ {:line-number 420,
+  :commands
+  [{:args [], :command :print}
+   {:args ["IT IS A " M$], :command :print}]}
+ {:line-number 430,
+  :commands
+  [{:args [], :command :print}
+   {:args ["THE DANGER LEVEL IS" FF "!!"], :command :print}]}
+ {:line-number 440, :commands [{:command :gosub, :target 3520}]}
+ {:line-number 450,
+  :commands
+  [{:args [], :command :print}
+   {:args [], :command :print}
+   {:args ["WHAT DO YOU WANT TO DO"], :command :print}]}
+ {:line-number 460,
+  :commands
+  [{:variable A$, :command :input}
+   {:expression
+    {:expression :function,
+     :function :left-string,
+     :string-var A$,
+     :character-count 1},
+    :variable A$,
+    :command :assign}]}
+ {:line-number 470,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate <, :left K, :right 0}
+      {:predicate <>, :left A$, :right "F"}
+      {:predicate <>, :left A$, :right "R"}]},
+    :then [{:command :goto, :target 460}]}]}
+ {:line-number 480,
+  :commands
+  [{:args [], :command :print}
+   {:args [], :command :print}
+   {:args
+    [" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "],
+    :command :print}
+   {:args [], :command :print}]}
+ {:line-number 490,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "Q"},
+    :then [{:command :goto, :target 120}]}]}
+ {:line-number 500,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left A$, :right "N"}
+      {:predicate =,
+       :left
+       {:expression :array-ref, :array-var A, :coordinates [RO 1]},
+       :right 0}]},
+    :then
+    [{:args ["NO EXIT THAT WAY"], :command :print}
+     {:command :goto, :target 440}]}]}
+ {:line-number 510,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left A$, :right "S"}
+      {:predicate =,
+       :left
+       {:expression :array-ref, :array-var A, :coordinates [RO 2]},
+       :right 0}]},
+    :then
+    [{:args ["THERE IS NO EXIT SOUTH"], :command :print}
+     {:command :goto, :target 440}]}]}
+ {:line-number 520,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left A$, :right "E"}
+      {:predicate =,
+       :left
+       {:expression :array-ref, :array-var A, :coordinates [RO 3]},
+       :right 0}]},
+    :then
+    [{:args ["YOU CANNOT GO IN THAT DIRECTION"], :command :print}
+     {:command :goto, :target 440}]}]}
+ {:line-number 530,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left A$, :right "W"}
+      {:predicate =,
+       :left
+       {:expression :array-ref, :array-var A, :coordinates [RO 4]},
+       :right 0}]},
+    :then
+    [{:args ["YOU CANNOT MOVE THROUGH SOLID STONE"], :command :print}
+     {:command :goto, :target 440}]}]}
+ {:line-number 540,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left A$, :right "U"}
+      {:predicate =,
+       :left
+       {:expression :array-ref, :array-var A, :coordinates [RO 5]},
+       :right 0}]},
+    :then
+    [{:args ["THERE IS NO WAY UP FROM HERE"], :command :print}
+     {:command :goto, :target 440}]}]}
+ {:line-number 550,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left A$, :right "D"}
+      {:predicate =,
+       :left
+       {:expression :array-ref, :array-var A, :coordinates [RO 6]},
+       :right 0}]},
+    :then
+    [{:args ["YOU CANNOT DESCEND FROM HERE"], :command :print}
+     {:command :goto, :target 440}]}]}
+ {:line-number 560,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left A$, :right "R"}
+      {:predicate >,
+       :left {:expression :function, :function :random, :args 1},
+       :right 0.7}]},
+    :then [{:command :goto, :target 2420}]}]}
+ {:line-number 570,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "R"},
+    :then
+    [{:args ["WHICH WAY DO YOU WANT TO FLEE"], :command :print}
+     {:command :goto, :target 1160}]}]}
+ {:line-number 580,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left A$, :right "F"}
+      {:predicate >,
+       :left
+       {:expression :array-ref, :array-var A, :coordinates [RO 7]},
+       :right {:expression :operation, :operator -, :operands [1]}}]},
+    :then
+    [{:args ["THERE IS NOTHING TO FIGHT HERE"], :command :print}
+     {:command :goto, :target 440}]}]}
+ {:line-number 590,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "I"},
+    :then [{:command :gosub, :target 3010} {:command :return}]}]}
+ {:line-number 600,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left A$, :right "C"}
+      {:predicate =, :left FOOD, :right 0}]},
+    :then
+    [{:args ["YOU HAVE NO FOOD"], :command :print}
+     {:command :goto, :target 440}]}]}
+ {:line-number 610,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "P"},
+    :then [{:command :gosub, :target 2350} {:command :return}]}]}
+ {:line-number 620,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "F"},
+    :then [{:command :goto, :target 730}]}]}
+ {:line-number 630,
+  :commands
+  [{:command :if-then-else,
+    :if {:predicate =, :left A$, :right "M"},
+    :then
+    [{:expression
+      {:expression :operation,
+       :operator +,
+       :operands
+       [{:expression :function,
+         :function :INT,
+         :args
+         {:expression :operation,
+          :operator *,
+          :operands
+          [{:expression :function, :function :random, :args 1} 19]}}
+        1]},
+      :variable RO,
+      :command :assign}
+     {:command :if-then,
+      :if
+      {:predicate OR,
+       :comparisons
+       [{:predicate =, :left RO, :right 6}
+        {:predicate =, :left RO, :right 11}]},
+      :then [{:command :goto, :target 630}]}],
+    :else [{:command :goto, :target 710}]}]}
+ {:line-number 640,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "C"},
+    :then [{:command :gosub, :target 2480} {:command :return}]}]}
+ {:line-number 650,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "N"},
+    :then
+    [{:expression
+      {:expression :array-ref, :array-var A, :coordinates [RO 1]},
+      :variable RO,
+      :command :assign}]}]}
+ {:line-number 660,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "S"},
+    :then
+    [{:expression
+      {:expression :array-ref, :array-var A, :coordinates [RO 2]},
+      :variable RO,
+      :command :assign}]}]}
+ {:line-number 670,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "E"},
+    :then
+    [{:expression
+      {:expression :array-ref, :array-var A, :coordinates [RO 3]},
+      :variable RO,
+      :command :assign}]}]}
+ {:line-number 680,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "W"},
+    :then
+    [{:expression
+      {:expression :array-ref, :array-var A, :coordinates [RO 4]},
+      :variable RO,
+      :command :assign}]}]}
+ {:line-number 690,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "U"},
+    :then
+    [{:expression
+      {:expression :array-ref, :array-var A, :coordinates [RO 5]},
+      :variable RO,
+      :command :assign}]}]}
+ {:line-number 700,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left A$, :right "D"},
+    :then
+    [{:expression
+      {:expression :array-ref, :array-var A, :coordinates [RO 6]},
+      :variable RO,
+      :command :assign}]}]}
+ {:line-number 710, :commands [{:command :return}]}
+ {:line-number 720, :commands []}
+ {:line-number 730, :commands []}
+ {:line-number 740,
+  :commands
+  [{:command :if-then,
+    :if {:predicate <>, :left INKEY$, :right ""},
+    :then [{:command :goto, :target 740}]}]}
+ {:line-number 750,
+  :commands [{:args ["PRESS ANY KEY TO FIGHT"], :command :print}]}
+ {:line-number 760,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left INKEY$, :right ""},
+    :then [{:command :goto, :target 760}]}]}
+ {:line-number 770,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left SUIT, :right 1},
+    :then
+    [{:args ["YOUR ARMOR INCREASES YOUR CHANCE OF SUCCESS"],
+      :command :print}
+     {:expression
+      {:expression :operation,
+       :operator *,
+       :operands
+       [3
+        {:expression :function,
+         :function :INT,
+         :args
+         {:expression :operation, :operator /, :operands [FF 4]}}]},
+      :variable FF,
+      :command :assign}
+     {:command :gosub, :target 3520}]}]}
+ {:line-number 780,
+  :commands
+  [{:command :cls}
+   {:variable J, :start 1, :command :for, :end 6}
+   {:args
+    [" * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * _ * "],
+    :command :print}
+   {:variable J, :command :next}]}
+ {:line-number 790,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left AXE, :right 0}
+      {:predicate =, :left SWORD, :right 0}]},
+    :then
+    [{:args ["YOU HAVE NO WEAPONS"], :command :print}
+     {:args ["YOU MUST FIGHT WITH BARE HANDS"], :command :print}
+     {:expression
+      {:expression :function,
+       :function :INT,
+       :args
+       {:expression :operation,
+        :operator +,
+        :operands
+        [FF {:expression :operation, :operator /, :operands [FF 5]}]}},
+      :variable FF,
+      :command :assign}
+     {:command :goto, :target 870}]}]}
+ {:line-number 800,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left AXE, :right 1}
+      {:predicate =, :left SWORD, :right 0}]},
+    :then
+    [{:args ["YOU HAVE ONLY AN AXE TO FIGHT WITH"], :command :print}
+     {:expression
+      {:expression :operation,
+       :operator *,
+       :operands
+       [4
+        {:expression :function,
+         :function :INT,
+         :args
+         {:expression :operation, :operator /, :operands [FF 5]}}]},
+      :variable FF,
+      :command :assign}
+     {:command :goto, :target 870}]}]}
+ {:line-number 810,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate AND,
+     :comparisons
+     [{:predicate =, :left AXE, :right 0}
+      {:predicate =, :left SWORD, :right 1}]},
+    :then
+    [{:args ["YOU MUST FIGHT WITH YOUR SWORD"], :command :print}
+     {:expression
+      {:expression :operation,
+       :operator *,
+       :operands
+       [3
+        {:expression :function,
+         :function :INT,
+         :args
+         {:expression :operation, :operator /, :operands [FF 4]}}]},
+      :variable FF,
+      :command :assign}
+     {:command :goto, :target 870}]}]}
+ {:line-number 820,
+  :commands
+  [{:prompt "WHICH WEAPON? 1 - AXE, 2 - SWORD",
+    :variable Z,
+    :command :input}]}
+ {:line-number 830,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate OR,
+     :comparisons
+     [{:predicate <, :left Z, :right 1}
+      {:predicate >, :left Z, :right 2}]},
+    :then [{:command :goto, :target 820}]}]}
+ {:line-number 840,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left Z, :right 1},
+    :then
+    [{:expression
+      {:expression :operation,
+       :operator *,
+       :operands
+       [4
+        {:expression :function,
+         :function :INT,
+         :args
+         {:expression :operation, :operator /, :operands [FF 5]}}]},
+      :variable FF,
+      :command :assign}]}]}
+ {:line-number 850,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left Z, :right 2},
+    :then
+    [{:expression
+      {:expression :operation,
+       :operator *,
+       :operands
+       [3
+        {:expression :function,
+         :function :INT,
+         :args
+         {:expression :operation, :operator /, :operands [FF 4]}}]},
+      :variable FF,
+      :command :assign}]}]}
+ {:line-number 860, :commands []}
+ {:line-number 870, :commands []}
+ {:line-number 880,
+  :commands [{:args [], :command :print} {:args [], :command :print}]}
+ {:line-number 890,
+  :commands
+  [{:command :if-then-else,
+    :if
+    {:predicate >,
+     :left {:expression :function, :function :random, :args 1},
+     :right 0.5},
+    :then [{:args [M$ " ATTACKS"], :command :print}],
+    :else [{:args ["YOU ATTACK"], :command :print}]}]}
+ {:line-number 900, :commands [{:command :gosub, :target 3520}]}
+ {:line-number 910,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate >,
+     :left {:expression :function, :function :random, :args 1},
+     :right 0.5},
+    :then
+    [{:args [], :command :print}
+     {:args ["YOU MANAGE TO WOUND IT"], :command :print}
+     {:expression
+      {:expression :function,
+       :function :INT,
+       :args
+       {:expression :operation,
+        :operator *,
+        :operands
+        [5 {:expression :operation, :operator /, :operands [FF 6]}]}},
+      :variable FF,
+      :command :assign}]}]}
+ {:line-number 920, :commands [{:command :gosub, :target 3520}]}
+ {:line-number 930,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate >,
+     :left {:expression :function, :function :random, :args 1},
+     :right 0.5},
+    :then
+    [{:args [], :command :print}
+     {:args ["THE MONSTER WOUNDS YOU!"], :command :print}
+     {:expression
+      {:expression :operation, :operator -, :operands [STRENGTH 5]},
+      :variable STRENGTH,
+      :command :assign}]}]}
+ {:line-number 940,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate >,
+     :left {:expression :function, :function :random, :args 1},
+     :right 0.35},
+    :then [{:command :goto, :target 890}]}]}
+ {:line-number 950,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate >,
+     :left
+     {:expression :operation,
+      :operator *,
+      :operands
+      [{:expression :function, :function :random, :args 1} 16]},
+     :right FF},
+    :then
+    [{:args [], :command :print}
+     {:args ["AND YOU MANAGED TO KILL THE " M$], :command :print}
+     {:expression
+      {:expression :operation, :operator +, :operands [MK 1]},
+      :variable MK,
+      :command :assign}
+     {:command :goto, :target 970}]}]}
+ {:line-number 960,
+  :commands
+  [{:args [], :command :print}
+   {:args ["THE " M$ " DEFEATED YOU"], :command :print}
+   {:expression
+    {:expression :function,
+     :function :INT,
+     :args
+     {:expression :operation, :operator /, :operands [STRENGTH 2]}},
+    :variable STRENGTH,
+    :command :assign}]}
+ {:line-number 970,
+  :commands
+  [{:expression 0,
+    :command :assign-to-array-ref,
+    :array-ref
+    {:expression :array-ref, :array-var A, :coordinates [RO 7]}}
+   {:command :gosub, :target 3410}
+   {:args [], :command :print}
+   {:args [], :command :print}
+   {:command :gosub, :target 3520}
+   {:command :return}]}
+ {:line-number 980, :commands []}
+ {:line-number 990, :commands []}
+ {:line-number 1000,
+  :commands
+  [{:args [], :command :print}
+   {:args [" * * * * * * * * * * * * * * * * * * * * * * * * * * "],
+    :command :print}
+   {:args [], :command :print}
+   {:args [], :command :print}]}
+ {:line-number 1010,
+  :commands
+  [{:variable RO,
+    :command :on,
+    :targets
+    [1040
+     1100
+     1170
+     1230
+     1280
+     1360
+     1410
+     1470
+     1540
+     1620
+     1700
+     1730
+     1790
+     1860
+     1960
+     2030
+     2100
+     2160
+     2230]}]}
+ {:line-number 1020, :commands [{:command :return}]}
+ {:line-number 1030, :commands []}
+ {:line-number 1040, :commands []}
+ {:line-number 1050,
+  :commands [{:args ["YOU ARE IN THE HALLWAY"], :command :print}]}
+ {:line-number 1060,
+  :commands
+  [{:args ["THERE IS A DOOR TO TEE SOUTH"], :command :print}]}
+ {:line-number 1070,
+  :commands
+  [{:args
+    ["THROUGH WINDOWS TO THE NORTH YOU CAN SEE A SECRET HERB GARDEN"],
+    :command :print}]}
+ {:line-number 1080, :commands [{:command :return}]}
+ {:line-number 1090, :commands []}
+ {:line-number 1100, :commands []}
+ {:line-number 1110,
+  :commands
+  [{:args ["THIS IS THE AUDIENCE CHAMBER"], :command :print}]}
+ {:line-number 1120,
+  :commands
+  [{:args ["THERE IS A WINDOW TO THE WEST. BY LOOKING TO THE RIGHT"],
+    :command :print}]}
+ {:line-number 1130,
+  :commands
+  [{:args ["THROUGH IT YOU CAN SEE THE ENTRANCE TO THE CASTLE."],
+    :command :print}]}
+ {:line-number 1140,
+  :commands
+  [{:args ["DOORS LEAVE THIS ROOM TO THE NORTH, EAST AND SOUTH"],
+    :command :print}]}
+ {:line-number 1150, :commands [{:command :return}]}
+ {:line-number 1160, :commands []}
+ {:line-number 1170, :commands []}
+ {:line-number 1180,
+  :commands
+  [{:args ["YOU ARE IN THE GREAT HALL, AN L - SHAPED ROOM"],
+    :command :print}]}
+ {:line-number 1190,
+  :commands
+  [{:args ["THERE ARE DOORS TO THE EAST AND TO THE NORTH"],
+    :command :print}]}
+ {:line-number 1200,
+  :commands
+  [{:args ["IN THE ALCOVE IS A DOOR TO THE WEST"], :command :print}]}
+ {:line-number 1210, :commands [{:command :return}]}
+ {:line-number 1220, :commands []}
+ {:line-number 1230, :commands []}
+ {:line-number 1240,
+  :commands
+  [{:args ["THIS IS THE MONARCH'S PRIVATE MEETING ROOM"],
+    :command :print}]}
+ {:line-number 1250,
+  :commands
+  [{:args ["THERE IS A SINGLE EXIT TO THE SOUTH"], :command :print}]}
+ {:line-number 1260, :commands [{:command :return}]}
+ {:line-number 1270, :commands []}
+ {:line-number 1280, :commands []}
+ {:line-number 1290,
+  :commands
+  [{:args ["THIS INNER HALLWAY CONTAINS A DOOR TO THE NORTH,"],
+    :command :print}]}
+ {:line-number 1300,
+  :commands
+  [{:args ["AND ONE TO THE WEST, AND A CIRCULAR STAIRWELL"],
+    :command :print}]}
+ {:line-number 1310,
+  :commands [{:args ["PASSES THROUGH THE ROOM"], :command :print}]}
+ {:line-number 1320,
+  :commands
+  [{:args ["YOU CAN SEE AN ORNAMENTAL LAKE THROUGH THE"],
+    :command :print}]}
+ {:line-number 1330,
+  :commands [{:args ["WINDOWS TO THE SOUTH"], :command :print}]}
+ {:line-number 1340, :commands [{:command :return}]}
+ {:line-number 1350, :commands []}
+ {:line-number 1360, :commands []}
+ {:line-number 1370,
+  :commands
+  [{:args ["YOU ARE AT THE ENTRANCE TO A FORBIDDING - LOOKING"],
+    :command :print}]}
+ {:line-number 1380,
+  :commands
+  [{:args ["STONE CASTLE. YOU ARE FACING EAST"], :command :print}]}
+ {:line-number 1390, :commands [{:command :return}]}
+ {:line-number 1400, :commands []}
+ {:line-number 1410, :commands []}
+ {:line-number 1420,
+  :commands
+  [{:args ["THIS IS THE CASTLE'S KITCHEN THROUGH WINDOWS IN"],
+    :command :print}]}
+ {:line-number 1430,
+  :commands
+  [{:args ["THE NORTH WALL YOU CAN SEE A SECRET HERB GARDEN."],
+    :command :print}]}
+ {:line-number 1440,
+  :commands
+  [{:args ["A DOOR LEAVES THE KITCHEN TO THE SOUTH"],
+    :command :print}]}
+ {:line-number 1450, :commands [{:command :return}]}
+ {:line-number 1460, :commands []}
+ {:line-number 1470, :commands []}
+ {:line-number 1480,
+  :commands
+  [{:args ["YOU ARE IN THE STORE ROOM, AMIDST SPICES,"],
+    :command :print}]}
+ {:line-number 1490,
+  :commands
+  [{:args ["VEGETABLES, AND VAST SACKS OF FLOUR AND"],
+    :command :print}]}
+ {:line-number 1500,
+  :commands
+  [{:args ["OTHER PROVISIONS. THERE IS A DOOR TO THE NORTH"],
+    :command :print}]}
+ {:line-number 1510,
+  :commands [{:args ["AND ONE TO THE SOUTH"], :command :print}]}
+ {:line-number 1520, :commands [{:command :return}]}
+ {:line-number 1530, :commands []}
+ {:line-number 1540, :commands []}
+ {:line-number 1550,
+  :commands
+  [{:args ["YOU HAVE ENTERED THE LIFT..."], :command :print}]}
+ {:line-number 1560, :commands [{:command :gosub, :target 3520}]}
+ {:line-number 1570,
+  :commands [{:args ["IT SLOWLY DESCENDS..."], :command :print}]}
+ {:line-number 1580, :commands [{:command :gosub, :target 3520}]}
+ {:line-number 1590,
+  :commands [{:expression 10, :variable RO, :command :assign}]}
+ {:line-number 1600, :commands [{:command :goto, :target 1000}]}
+ {:line-number 1610, :commands []}
+ {:line-number 1620, :commands []}
+ {:line-number 1630,
+  :commands
+  [{:args ["YOU ARE IN THE REAR VESTIBULE"], :command :print}]}
+ {:line-number 1640,
+  :commands
+  [{:args ["THERE ARE WINDOWS TO THE SOUTH FROM WHICH YOU"],
+    :command :print}]}
+ {:line-number 1650,
+  :commands
+  [{:args ["YOU CAN SEE THE ORNAMENTAL LAKE"], :command :print}]}
+ {:line-number 1660,
+  :commands
+  [{:args ["THERE IS AN EXIT TO THE EAST AND"], :command :print}]}
+ {:line-number 1670,
+  :commands [{:args ["ONE TO THE NORTH"], :command :print}]}
+ {:line-number 1680, :commands [{:command :return}]}
+ {:line-number 1690, :commands []}
+ {:line-number 1700, :commands []}
+ {:line-number 1710, :commands [{:command :return}]}
+ {:line-number 1720, :commands []}
+ {:line-number 1730, :commands []}
+ {:line-number 1740,
+  :commands
+  [{:args ["YOU ARE IN THE DANK, DARK DUNGEON"], :command :print}]}
+ {:line-number 1750,
+  :commands
+  [{:args ["THERE IS A SINGLE EXIT, A SMALL HOLE IN"],
+    :command :print}]}
+ {:line-number 1760,
+  :commands [{:args ["WALL TOWARDS THE WEST"], :command :print}]}
+ {:line-number 1770, :commands [{:command :return}]}
+ {:line-number 1780, :commands []}
+ {:line-number 1790, :commands []}
+ {:line-number 1800,
+  :commands
+  [{:args ["YOU ARE IN THE PRISON GUARDROOM, IN THE"],
+    :command :print}]}
+ {:line-number 1810,
+  :commands
+  [{:args ["BASEMENT OF THE CASTLE. THE STAIRWELL"], :command :print}]}
+ {:line-number 1820,
+  :commands
+  [{:args ["ENDS IN THIS ROOM. THERE IS ONE OTHER"], :command :print}]}
+ {:line-number 1830,
+  :commands
+  [{:args ["EXIT, A SMALL HOLE IN THE EAST WALL"], :command :print}]}
+ {:line-number 1840, :commands [{:command :return}]}
+ {:line-number 1850, :commands []}
+ {:line-number 1860, :commands []}
+ {:line-number 1870,
+  :commands
+  [{:args ["YOU ARE IN THE MASTER BEDROOM ON THE UPPER"],
+    :command :print}]}
+ {:line-number 1880,
+  :commands [{:args ["LEVEL OF THE CASTLE...."], :command :print}]}
+ {:line-number 1890,
+  :commands
+  [{:args ["LOOKING DOWN FROM THE WINDOW TO THE WEST YOU"],
+    :command :print}]}
+ {:line-number 1900,
+  :commands
+  [{:args ["CAN SEE THE ENTRANCE TO THE CASTLE, WHILE THE"],
+    :command :print}]}
+ {:line-number 1910,
+  :commands
+  [{:args ["SECRET HERB GARDEN IS VISIBLE BELOW THE NORTH"],
+    :command :print}]}
+ {:line-number 1920,
+  :commands
+  [{:args ["WINDOW. THERE ARE DOORS TO THE EAST AND"],
+    :command :print}]}
+ {:line-number 1930,
+  :commands [{:args ["TO THE SOUTH...."], :command :print}]}
+ {:line-number 1940, :commands [{:command :return}]}
+ {:line-number 1950, :commands []}
+ {:line-number 1960, :commands []}
+ {:line-number 1970,
+  :commands
+  [{:args ["THIS IS THE L - SHAPPED UPPER HALLWAY."],
+    :command :print}]}
+ {:line-number 1980,
+  :commands
+  [{:args ["TO THE NORTH IS A DOOR, AND THERE IS A"],
+    :command :print}]}
+ {:line-number 1990,
+  :commands
+  [{:args ["STAIRWELL IN THE HALL AS WELL. YOU CAN SEE"],
+    :command :print}]}
+ {:line-number 2000,
+  :commands
+  [{:args ["THE LAKE THROUGH THE SOUTH WINDOWS"], :command :print}]}
+ {:line-number 2010, :commands [{:command :return}]}
+ {:line-number 2020, :commands []}
+ {:line-number 2030, :commands []}
+ {:line-number 2040,
+  :commands
+  [{:args ["THIS ROOM WAS USED AS THE CASTLE TREASURY IN"],
+    :command :print}]}
+ {:line-number 2050,
+  :commands [{:args ["BY - GONE YEARS...."], :command :print}]}
+ {:line-number 2060,
+  :commands
+  [{:args ["THERE ARE NO WINDOWS, JUST EXITS TO THE"],
+    :command :print}]}
+ {:line-number 2070,
+  :commands [{:args ["NORTH AND TO THE EAST"], :command :print}]}
+ {:line-number 2080, :commands [{:command :return}]}
+ {:line-number 2090, :commands []}
+ {:line-number 2100, :commands []}
+ {:line-number 2110,
+  :commands
+  [{:args ["OOOOH...YOU ARE IN THE CHAMBERMAIDS' BEDROOM"],
+    :command :print}]}
+ {:line-number 2120,
+  :commands
+  [{:args ["THERE IS AN EXIT TO THE WEST AND A DOOR"],
+    :command :print}]}
+ {:line-number 2130,
+  :commands [{:args ["TO THE SOUTH...."], :command :print}]}
+ {:line-number 2140, :commands [{:command :return}]}
+ {:line-number 2150, :commands []}
+ {:line-number 2160, :commands []}
+ {:line-number 2170,
+  :commands
+  [{:args ["THIS TINY ROOM ON THE UPPER LEVEL IS THE"],
+    :command :print}]}
+ {:line-number 2180,
+  :commands
+  [{:args ["DRESSING CHAMBER. THERE IS A WINDOW TO THE"],
+    :command :print}]}
+ {:line-number 2190,
+  :commands
+  [{:args ["NORTH, WITH A VIEW OF THE HERB GARDEN DOWN"],
+    :command :print}]}
+ {:line-number 2200,
+  :commands
+  [{:args ["BELOW. A DOOR LEAVES TO THE SOUTH"], :command :print}]}
+ {:line-number 2210, :commands [{:command :return}]}
+ {:line-number 2220, :commands []}
+ {:line-number 2230, :commands []}
+ {:line-number 2240,
+  :commands
+  [{:args ["THIS IS THE SMALL ROOM OUTSIDE THE CASTLE"],
+    :command :print}]}
+ {:line-number 2250,
+  :commands
+  [{:args ["LIFT WHICH CAN BE ENTERED BY A DOOR TO THE NORTH"],
+    :command :print}]}
+ {:line-number 2260,
+  :commands
+  [{:args ["ANOTHER DOOR LEADS TO THE WEST. YOU CAN SEE"],
+    :command :print}]}
+ {:line-number 2270,
+  :commands
+  [{:args ["THE LAKE THROUGH THE SOUTHERN WINDOWS"], :command :print}]}
+ {:line-number 2280, :commands [{:command :return}]}
+ {:line-number 2290, :commands []}
+ {:line-number 2300, :commands []}
+ {:line-number 2310,
+  :commands [{:args ["YOU HAVE DIED........."], :command :print}]}
+ {:line-number 2320, :commands [{:command :gosub, :target 3520}]}
+ {:line-number 2330, :commands [{:command :goto, :target 120}]}
+ {:line-number 2340, :commands []}
+ {:line-number 2350, :commands []}
+ {:line-number 2360,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate <,
+     :left {:expression :array-ref, :array-var A, :coordinates [RO 7]},
+     :right 10},
+    :then
+    [{:args ["THERE IS NO TREASURE TO PICK UP"], :command :print}
+     {:command :gosub, :target 3520}
+     {:command :return}]}]}
+ {:line-number 2370,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left LIGHT, :right 0},
+    :then
+    [{:args ["YOU CANNOT SEE WHERE IT IS"], :command :print}
+     {:command :gosub, :target 3520}
+     {:command :return}]}]}
+ {:line-number 2380,
+  :commands
+  [{:expression
+    {:expression :operation,
+     :operator +,
+     :operands
+     [WEALTH
+      {:expression :array-ref, :array-var A, :coordinates [RO 7]}]},
+    :variable WEALTH,
+    :command :assign}]}
+ {:line-number 2390,
+  :commands
+  [{:expression 0,
+    :command :assign-to-array-ref,
+    :array-ref
+    {:expression :array-ref, :array-var A, :coordinates [RO 7]}}]}
+ {:line-number 2400, :commands [{:command :return}]}
+ {:line-number 2410, :commands []}
+ {:line-number 2420, :commands []}
+ {:line-number 2430,
+  :commands [{:args ["NO YOU MUST STAND AND FIGHT"], :command :print}]}
+ {:line-number 2440,
+  :commands [{:expression "F", :variable A$, :command :assign}]}
+ {:line-number 2450, :commands [{:command :gosub, :target 3520}]}
+ {:line-number 2460, :commands [{:command :goto, :target 590}]}
+ {:line-number 2470, :commands []}
+ {:line-number 2480, :commands []}
+ {:line-number 2490, :commands [{:command :cls}]}
+ {:line-number 2500,
+  :commands
+  [{:command :if-then,
+    :if {:predicate <, :left FOOD, :right 1},
+    :then [{:command :return}]}]}
+ {:line-number 2510,
+  :commands
+  [{:args ["YOU HAVE" FOOD "UNITS OF FOOD"], :command :print}]}
+ {:line-number 2520,
+  :commands [{:args ["HOW MANY DO YOU WANT TO EAT"], :command :print}]}
+ {:line-number 2530, :commands [{:variable Z, :command :input}]}
+ {:line-number 2540,
+  :commands
+  [{:command :if-then,
+    :if {:predicate >, :left Z, :right FOOD},
+    :then [{:command :goto, :target 2530}]}]}
+ {:line-number 2550,
+  :commands
+  [{:expression
+    {:expression :function,
+     :function :INT,
+     :args {:expression :operation, :operator -, :operands [FOOD Z]}},
+    :variable FOOD,
+    :command :assign}]}
+ {:line-number 2560,
+  :commands
+  [{:expression
+    {:expression :function,
+     :function :INT,
+     :args
+     {:expression :operation,
+      :operator +,
+      :operands
+      [STRENGTH
+       {:expression :operation, :operator *, :operands [5 Z]}]}},
+    :variable STRENGTH,
+    :command :assign}]}
+ {:line-number 2570,
+  :commands [{:command :gosub, :target 3410} {:command :cls}]}
+ {:line-number 2580, :commands [{:command :return}]}
+ {:line-number 2590, :commands []}
+ {:line-number 2600, :commands []}
+ {:line-number 2610, :commands [{:command :cls}]}
+ {:line-number 2620,
+  :commands [{:expression 100, :variable STRENGTH, :command :assign}]}
+ {:line-number 2630,
+  :commands [{:expression 75, :variable WEALTH, :command :assign}]}
+ {:line-number 2640,
+  :commands [{:expression 0, :variable FOOD, :command :assign}]}
+ {:line-number 2650,
+  :commands [{:expression 0, :variable TALLY, :command :assign}]}
+ {:line-number 2660,
+  :commands [{:expression 0, :variable MK, :command :assign}]}
+ {:line-number 2670, :commands []}
+ {:line-number 2680, :commands []}
+ {:line-number 2690,
+  :commands
+  [{:command :dim,
+    :array-ref
+    {:expression :array-ref, :array-var A, :coordinates [19 7]}}]}
+ {:line-number 2700,
+  :commands [{:variable B, :start 1, :command :for, :end 19}]}
+ {:line-number 2710,
+  :commands [{:variable C, :start 1, :command :for, :end 7}]}
+ {:line-number 2720,
+  :commands
+  [{:command :read,
+    :array-ref
+    {:expression :array-ref, :array-var A, :coordinates [B C]}}]}
+ {:line-number 2730, :commands [{:variable C, :command :next}]}
+ {:line-number 2740, :commands [{:variable B, :command :next}]}
+ {:line-number 2750,
+  :commands
+  [{:prompt "WHAT IS YOUR NAME, EXPLORER",
+    :variable N$,
+    :command :input}]}
+ {:line-number 2760, :commands [{:command :cls}]}
+ {:line-number 2770,
+  :commands [{:expression 6, :variable RO, :command :assign}]}
+ {:line-number 2780,
+  :commands [{:expression 0, :variable SWORD, :command :assign}]}
+ {:line-number 2790,
+  :commands [{:expression 0, :variable AMULET, :command :assign}]}
+ {:line-number 2800,
+  :commands [{:expression 0, :variable AXE, :command :assign}]}
+ {:line-number 2810,
+  :commands [{:expression 0, :variable SUIT, :command :assign}]}
+ {:line-number 2820,
+  :commands [{:expression 0, :variable LIGHT, :command :assign}]}
+ {:line-number 2830, :commands []}
+ {:line-number 2840, :commands []}
+ {:line-number 2850,
+  :commands [{:variable J, :start 1, :command :for, :end 4}]}
+ {:line-number 2860,
+  :commands
+  [{:expression
+    {:expression :operation,
+     :operator +,
+     :operands
+     [{:expression :function,
+       :function :INT,
+       :args
+       {:expression :operation,
+        :operator *,
+        :operands
+        [{:expression :function, :function :random, :args 1} 19]}}
+      1]},
+    :variable M,
+    :command :assign}]}
+ {:line-number 2870,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate OR,
+     :comparisons
+     [{:predicate =, :left M, :right 6}
+      {:predicate =, :left M, :right 11}
+      {:predicate <>,
+       :left
+       {:expression :array-ref, :array-var A, :coordinates [M 7]},
+       :right 0}]},
+    :then [{:command :goto, :target 2860}]}]}
+ {:line-number 2880,
+  :commands
+  [{:expression
+    {:expression :operation,
+     :operator +,
+     :operands
+     [{:expression :function,
+       :function :INT,
+       :args
+       {:expression :operation,
+        :operator *,
+        :operands
+        [{:expression :function, :function :random, :args 1} 100]}}
+      10]},
+    :command :assign-to-array-ref,
+    :array-ref
+    {:expression :array-ref, :array-var A, :coordinates [M 7]}}]}
+ {:line-number 2890, :commands [{:variable J, :command :next}]}
+ {:line-number 2900, :commands []}
+ {:line-number 2910, :commands []}
+ {:line-number 2920,
+  :commands [{:variable J, :start 1, :command :for, :end 4}]}
+ {:line-number 2930,
+  :commands
+  [{:expression
+    {:expression :operation,
+     :operator +,
+     :operands
+     [{:expression :function,
+       :function :INT,
+       :args
+       {:expression :operation,
+        :operator *,
+        :operands
+        [{:expression :function, :function :random, :args 1} 18]}}
+      1]},
+    :variable M,
+    :command :assign}]}
+ {:line-number 2940,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate OR,
+     :comparisons
+     [{:predicate =, :left M, :right 6}
+      {:predicate =, :left M, :right 11}
+      {:predicate <>,
+       :left
+       {:expression :array-ref, :array-var A, :coordinates [M 7]},
+       :right 0}]},
+    :then [{:command :goto, :target 2930}]}]}
+ {:line-number 2950,
+  :commands
+  [{:expression {:expression :operation, :operator -, :operands [J]},
+    :command :assign-to-array-ref,
+    :array-ref
+    {:expression :array-ref, :array-var A, :coordinates [M 7]}}]}
+ {:line-number 2960, :commands [{:variable J, :command :next}]}
+ {:line-number 2970,
+  :commands
+  [{:expression
+    {:expression :operation,
+     :operator +,
+     :operands
+     [100
+      {:expression :function,
+       :function :INT,
+       :args
+       {:expression :operation,
+        :operator *,
+        :operands
+        [{:expression :function, :function :random, :args 1} 100]}}]},
+    :command :assign-to-array-ref,
+    :array-ref
+    {:expression :array-ref, :array-var A, :coordinates [4 7]}}]}
+ {:line-number 2980,
+  :commands
+  [{:expression
+    {:expression :operation,
+     :operator +,
+     :operands
+     [100
+      {:expression :function,
+       :function :INT,
+       :args
+       {:expression :operation,
+        :operator *,
+        :operands
+        [{:expression :function, :function :random, :args 1} 100]}}]},
+    :command :assign-to-array-ref,
+    :array-ref
+    {:expression :array-ref, :array-var A, :coordinates [16 7]}}]}
+ {:line-number 2990, :commands [{:command :return}]}
+ {:line-number 3000, :commands []}
+ {:line-number 3010, :commands []}
+ {:line-number 3020,
+  :commands [{:args ["PROVISIONS & INVENTORY"], :command :print}]}
+ {:line-number 3030, :commands [{:command :gosub, :target 3260}]}
+ {:line-number 3040,
+  :commands
+  [{:command :if-then,
+    :if {:predicate <, :left WEALTH, :right 0.1},
+    :then
+    [{:expression 0, :variable Z, :command :assign}
+     {:command :goto, :target 3130}]}]}
+ {:line-number 3050,
+  :commands
+  [{:args ["YOU CAN BUY 1 - FLAMING TORCH ($15)"], :command :print}]}
+ {:line-number 3060,
+  :commands [{:args ["   2 - AXE ($10)"], :command :print}]}
+ {:line-number 3070,
+  :commands [{:args ["   3 - SWORD ($20)"], :command :print}]}
+ {:line-number 3080,
+  :commands [{:args ["   4 - FOOD ($2 PER UNIT)"], :command :print}]}
+ {:line-number 3090,
+  :commands [{:args ["   5 - MAGIC AMULET ($30)"], :command :print}]}
+ {:line-number 3100,
+  :commands [{:args ["   6 - SUIT OF ARMOR ($50)"], :command :print}]}
+ {:line-number 3110,
+  :commands
+  [{:args ["   0 - TO CONTINUE ADVENTURE"], :command :print}]}
+ {:line-number 3120,
+  :commands
+  [{:prompt "ENTER NO. OF ITEM REQUIRED",
+    :variable Z,
+    :command :input}]}
+ {:line-number 3130,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left Z, :right 0},
+    :then [{:command :cls} {:command :return}]}]}
+ {:line-number 3140,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left Z, :right 1},
+    :then
+    [{:expression 1, :variable LIGHT, :command :assign}
+     {:expression
+      {:expression :operation, :operator -, :operands [WEALTH 15]},
+      :variable WEALTH,
+      :command :assign}]}]}
+ {:line-number 3150,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left Z, :right 2},
+    :then
+    [{:expression 1, :variable AXE, :command :assign}
+     {:expression
+      {:expression :operation, :operator -, :operands [WEALTH 10]},
+      :variable WEALTH,
+      :command :assign}]}]}
+ {:line-number 3160,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left Z, :right 3},
+    :then
+    [{:expression 1, :variable SWORD, :command :assign}
+     {:expression
+      {:expression :operation, :operator -, :operands [WEALTH 20]},
+      :variable WEALTH,
+      :command :assign}]}]}
+ {:line-number 3170,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left Z, :right 5},
+    :then
+    [{:expression 1, :variable AMULET, :command :assign}
+     {:expression
+      {:expression :operation, :operator -, :operands [WEALTH 30]},
+      :variable WEALTH,
+      :command :assign}]}]}
+ {:line-number 3180,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left Z, :right 6},
+    :then
+    [{:expression 1, :variable SUIT, :command :assign}
+     {:expression
+      {:expression :operation, :operator -, :operands [WEALTH 50]},
+      :variable WEALTH,
+      :command :assign}]}]}
+ {:line-number 3190,
+  :commands
+  [{:command :if-then,
+    :if {:predicate <, :left WEALTH, :right 0},
+    :then
+    [{:args ["YOU HAVE TRIED TO CHEAT ME!"], :command :print}
+     {:expression 0, :variable WEALTH, :command :assign}
+     {:expression 0, :variable SUIT, :command :assign}
+     {:expression 0, :variable LIGHT, :command :assign}
+     {:expression 0, :variable AXE, :command :assign}
+     {:expression 0, :variable SWORD, :command :assign}
+     {:expression 0, :variable AMULET, :command :assign}
+     {:expression
+      {:expression :function,
+       :function :INT,
+       :args
+       {:expression :operation, :operator /, :operands [FOOD 4]}},
+      :variable FOOD,
+      :command :assign}
+     {:command :gosub, :target 3520}]}]}
+ {:line-number 3200,
+  :commands
+  [{:command :if-then,
+    :if {:predicate <>, :left Z, :right 4},
+    :then [{:command :goto, :target 3030}]}]}
+ {:line-number 3210,
+  :commands
+  [{:prompt "HOW MANY UNITS OF FOOD", :variable Q, :command :input}
+   {:expression {:expression :function, :function :INT, :args Q},
+    :variable Q,
+    :command :assign}]}
+ {:line-number 3220,
+  :commands
+  [{:command :if-then,
+    :if
+    {:predicate >,
+     :left {:expression :operation, :operator *, :operands [2 Q]},
+     :right WEALTH},
+    :then
+    [{:args ["YOU HAVEN'T GOT ENOUGH MONEY"], :command :print}
+     {:command :goto, :target 3210}]}]}
+ {:line-number 3230,
+  :commands
+  [{:expression
+    {:expression :operation, :operator +, :operands [FOOD Q]},
+    :variable FOOD,
+    :command :assign}]}
+ {:line-number 3240,
+  :commands
+  [{:expression
+    {:expression :operation,
+     :operator -,
+     :operands
+     [WEALTH {:expression :operation, :operator *, :operands [2 Q]}]},
+    :variable WEALTH,
+    :command :assign}]}
+ {:line-number 3250, :commands [{:command :goto, :target 3030}]}
+ {:line-number 3260,
+  :commands
+  [{:command :if-then,
+    :if {:predicate >, :left WEALTH, :right 0},
+    :then
+    [{:args [], :command :print}
+     {:args [], :command :print}
+     {:args ["YOU HAVE $" WEALTH], :command :print}]}]}
+ {:line-number 3270,
+  :commands
+  [{:command :if-then,
+    :if {:predicate =, :left WEALTH, :right 0},
+    :then
+    [{:args ["YOU HAVE NO MONEY"], :command :print}
+     {:command :gosub, :target 3520}
+     {:command :return}]}]}
+ {:line-number 3280,
+  :commands
+  [{:variable J, :start 1, :command :for, :end 4}
+   {:args [], :command :print}
+   {:variable J, :command :next}]}
+ {:line-number 3290, :commands [{:command :return}]}
+ {:line-number 3300, :commands []}
+ {:line-number 3310,
+  :commands [{:command :data, :data [0 2 0 0 0 0 0]}]}
+ {:line-number 3320,
+  :commands [{:command :data, :data [1 3 3 0 0 0 0]}]}
+ {:line-number 3330,
+  :commands [{:command :data, :data [2 0 5 2 0 0 0]}]}
+ {:line-number 3340,
+  :commands [{:command :data, :data [0 5 0 0 0 0 0]}]}
+ {:line-number 3350,
+  :commands [{:command :data, :data [4 0 0 3 15 13 0]}]}
+ {:line-number 3360,
+  :commands [{:command :data, :data [0 0 1 0 0 0 0]}]}
+ {:line-number 3370,
+  :commands [{:command :data, :data [0 8 0 0 0 0 0]}]}
+ {:line-number 3380,
+  :commands [{:command :data, :data [7 10 0 0 0 0 0]}]}
+ {:line-number 3390,
+  :commands [{:command :data, :data [0 19 0 8 0 8 0]}]}
+ {:line-number 3400,
+  :commands [{:command :data, :data [8 0 11 0 0 0 0]}]}
+ {:line-number 3410,
+  :commands [{:command :data, :data [0 0 10 0 0 0 0]}]}
+ {:line-number 3420,
+  :commands [{:command :data, :data [0 0 0 13 0 0 0]}]}
+ {:line-number 3430,
+  :commands [{:command :data, :data [0 0 12 0 5 0 0]}]}
+ {:line-number 3440,
+  :commands [{:command :data, :data [0 15 17 0 0 0 0]}]}
+ {:line-number 3450,
+  :commands [{:command :data, :data [14 0 0 0 0 5 0]}]}
+ {:line-number 3460,
+  :commands [{:command :data, :data [17 0 19 0 0 0 0]}]}
+ {:line-number 3470,
+  :commands [{:command :data, :data [18 16 0 14 0 0 0]}]}
+ {:line-number 3480,
+  :commands [{:command :data, :data [0 17 0 0 0 0 0]}]}
+ {:line-number 3490,
+  :commands [{:command :data, :data [9 0 16 0 0 0 0]}]}
+ {:line-number 3500, :commands []}
+ {:line-number 3510, :commands []}
+ {:line-number 3520,
+  :commands
+  [{:variable T, :start 1, :command :for, :end 900}
+   {:variable T, :command :next}]}
+ {:line-number 3530, :commands [{:command :return}]}]
